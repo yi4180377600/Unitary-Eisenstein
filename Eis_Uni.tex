@@ -415,48 +415,82 @@ If we set $f_{0}(g,s)=\int_{\bff{N}_{\ell_{0}}(\A)\backslash \bff{N}(\A)}f(\gamm
 then for $\rmm{Re}(s)\gg 0$,
 \[E_{1}^{0}(g,s)=\sum_{\gamma\in\bff{P}_{0}(\Q)\backslash \bff{M}(\Q)}f_{0}(\gamma g,s),\]
 and it defines an Eisenstein series on $\bff{M}$.
+Now we want to determine this section $f_{0}(g,s)\in\rmm{Ind}_{\bff{P}_{0}(\A)}^{\bff{M}(\A)}|\lambda|^{s}$ (still unnormalized).
 %\begin{prop}\label{prop i=1 contribution of constant term}
 %    s
 %\end{prop}
 %\begin{proof}
    
-
 At finite places, one has 
    \begin{align*}
-       \int_{\bff{N}_{\ell_{0}}(\A_{E,f})\backslash\bff{N}(\A_{E,f})}f(\gamma_{0}ng,s)dn&=\int_{x\in\A_{f}}\int_{t\in\A_{f}^{\times}}|t|^{s}\Phi_{fte}(t(v_{0}+xb_{1})g)dtdx\\
-       &=\int_{x\in\A_{f}}\int_{t\in\A_{f}^{\times}}|t|^{s}\Phi_{fte}(t\lambda(g)^{-1}v_{0}+tx\nu(g)^{-1}b_{1})dtdx\\
-       &=|\lambda(g)|_{f}^{s-1}|\nu(g)|_{f}\int_{x\in\Q_{p}}\int_{t\in\Q_{p}^{\times}}|t|^{s-1}\Phi_{p}(tv_{0}+xb_{1})dtdx\\
-       &=|\lambda(g)|_{f}^{s-1}|\nu(g)|_{f}\zeta(s-1).
+       \int_{\bff{N}_{\ell_{0}}(\A_{E,f})\backslash\bff{N}(\A_{E,f})}f(\gamma_{0}ng,s)dn&=\int_{x\in\A_{E,f}}\int_{t\in\A_{E,f}^{\times}}|t|^{s}\Phi_{fte}(t(v_{0}+xb_{1})g)dtdx\\
+       &=\int_{x\in\A_{E,f}}\int_{t\in\A_{E,f}^{\times}}|t|^{s}\Phi_{fte}(t\lambda(g)^{-1}v_{0}+tx\nu(g)^{-1}b_{1})dtdx\\
+       &=|\lambda(g)|_{f}^{s-1}|\nu(g)|_{f}\int_{x\in\A_{E,f}}\int_{t\in\A_{f,E}^{\times}}|t|^{s-1}\Phi_{fte}(tv_{0}+xb_{1})dtdx\\
+       &=|\lambda(g)|_{f}^{s-1}|\nu(g)|_{f}\zeta_{E}(s-1).
    \end{align*}
    Now we switch to the archimedean place.
    Set $c_{1}=v_{0}$ and $c_{2}$ another isotropic vector in $V_{0}$ with $\lrangle{c_{1}}{c_{2}}=1$.
    We can take $u_{2}=\frac{1}{\sqrt{2}}(c_{1}+c_{2})$ and $v_{n-1}=\frac{1}{\sqrt{2}}(c_{1}-c_{2})$.
-   One picks the following representatives for $\bff{N}_{\ell_{0}}(\R)\backslash\bff{N}(\R)$: 
+   \begin{lemma}
+    We have 
+    \[f_{0,\infty}(g,s)=\]
+   \end{lemma}
+   \begin{proof}
+    One picks the following representatives for $\bff{N}_{\ell_{0}}(\R)\backslash\bff{N}(\R)$: 
    $\left\{n(-xc_{2},0),\,x\in\R \right\}$,
    thus 
-   \[b_{1}\gamma_{0}n(-xc_{2},0)g=\lambda(g)^{-1}c_{1}+x\nu(g)^{-1}b_{1}.\]
-   The projection of this vector to $V_{2}^{+}$ is $\frac{1}{\sqrt{2}}(x\nu(g)^{-1}u_{1}+\lambda(g)^{-1}u_{2})$.
-   So there exists an element $mk\in\bff{M}(\R)K_{\infty}$
-   such that 
-   \begin{itemize}
-       \item $\nu(m)=(|\lambda(g)|^{-1}+x^{2}|\nu(g)|^{-1})^{-1/2}$,
-       \item the projection of $k\in K_{\infty}\simeq \rmm{U}(V_{2}^{+})\times\rmm{U}(V_{n}^{-})$ to $\rmm{U}(V_{2}^{+})$ is 
-       \[(u_{1},u_{2})\mapsto (u_{1},u_{2})\left(\begin{matrix}
-           \frac{x\nu(g)^{-1}}{(|\lambda(g)|^{-1}+x^{2}|\nu(g)|^{-1})^{1/2}}&\frac{-\overline{\lambda(g)}^{-1}}{(|\lambda(g)|^{-1}+x^{2}|\nu(g)|^{-1})^{1/2}}\\
-           \frac{\lambda(g)^{-1}}{(|\lambda(g)|^{-1}+x^{2}|\nu(g)|^{-1})^{1/2}}&\frac{x\overline{\nu(g)}^{-1}}{(|\lambda(g)|^{-1}+x^{2}|\nu(g)|^{-1})^{1/2}}
-       \end{matrix}\right)\]
-       \item and $mk\in \bff{P}(\R)^{\nu=1}\gamma_{0}n(-xc_{2},0)g.$
-   \end{itemize}
-   With these preparations,
-   we can start to compute the archimedean integral:
-   \begin{align*}
-       &\int_{\bff{N}_{\ell_{0}}(\R)\backslash \bff{N}(\R)}f_{\ell,\infty}(\gamma_{0}ng)dn\\
-       =&\int_{x\in\R}\frac{\left(x^{2}|\nu(g)|^{-1}u_{1}u_{2}+x\left(-\nu(g)^{-1}\overline{\lambda(g)}^{-1}u_{1}^{2}+\overline{\nu(g)}^{-1}\lambda(g)^{-1}u_{2}^{2}\right)-|\lambda(g)|^{-1}u_{1}u_{2}\right)^{\ell}}{(\ell !)^{2}(|\lambda(g)|^{-1}+x^{2}|\nu(g)|^{-1})^{s+\ell}}dx
-   \end{align*}
-   Set $\alpha=\nu(g)^{-1}$ and $\beta=\lambda(g)^{-1}$,
-   then the above integral is written as:
-   \[\int_{\R}\frac{\left(\left(x^{2}|\alpha|-|\beta|\right)u_{1}u_{2}-x\alpha\overline{\beta}u_{1}^{2}+x\overline{\alpha}\beta u_{2}^{2}\right)^{\ell}}{(\ell)^{2}(x^{2}|\alpha|+|\beta|)^{s+\ell}}dx\]
-%\end{proof}
+   $b_{1}\gamma_{0}n(-xc_{2},0)g=\lambda(g)^{-1}c_{1}+x\nu(g)^{-1}b_{1}$.
+    Suppose that $\gamma_{0}n(-xc_{2},0)g=pk$ for some $p\in\bff{P}(\R)$ and $k=(k^{+},k^{-})\in K_{\infty}$,
+    then one has 
+    \[\lambda(p)^{-1}b_{1}k=\lambda(g)^{-1}c_{1}+x\nu(g)^{-1}b_{1}.\]
+    Projecting both sides to $V_{2}^{+}$,
+    one has 
+    \[\lambda(p)^{-1}u_{1}k^{+}=x\nu(g)^{-1}u_{1}+\lambda(g)^{-1}u_{2}.\]
+    So one can take $p$ such that 
+    \[\lambda(p)^{-1}=\sqrt{|\lambda(g)|^{-2}+x^{2}|\nu(g)|^{-2}}\]
+    and 
+    \[k^{+}=\lambda(p)\left(\begin{matrix}
+        x\nu(g)^{-1} & -\overline{\lambda(g)}^{-1}\\
+        \lambda(g)^{-1} & x\overline{\nu(g)}^{-1}
+    \end{matrix}\right)
+    .
+    \]
+    Hence we have 
+    \begin{align*}
+        f_{\ell,\infty}(\gamma_{0}n(-xc_{2},0)g)&=f_{\ell,\infty}(pk)\\
+        &=|\nu(p)|^{s}([u_{1}^{\ell}][u_{2}^{\ell}])k\\
+        &=\frac{(x\nu(g)^{-1}u_{1}+\lambda(g)^{-1}u_{2})^{\ell}(-\overline{\lambda(g)}^{-1}u_{1}+x\overline{\nu(g)}^{-1}u_{2})^{\ell}}{(|\lambda(g)|^{-2}+x^{2}|\nu(g)|^{-2})^{s+\ell}(\ell!)^{2}}\\
+    \end{align*}
+    The coefficient of $[u_{1}^{\ell-v}][u_{2}^{\ell+v}]$ in $f_{\ell,\infty}(\gamma_{0}n(-xc_{2},0)g)$ is 
+    \begin{align*}
+        &\frac{(\ell-v)!(\ell+v)!}{(\ell!)^{2}(|\lambda|^{-2}+x^{2}|\nu|^{-2})^{2\ell+1}}\sum_{\substack{0\leq i,j\leq \ell\\ i+j=\ell-v}}\binom{\ell}{i}\binom{\ell}{j}x^{i}\nu^{-i}\lambda^{-(\ell-i)}(-\overline{\lambda})^{-j}(x\overline{\nu}^{-1})^{\ell-j}\\
+        =&\frac{(\ell-v)!(\ell+v)!|\nu|^{-2\ell}\nu^{v}\lambda^{-v}}{(\ell!)^{2}(|\lambda|^{-2}+x^{2}|\nu|^{-2})^{2\ell+1}}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}|\nu|^{2j}|\lambda|^{-2j}x^{2\ell-v-2j}\\
+    \end{align*}
+    Using the fact that 
+    \[\int_{x\in\R}\frac{x^{2m}}{(|\lambda|^{-2}+x^{2}|\nu|^{-2})^{2\ell+1}}=\pi|\lambda|^{4\ell-2m+1}|\nu|^{2m+1}2^{-4\ell}\frac{(4\ell-2m)!(2m)!}{(2\ell-m)!m!(2\ell)!},\]
+    we can integrate $f_{\ell,\infty}(\gamma_{0}n(-xc_{2},0)g)$ over $x\in\R$,
+    and its $[u_{1}^{\ell-v}][u_{2}^{\ell+v}]$ coefficient is $0$ when $v$ is odd,
+    otherwise,
+    it is 
+    %\[\frac{(\ell-v)!(\ell+v)!|\nu|^{-2\ell}\nu^{v}\lambda^{-v}}{(\ell!)^{2}}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}|\nu/\lambda|^{2j}\pi |\lambda|^{2\ell+v+2j+1}|\nu|^{2\ell-v-2j+1}2^{-4\ell}\frac{(2\ell+v+2j)!(2\ell-v-2j)!}{(\ell+v/2+j)!(\ell-v/2-j)!(2\ell)!}\]
+    \begin{align*}
+        \frac{\pi|\lambda|^{2\ell+1}|\nu|}{(2\ell)!(\ell!)^{2}2^{4\ell}}\cdot (\ell-v)!(\ell+v)!(\nu/\lambda)^{v}|\nu/\lambda|^{-v}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}\frac{(2\ell+v+2j)!(2\ell-v-2j)!}{(\ell+v/2+j)!(\ell-v/2-j)!}.    
+    \end{align*}
+    The inner sum is symmetric under $v\mapsto -v$,
+    and when $v$ is non-negative,
+    then 
+    it equals
+    \begin{align*}
+        &\sum_{j=0}^{\ell-v}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}\frac{(2\ell+v+2j)!(2\ell-v-2j)!}{(\ell+v/2+j)!(\ell-v/2-j)!}\\
+        =&\frac{2^{4\ell}}{\pi}\Gamma(\ell+v/2+1/2)\Gamma(\ell-v/2+1/2){_{3}F_{2}(-\ell,-\ell+v,\ell+v/2+1;v+1,-\ell+v/2+1/2;1)}.
+    \end{align*}
+    So we have 
+    {\scriptsize\begin{align*}
+        f_{0,\infty}(s)=\frac{|\lambda(g)|^{2\ell+1}|\nu(g)|}{(2\ell)!}\sum_{\substack{-\ell\leq v\leq \ell\\ v\text{ is even}}}\binom{\ell+|v|}{\ell}\Gamma(\ell+v/2+1)\Gamma(\ell-v/2+1)\left(\frac{\nu(g)\overline{\lambda(g)}}{\overline{\nu(g)}\lambda(g)}\right)^{v/2}{_{3}F_{2}(-\ell,-\ell+v,\ell+v/2+1;v+1,-\ell+v/2+1/2;1)}.
+    \end{align*}}
+   \end{proof}
+   \textcolor{red}{There must be some mistake in this computation. I need to check it.}
+   
 \subsection{Rank 1 Fourier coefficients}
 \label{section rank 1 Fourier coefficients}
 \subsection{Rank 2 Fourier coefficients}
@@ -477,22 +511,57 @@ Assume that $\Phi_{p}$ is the characteristic function of the lattice
 $\oo_{E_{p}}b_{1}\oplus \call{V}\oplus \oo_{E_{p}}b_{2}$.
 
 \textcolor{red}{Write down a precise definition of $\call{V}$?}
-
-\textbf{If $p$ splits in $E$:}
-$E_{p}=\Q_{p}\times\Q_{p}$ and
+\begin{lemma}\label{lemma finite rank 2 coefficients}
+    \begin{enumerate}
+        \item If $p$ splits in $E$,
+        then 
+        \[E_{2,p}^{T}(s)=\sum_{r_{1},r_{2}\geq 0}p^{-(r_{1}+r_{2})s+\min(r_{1},r_{2})}\left(\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\rmm{max}(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\right).\]
+        \item If $p$ is inert in $E$,
+        then
+        \[E_{2,p}^{T}(s)=\sum_{r\geq 0}p^{-2rs+r}\left(\int_{v\in p^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}\left(p^{r}\lrangle{v}{v}/2\in \Z_{p}\right)dv\right).\] 
+        \item If $p$ is ramified in $E$, then 
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (1) If $p$ splits in $E$, then
+$E_{p}=\Q_{p}\times\Q_{p}$:
 \begin{align*}
-    E_{2,p}^{T}(s)=&\sum_{r_{1}\geq 0,\,r_{2}\geq 0}|p|^{(r_{1}+r_{2})s}\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\left(\int_{\substack{x\in (p^{-r_{1}},p^{-r_{2}})\oo+\lrangle{v}{v}/2\\ x+\overline{x}=0}}dx\right)dv\\
-    =&\sum_{r_{1}\geq 0,\,r_{2}\geq 0}|p|^{(r_{1}+r_{2})s}\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\rmm{max}(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})\cdot |p|^{-\min(r_{1},r_{2})}dv\\
-    =&\sum_{r_{1}\geq 0,\,r_{2}\geq 0}|p|^{(r_{1}+r_{2})s-\min(r_{1},r_{2})}\left(\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\rmm{max}(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\right).
+    E_{2,p}^{T}(s)=&\sum_{r_{1}\geq 0,\,r_{2}\geq 0}|p|^{(r_{1}+r_{2})s}\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\left(\int_{\substack{x\in (p^{-r_{1}},p^{-r_{2}})\oo+\lrangle{v}{v}/2\\ x+\overline{x}=0}}dx\right)dv
 \end{align*}
+If we write $x=(y,-y)\in E_{p}$,
+then $x\in (p^{-r_{1}},p^{-r_{2}})\oo+\lrangle{v}{v}/2$ is equivalent to 
+\[y\in p^{-r_{1}}\Z_{p}+\lrangle{v}{v}/2,\,-y\in p^{-r_{2}}\Z_{p}+\lrangle{v}{v}/2.\]
+There are such $x$ only if $\lrangle{v}{v}\in p^{-\max(r_{1},r_{2})}\Z_{p}$,
+If $r_{1}\geq r_{2}$,
+then $y\in p^{-r_{2}}\widetilde{y}-\lrangle{v}{v}/2$ for some $\widetilde{y}\in \Z_{p}$.
+Since the measure on the line $\{x=(y,-y)\in E_{p}\}$ is the normalized Haar measure $dy$ on $\Q_{p}$,
+one has $dy=p^{r_{2}}d\widetilde{y}$,
+and 
+\[\int_{x=(y,-y)\in p^{-r_{1}}\Z_{p}\times p^{-r_{2}}\Z_{p}+\lrangle{v}{v}/2}dx=\int_{\widetilde{y}\in \Z_{p}}p^{r_{2}}d\widetilde{y}=p^{r_{2}}=p^{\min(r_{1},r_{2})}.\]
+Hence
+\[E_{2,p}^{T}(s)=\sum_{r_{1},r_{2}\geq 0}p^{-(r_{1}+r_{2})s+\min(r_{1},r_{2})}\left(\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\rmm{max}(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\right).\]
 
-\textbf{If $p$ is inert in $E$:}
-$E_{p}$ is an unramified quadratic field extension of $\Q_{p}$, 
+(2) If $p$ is inert in $E$,
+then $E_{p}$ is an unramified quadratic field extension of $\Q_{p}$, 
 and 
 \begin{align*}
-    E_{2,p}^{T}(s)=&\sum_{r\geq 0}|p|^{rs}\int_{v\in p^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{r}\lrangle{v}{v}\in\Z_{p})\left(\int_{x\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}}\rmm{Char}(x+\overline{x}=0)dx\right)dv\\
-    =&\sum_{r\geq 0}|p|^{r(s-1)}p^{-1}\left(\int_{v\in p^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{r}\lrangle{v}{v}\in\Z_{p})dv\right)
+    E_{2,p}^{T}(s)=\sum_{r\geq 0}|p|_{E_{p}}^{rs}\int_{v\in p^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{r}\lrangle{v}{v}\in\Z_{p})\left(\int_{x\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}}\rmm{Char}(x+\overline{x}=0)dx\right)dv
 \end{align*}
+Choose a unit $u\in \oo_{E_{p}}^{\times}$ with $u+\overline{u}=0$,
+then the line $\set{x\in E_{p}}{x+\overline{x}=0}$ can be written as $\{yu,\,y\in \Q_{p}\}$,
+with the normalized Haar measure $dy$.
+There exist elements $yu\in \lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}$ if and only if $\lrangle{v}{v}/2\in p^{-r}\Z_{p}$.
+When we have $\lrangle{v}{v}/2\in p^{-r}\Z_{p}$,
+any element $yu\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}$ is of the form 
+\[yu=\lrangle{v}{v}/2+p^{-r}\left(-p^{r}\lrangle{v}{v}/2+\widetilde{y}u\right),\,\widetilde{y}\in \Z_{p},\]
+thus one has 
+\begin{align*}
+    \int_{x\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}}\rmm{Char}(x+\overline{x}=0)dx&=\rmm{Char}(p^{r}\lrangle{v}{v}/2\in\Z_{p})|p|_{\Q_{p}}^{-r}\int_{\Z_{p}}d\widetilde{y}\\
+    &=p^{r}\rmm{Char}(p^{r}\lrangle{v}{v}/2\in\Z_{p}),    
+\end{align*}
+which gives us the desired identity.
+\end{proof}     
+
 
 \textbf{If $p$ is ramified in $E$:}
 (Assume $p\neq 2$)
