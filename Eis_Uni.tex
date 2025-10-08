@@ -493,11 +493,10 @@ At finite places, one has
    
 \subsection{Rank 1 Fourier coefficients}
 \label{section rank 1 Fourier coefficients}
-\subsection{Rank 2 Fourier coefficients}
-\label{section rank 2 Fourier coefficients}
+\subsection{Rank 2 Fourier coefficients: non-archimedean components}
+\label{section rank 2 Fourier coefficients finite part}
 One decomposes $E_{2}^{T}(1,s)$ as $\prod_{v}E_{2,v}^{T}(s)$.
-\subsubsection{Finite places}
-\label{section finite place rank 2 Fourier} 
+
 \begin{align*}
     E_{2,p}^{T}(s)&=\int_{\bff{N}(\Q_{p})}\chi_{T}^{-1}(n)f_{p}(w_{2}n,s)dn\\
     &=\int_{\bff{N}(\Q_{p})}\int_{t\in E_{p}^{\times}}\chi_{T}^{-1}(n)|t|^{s}\Phi_{p}(t\cdot b_{1}w_{2}n)dtdn\\
@@ -563,7 +562,7 @@ which gives us the desired identity.
 \end{proof}     
 
 
-\textbf{If $p$ is ramified in $E$:}
+\textcolor{red}{If $p$ is ramified in $E$:}
 (Assume $p\neq 2$)
 Then $E_{p}$ is a ramified quadratic field extension of $\Q_{p}$,
 and we choose an uniformizer $\varpi$ of $\frakk{p}\subset\oo_{E_{p}}$ such that $\varpi+\overline{\varpi}=0$and $\varpi^{2}\in p\Z_{p}^{\times}$.
@@ -572,8 +571,73 @@ The integral for $E_{2,p}^{T}$ can be rewritten as:
     E_{2,p}^{T}(s)=&\sum_{r\geq 0}|\varpi|^{rs}\int_{v\in \varpi^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\lfloor r/2\rfloor}\lrangle{v}{v}\in \Z_{p})\left(\int_{x\in\Q_{p}}\rmm{Char}(x\varpi-\frac{\lrangle{v}{v}}{2}\in \varpi^{-r}\oo_{E_{p}})dx\right)dv\\
     =&\sum_{r\geq 0}|\varpi|^{rs}p^{\lceil r/2 \rceil}\left(\int_{v\in \varpi^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\lfloor r/2\rfloor}\lrangle{v}{v}\in\Z_{p})dv\right)
 \end{align*} 
-\subsubsection{Archimedean place}
-\label{section archimedean place rank 2 Fourier}
+\subsubsection{Split case}
+\label{section split case of rank 2 coefficient}
+When $p$ splits in $E$,
+then one can view the Hermitian $\Q_{p}\times \Q_{p}$-space $V_{0}\otimes_{\Q} \Q_{p}$ as the direct sum of two copies of quadratic $\Q_{p}$-space $\left(\Q_{p}^{n},((x_{i}),(y_{i}))=\sum x_{i}y_{i}\right)$, and one has 
+\[2\rmm{Re}\lrangle{(x_{1},y_{1})}{(x_{2},y_{2})}=(x_{1},y_{2})+(x_{2},y_{1}).\]
+Denote by $L$ the lattice $\Z_{p}^{n}$ in $\Q_{p}^{n}$.
+We set 
+\begin{align*}
+        S(r_{1},r_{2}):=&\int_{v\in (p^{-r_{1}},p^{-r_{2}})\nu}\chi_{T}^{-1}(v)\rmm{Char}(p^{\max(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\\
+        =&\int_{\substack{x\in p^{-r_{1}}L\\y\in p^{-r_{2}}L}}\psi_{p}^{-1}\left((x,T_{2})+(y,T_{1})\right)\rmm{Char}(p^{\max(r_{1},r_{2})}(x,y)\in \Z_{p})dxdy,
+\end{align*}
+for any integers $r_{1},r_{2}\geq 0$.
+    
+\begin{prop}
+    \label{prop unramified split rank 2 coefficient}
+    Let $p$ be a prime split in $E$, and $r_{1}\leq r_{2}$ be two natural numbers.
+    For a vector $T=(T_{1},T_{2})\in \call{V}$
+    with $\alpha=v_{p}(T_{1}),\beta=v_{p}(T_{2}),v_{p}(\lrangle{T}{T})=\gamma$ and $B=B(r_{1},r_{2}):=\min(r_{1},\beta,\alpha+r_{1}-r_{2})$,
+    one has 
+    \[S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}+r_{2}-\gamma-2}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right),\]
+    which is nonzero only if $r_{2}\leq \min(\gamma+1,r_{2}+\alpha)$.
+    In particular, if $\lrangle{T}{T}\in\oo_{E_{p}}^{\times}$,
+    then the nonzero terms are 
+    \[S(0,0)=1 \text{ and }S(1,1)=-p^{n-1}.\]    
+\end{prop}
+\begin{proof}
+    The integral $S(r_{1},r_{2})$ can be rewritten as an exponential sum:
+    \[S(r_{1},r_{2})=\sum_{\substack{x\in L/p^{r_{1}}L\\ y\in L/p^{r_{2}}L}}\psi_{p}\left(\frac{(x,T_{2})}{p^{r_{1}}}+\frac{(y,T_{1})}{p^{r_{2}}}\right)\rmm{Char}\left((x,y)\in p^{r_{1}}\Z_{p}\right).\]
+    The characteristic function has the following expression:
+    \[\rmm{Char}\left((x,y)\in p^{r_{1}}\Z_{p}\right)=p^{-r_{1}}\sum_{u\in \Z/p^{r_{1}}\Z}\psi_{p}\left(\frac{u(x,y)}{p^{r_{1}}}\right),\]
+    thus 
+    \[S(r_{1},r_{2})=p^{-r_{1}}\sum_{\substack{y\in L/p^{r_{2}}L\\u\in \Z/p^{r_{1}}\Z}}\psi_{p}^{-1}\left(\frac{(y,T_{1})}{p^{r_{2}}}\right)\left(\sum_{x\in L/p^{r_{1}}L}\psi_{p}^{-1}\left(\frac{(x,T_{2}-uy)}{p^{r_{1}}}\right)\right).\]
+    The inner sum equals $p^{r_{1}n}$ when $T_{2}-uy\in p^{r_{1}}L$, otherwise it equals $0$. Hence one has 
+    \[S(r_{1},r_{2})=p^{r_{1}(n-1)}\sum_{\substack{y\in L/p^{r_{2}}L\\u\in \Z/p^{r_{1}}\Z}}\psi_{p}^{-1}\left(\frac{(y,T_{1})}{p^{r_{2}}}\right)\rmm{Char}(T_{2}-uy\in p^{r_{1}}L).\]
+    The equation $T_{2}=uy \modulo p^{r_{1}}L$ has solution if and only if $k:=v_{p}(u)\leq v_{p}(T_{2})=\beta$,
+    and in this case,
+    $y=u^{-1}T_{2}+p^{r_{1}-k}z$ for $z\in L/p^{r_{2}-r_{1}+k}L$.
+    Plugging this in the exponential sum and replacing $u$ by $p^{k}u$,
+    we obtain that 
+    \begin{align*}
+        S(r_{1},r_{2})&=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\sum_{z\in L/p^{r_{2}-r_{1}+k}L}\psi_{p}^{-1}\left(\frac{(T_{1},u^{-1}p^{-k}T_{2}+p^{r_{1}-k}z)}{p^{r_{2}}}\right)\\
+        &=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}(T_{1},T_{2})}{p^{r_{2}+k}}\right)\left(\sum_{z\in L/p^{r_{2}-r_{1}+k}L}\psi_{p}^{-1}\left(\frac{(z,T_{1})}{p^{r_{2}-r_{1}+k}}\right)\right)\\
+        &=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}p^{(r_{2}-r_{1}+k)n}\rmm{Char}(\alpha\geq r_{2}-r_{1}+k)\left(\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}}{p^{r_{2}+k-\gamma}}\right)\right)
+    \end{align*}
+    For the inner sum,
+    we have 
+    \[\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}}{p^{r_{2}+k-\gamma}}\right)=\left\{\begin{array}{ll}
+        \phi(p^{r_{1}-k})=|(\Z/p^{r_{1}-k})^{\times}| & \text{, if }r_{2}+k-\gamma\leq 0 \\
+        -p^{r_{1}-k-1} & \text{, if }r_{2}+k-\gamma=1\\
+        0 & \text{, if }r_{2}+k-\gamma>1        
+    \end{array}\right.\]
+    Combining all these together,
+    we get the following formula: let $B=B(r_{1},r_{2},\alpha,\beta)$ be $\min(r_{1},\beta,\alpha+r_{1}-r_{2})$, then 
+    \begin{align*}
+        S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}+r_{2}-\gamma-2}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right).
+    \end{align*}
+    This is nonzero only if $r_{1}\leq r_{2}\leq \min(\gamma+1,r_{1}+\alpha)$,
+    which only hold for finitely many terms.
+    Particularly,
+    if $T=(T_{1},T_{2})$ is unramified,
+    then $\alpha=\beta=\gamma=0$,
+    thus $r_{1}=r_{2}\leq 1$.
+    In this case we have 
+    \[S(0,0)=1,\, S(1,1)=-p^{n-1}.\]
+\end{proof}
+\subsection{Rank 2 Fourier coefficients: archimedean components}
+\label{section archimedean place rank 2 Fourier infinite part}
 \begin{rmk}\label{rmk complex absolute value}
     In this article,
     when we write $|z|$ for $z\in\C$,
