@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.5)  7 OCT 2025 17:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.5)  20 OCT 2025 16:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/shanyi/LaTeX/Unitary_Eisenstein/Eis_Uni
+**/Users/shanyi/LaTeX/Unitary_Eisenstein/Eis_Uni.tex
 (/Users/shanyi/LaTeX/Unitary_Eisenstein/Eis_Uni.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
@@ -1410,116 +1410,126 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 [4]
 
 [5]
-Overfull \hbox (69.68736pt too wide) detected at line 478
-[]
- []
-
-
-Overfull \hbox (25.39474pt too wide) detected at line 486
+Overfull \hbox (69.68736pt too wide) detected at line 483
 []
  []
 
 
 
 [6]
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 488.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 488.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 488.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 488.
-
-Overfull \hbox (39.35455pt too wide) detected at line 490
+Overfull \hbox (25.39474pt too wide) detected at line 491
 []
  []
 
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 493.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 493.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 493.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 493.
 
-Overfull \hbox (34.01302pt too wide) detected at line 517
-\OML/zplm/m/it/12 E[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 s\OT1/zplm/m/n/12 ) = [] \OML/zplm/m/it/12 p[] [] \OT1/ppl/m/n/12 .
+Overfull \hbox (39.35455pt too wide) detected at line 495
+[]
  []
 
 
 
 [7]
-Overfull \hbox (4.63832pt too wide) detected at line 541
+
+[8]
+Overfull \hbox (40.04478pt too wide) detected at line 587
+[]
+ []
+
+
+
+[9]
+Overfull \hbox (34.01302pt too wide) detected at line 618
 \OML/zplm/m/it/12 E[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 s\OT1/zplm/m/n/12 ) = [] \OML/zplm/m/it/12 p[] [] \OT1/ppl/m/n/12 .
  []
 
 
-Overfull \hbox (36.69435pt too wide) detected at line 548
-[]
+Overfull \hbox (4.63832pt too wide) detected at line 642
+\OML/zplm/m/it/12 E[]\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 s\OT1/zplm/m/n/12 ) = [] \OML/zplm/m/it/12 p[] [] \OT1/ppl/m/n/12 .
  []
 
 
-Overfull \hbox (65.70149pt too wide) detected at line 573
-[]
- []
-
-
-
-[8]
-
-[9]
-Overfull \hbox (18.33604pt too wide) detected at line 617
+Overfull \hbox (36.69435pt too wide) detected at line 649
 []
  []
 
 
 
 [10]
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 688.
+Overfull \hbox (65.70149pt too wide) detected at line 674
+[]
+ []
 
 
 
 [11]
-Overfull \hbox (14.4743pt too wide) detected at line 703
+Overfull \hbox (18.33604pt too wide) detected at line 718
 []
  []
 
 
 
 [12]
-Overfull \hbox (53.35425pt too wide) detected at line 772
+
+[13]
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 789.
+
+
+Overfull \hbox (14.4743pt too wide) detected at line 804
 []
  []
 
 
 
-[13]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 803.
+[14]
+
+[15]
+Overfull \hbox (53.35425pt too wide) detected at line 873
+[]
+ []
+
+
+
+[16]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 904.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 
-[14{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] (./Eis_Uni.aux)
+[17{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] (./Eis_Uni.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
 Package rerunfilecheck Info: File `Eis_Uni.out' has not changed.
-(rerunfilecheck)             Checksum: 44776E6E2E231A5B3877747086E56150;2338.
+(rerunfilecheck)             Checksum: B820ABECADC35B4D7C6170C3E18A2A0B;2720.
 Package logreq Info: Writing requests to 'Eis_Uni.run.xml'.
 \openout1 = `Eis_Uni.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 47116 strings out of 473584
- 960083 string characters out of 5728329
- 1950905 words of memory out of 5000000
- 69141 multiletter control sequences out of 15000+600000
+ 47138 strings out of 473584
+ 960673 string characters out of 5728329
+ 1947905 words of memory out of 5000000
+ 69155 multiletter control sequences out of 15000+600000
  638520 words of font info for 245 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,16n,97p,1235b,1609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,16n,97p,1239b,1609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Eis_Uni.pdf (14 pages, 233235 bytes).
+Output written on Eis_Uni.pdf (17 pages, 243983 bytes).
 PDF statistics:
- 288 PDF objects out of 1000 (max. 8388607)
- 205 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 245 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 316 PDF objects out of 1000 (max. 8388607)
+ 230 compressed objects within 3 object streams
+ 61 named destinations out of 1000 (max. 500000)
+ 261 words of extra memory for PDF output out of 10000 (max. 10000000)
 

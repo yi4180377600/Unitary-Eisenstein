@@ -376,24 +376,29 @@ we set
 %\end{itemize}
 \subsection{Computation of constant term}
 \label{section constant term of Eisenstein series}
-\textcolor{red}{I think we also need a refined version of \cite[Corollary 1.2]{Hilado_McGlade_Yan_Fourier_coefficients_unitary_group},
-with a description on its constant term.}
+The constant term of $E_{\ell}(g,\Phi_{f},s=\ell+1)$ consists of three parts:
+\begin{itemize}
+    \item $E_{\ell,0}(g,\Phi_{f},s)=f(g,s)$,
+    \item $E_{1}^{0}(g,s)=\sum_{\ell\in\call{L}_{0}}\int_{\bff{N}_{\ell}(\A)\backslash \bff{N}(\A)}f(\gamma(\ell)ng,s)dn$,
+    \item and $E_{2}^{0}(g,s)=\int_{\bff{N}(\A)}f(w_{2}ng)dn$.
+\end{itemize}
+
 \subsubsection{The \texorpdfstring{$i=0$}{PDFstring}-term}
 \label{section i=0 part constant term}
 \begin{lemma}
     For $g\in \bff{P}(\A)$,
-    \[E_{0}(g,s)=f(g,s)=|\nu(g)|^{s}\zeta_{E}(s)[u_{1}^{n}][u_{2}^{n}].\]
+    \[E_{0}(g,s)=f(g,s)=|\nu(g)|_{E}^{s}\zeta_{E}(s)[u_{1}^{n}][u_{2}^{n}].\]
 \end{lemma}
 \begin{proof}
     For $g_{f}\in \bff{P}(\A_{f})$,
     we have 
     \begin{align*}
-        f_{fte}(g_f,s)&=\int_{\A_{E,f}^{\times}}|t|^{s}\Phi_{f}(tb_{1}g_{f})dt\\
-        &=\int_{\A_{E,f}^{\times}}|t|^{s}\Phi_{f}(t\nu(g_{f})^{-1}b_{1})dt\\
-        &=|\nu(g_{f})|^{s}\int_{\A_{E,f}^{\times}}|t|^{s}\Phi_{f}(tb_{1})dt.
+        f_{fte}(g_f,s)&=\int_{\A_{E,f}^{\times}}|t|_{E}^{s}\Phi_{f}(tb_{1}g_{f})dt\\
+        &=\int_{\A_{E,f}^{\times}}|t|_{E}^{s}\Phi_{f}(t\nu(g_{f})^{-1}b_{1})dt\\
+        &=|\nu(g_{f})|_{E}^{s}\int_{\A_{E,f}^{\times}}|t|_{E}^{s}\Phi_{f}(tb_{1})dt.
     \end{align*}
-    Thus, the non-archimedean contribution is $|\nu(g_{f})|^{s}\zeta_{E}(s)$.
-    Combining with $f_{n,\infty}(g_{\infty},s)=|\nu(g_{\infty})|^{s}[u_{1}^{n}][u_{2}^{n}]$,
+    Thus, the non-archimedean contribution is $|\nu(g_{f})|_{E}^{s}\zeta_{E}(s)$.
+    Combining with $f_{n,\infty}(g_{\infty},s)=|\nu(g_{\infty})|_{E}^{s}[u_{1}^{n}][u_{2}^{n}]$,
     we get the desired identity.
 \end{proof}
 \subsubsection{The \texorpdfstring{$i=1$}{PDFstring}-term}
@@ -493,6 +498,102 @@ At finite places, one has
    
 \subsection{Rank 1 Fourier coefficients}
 \label{section rank 1 Fourier coefficients}
+For rank $1$ Fourier coefficients,
+one needs to calculate 
+\[E_{1}^{T}(g,s)=\int_{\bff{N}_{T}(\A)\backslash \bff{N}(\A)}\chi_{T}^{-1}(n)f(\gamma(\ell_{T})ng,s)dn\]
+for any nonzero isotropic vector $T$.
+
+\subsubsection{Non-archimedean components}
+\label{section rank 1 Fourier non-archimedean}
+For any prime $p$,
+we identify $\bff{N}_{T}(\Q_{p})\backslash \bff{N}(\Q_{p})$ with $E_{p}$ via the map $n(v,\lambda)\mapsto -\lrangle{T}{v}$,
+thus 
+\begin{align*}
+    E_{1,p}^{T}(1,s)&=\int_{x\in E_{p}}\int_{t\in E_{p}^{\times}}\psi_{E}(x)|t|_{E}^{s}\Phi_{p}(txb_{1}+tT)dtdx\\
+    &=\int_{x\in E_{p}}\int_{t\in E_{p}^{\times}}\psi_{E}(x/t)|t|_{E}^{s-1}\Phi_{p}(xb_{1}+tT)dtdx
+\end{align*}
+
+
+
+
+\subsubsection{Archimedean components}
+\label{section rank 1 Fourier archimedean}
+Again, 
+we identify $\bff{N}_{T}(\R)\backslash\bff{N}(\R)$ with $\C$ via the map $n(v,\lambda)\mapsto -\lrangle{T}{v}$,
+and for any $z\in \C$ we choose an element $n(z)\in\bff{N}(\R)$ corresponding to $z$ under this identification.
+\begin{lemma}
+    \label{lemma rank 1 archimedean section}
+    For any $z\in \C$,
+    we have 
+    \[f_{\ell,\infty}(\gamma(\ell_{T})n(z),s=\ell+1)=\frac{(zu_{1}+\beta u_{2})^{\ell}(-\overline{\beta}u_{1}+\overline{z}u_{2})^{\ell}}{(|z|^{2}+|\beta|^{2})^{2\ell+1}(\ell!)^{2}},\]
+    where $\beta=\beta(T):=\sqrt{2}\lrangle{T}{u_{2}}$.
+\end{lemma}
+\begin{proof}
+    Suppose that $\gamma(\ell_{T})n(z)=pk$ for $p\in \bff{P}(\R)$ and $k=(k_{+},k_{-})\in K_{\infty}=\rmm{U}(V_{2}^+)\times \rmm{U}(V_{n}^{-})$,
+    then one has 
+    \[T+zb_{1}=b_{1}\gamma(\ell_{T})n(z)=b_{1}pk=\nu(p)^{-1}b_{1}k.\]
+    Taking the projection to $V_{2}^{+}$ of both sides,
+    we obtain that 
+    \[zu_{1}+\sqrt{2}\lrangle{T}{u_{2}}u_{2}=\nu(p)^{-1}u_{1}k_{+}.\]
+    One can take $\nu(p)$ to be $(|z|^{2}+|\beta|^{2})^{-1/2}$,
+    then 
+    \[k_{+}=\nu(p)\mat{z}{-\overline{\beta}}{\beta}{\overline{z}}\in\rmm{U}(V_{2}^{+}),\]
+    which gives us the desired value of $f_{\ell,\infty}$.
+\end{proof}
+Using \Cref{lemma rank 1 archimedean section},
+the coefficient of $[u_{1}^{\ell}][u_{2}^{\ell}]$ in $E_{1,\infty}^{T}:=E_{1,\infty}^{T}(1,s=\ell+1)$ is equal to 
+\begin{align}
+    \label{eqn central coefficient rank 1 archimedean}
+    \int_{z\in \C}e^{2\pi i \rmm{Re}(z)}\frac{\sum\limits_{k=0}^{\ell}\binom{\ell}{k}^{2}|z|^{2k}(-|\beta|^{2})^{\ell-k}}{(|z|^{2}+|\beta|^{2})^{2\ell+1}}dz.
+\end{align}
+We set $B=|\beta|^{2}$ and $z=x+iy$, where $x,y\in \R$,
+then the integral in \Cref{eqn central coefficient rank 1 archimedean} equals 
+\begin{align*}
+    &\int_{\R^{2}}e^{2\pi i x}\sum_{k=0}^{\ell}\binom{\ell}{k}^{2}(-B)^{\ell-k}\frac{(x^{2}+y^{2})^{k}}{(x^{2}+y^{2}+B)^{2\ell+1}}dxdy\\
+    =&\int_{\R}e^{2\pi i x}\sum_{k=0}^{\ell}\binom{\ell}{k}^{2}(-B)^{\ell-k}\left(\int_{\R}\frac{(y^{2}+x^{2})}{(y^{2}+x^{2}+B)^{2\ell+1}}dy \right)dx
+\end{align*}
+By \Cref{lemma integral over center of Heisenberg},
+the inner integral over $y\in\R$ equals 
+\[\frac{(x^{2}+B)^{k-2\ell-1/2}}{(2\ell)!}\sum_{j=0}^{k}\binom{k}{j}\left(\frac{x^{2}}{x^{2}+B}\right)^{k-j}\Gamma(j+1/2)\Gamma(2\ell-j+1/2).\]
+Similarly to our calculation in \Cref{section archimedean place rank 2 Fourier infinite part},
+we have 
+\begin{align*}
+    E_{1,\infty}^{T}=2^{-2\ell}\pi\sum_{k=0}^{\ell}\frac{(-B)^{k}2^{-2k}(2\ell+2k)!}{(k!)^{2}(\ell+k)!(\ell-k)!}\int_{\R}\frac{e^{2\pi i x}dx}{(x^{2}+B)^{\ell+k+1/2}}
+\end{align*}
+Using Basset's integral,
+one has 
+\[\int_{\R}\frac{e^{iwt}dt}{(t^{2}+z^{2})^{n+1/2}}=\frac{2\sqrt{\pi}}{\Gamma(n+1/2)}\left(\frac{|w|}{2|z|}\right)^{n}K_{n}(|wz|),\,w,z\in \R.\]
+Plugging this into $E_{1,\infty}^{T}$,
+we obtain:
+\begin{align*}
+    E_{1,T}^{\infty}&=2^{-2\ell}\pi\sum_{k=0}^{\ell}\frac{(-B)^{k}2^{-2k}(2\ell+2k)!}{(k!)^{2}(\ell+k)!(\ell-k)!}\cdot \frac{2^{l+k+1}(\ell+k)!B^{-(\ell+k)/2}(2\pi)^{\ell+k}K_{\ell+k}(2\pi\sqrt{B})}{(2\ell+2k)!}\\
+    &=2\pi B^{-\ell}\sum_{k=0}^{\ell}\frac{(-1)^{k}}{(k!)^{2}(\ell-k)!}(\pi\sqrt{B})^{\ell+k}K_{\ell+k}(2\pi \sqrt{B}).
+\end{align*}
+\begin{lemma}\label{lemma summation of Bessel functions}
+    For any $C>0$,
+    we have 
+    \[S_{\ell}:=\sum_{k=0}^{\ell}\frac{(-1)^{k}C^{\ell+k}K_{\ell+k}(2C)}{(k!)^{2}(\ell-k)!}=\frac{(-1)^{\ell}C^{2\ell}}{(\ell!)^{2}}K_{0}(2C).\]
+\end{lemma}
+\begin{proof}
+    Using the recurrence relation for K-Bessel functions:
+    \[K_{n+1}(z)=K_{n-1}(z)+\frac{2n}{z}K_{n}(z),\]
+    we can write $-C^{2}S_{\ell}$ as 
+    \begin{align*}
+        -C^{2}S_{\ell}&=\sum_{k=0}^{\ell}(-1)^{k+1}\frac{C^{\ell+k+2}}{(k!)^{2}(\ell-k)!}K_{\ell+k}(2C)\\
+        &=\sum_{j=1}^{\ell+1}(-1)^{j}\frac{C^{\ell+1+j}}{((j-1)!)^{2}(\ell-j+1)!}\left(K_{\ell+1+j}(2C)-\frac{\ell+j}{C}K_{\ell+j}(2C)\right)\\
+        &=\sum_{j=1}^{\ell+1}\frac{(-1)^{j}C^{\ell+1+j}K_{\ell+1+j}(2C)}{((j-1)!)^{2}(\ell-j+1)!}+\sum_{j=0}^{\ell}\frac{(-1)^{j}(\ell+j+1)C^{\ell+1+j}K_{\ell+j+1}(2C)}{(j!)^{2}(\ell-j)!}\\
+        &=\frac{(\ell+1)C^{\ell+1}K_{\ell+1}(2C)}{\ell!}+\sum_{j=1}^{\ell}\frac{(-1)^{j}C^{\ell+1+j}K_{\ell+1+j}(2C)}{(j!)^{2}(\ell+1-j)!}(\ell+1)^{2}+(-1)^{\ell+1}\frac{C^{2\ell+2}K_{2\ell+2}(2C)}{(\ell!)^{2}}\\
+        &=(\ell+1)^{2}S_{\ell+1}.
+    \end{align*}
+    Since $S_{0}=K_{0}(2C)$ and $S_{\ell+1}=-\frac{C^{2}}{(\ell+1)^{2}}S_{\ell}$,
+    we have 
+    \[S_{\ell}=(-1)^{\ell}\frac{C^{2\ell}}{(\ell!)^{2}}K_{0}(2C).\qedhere\]
+\end{proof}
+By this lemma,
+one has 
+\[E_{1,T}^{\infty}=2\pi B^{-\ell}\cdot\frac{(-1)^{\ell}(\pi \sqrt{B})^{2\ell}}{(\ell!)^{2}}K_{0}(2\pi\sqrt{B})=\frac{2\pi^{2\ell+1}}{(\ell!)^{2}}K_{0}(2\pi \sqrt{B}).\]
+
+
 \subsection{Rank 2 Fourier coefficients: non-archimedean components}
 \label{section rank 2 Fourier coefficients finite part}
 One decomposes $E_{2}^{T}(1,s)$ as $\prod_{v}E_{2,v}^{T}(s)$.
@@ -565,7 +666,7 @@ which gives us the desired identity.
 \textcolor{red}{If $p$ is ramified in $E$:}
 (Assume $p\neq 2$)
 Then $E_{p}$ is a ramified quadratic field extension of $\Q_{p}$,
-and we choose an uniformizer $\varpi$ of $\frakk{p}\subset\oo_{E_{p}}$ such that $\varpi+\overline{\varpi}=0$and $\varpi^{2}\in p\Z_{p}^{\times}$.
+and we choose an uniformizer $\varpi$ of $\frakk{p}\subset\oo_{E_{p}}$ such that $\varpi+\overline{\varpi}=0$ and $\varpi^{2}\in p\Z_{p}^{\times}$.
 The integral for $E_{2,p}^{T}$ can be rewritten as:
 \begin{align*}
     E_{2,p}^{T}(s)=&\sum_{r\geq 0}|\varpi|^{rs}\int_{v\in \varpi^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\lfloor r/2\rfloor}\lrangle{v}{v}\in \Z_{p})\left(\int_{x\in\Q_{p}}\rmm{Char}(x\varpi-\frac{\lrangle{v}{v}}{2}\in \varpi^{-r}\oo_{E_{p}})dx\right)dv\\
@@ -590,7 +691,7 @@ for any integers $r_{1},r_{2}\geq 0$.
     For a vector $T=(T_{1},T_{2})\in \call{V}$
     with $\alpha=v_{p}(T_{1}),\beta=v_{p}(T_{2}),v_{p}(\lrangle{T}{T})=\gamma$ and $B=B(r_{1},r_{2}):=\min(r_{1},\beta,\alpha+r_{1}-r_{2})$,
     one has 
-    \[S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}+r_{2}-\gamma-2}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right),\]
+    \[S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}-1+(n-1)(\gamma-r_{2}+1)}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right),\]
     which is nonzero only if $r_{2}\leq \min(\gamma+1,r_{2}+\alpha)$.
     In particular, if $\lrangle{T}{T}\in\oo_{E_{p}}^{\times}$,
     then the nonzero terms are 
@@ -625,7 +726,7 @@ for any integers $r_{1},r_{2}\geq 0$.
     Combining all these together,
     we get the following formula: let $B=B(r_{1},r_{2},\alpha,\beta)$ be $\min(r_{1},\beta,\alpha+r_{1}-r_{2})$, then 
     \begin{align*}
-        S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}+r_{2}-\gamma-2}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right).
+        S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}-1+(n-1)(\gamma-r_{2}+1)}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right).
     \end{align*}
     This is nonzero only if $r_{1}\leq r_{2}\leq \min(\gamma+1,r_{1}+\alpha)$,
     which only hold for finitely many terms.
@@ -746,7 +847,7 @@ Now we return to the value of $C(r)$:
 Putting the value of $C(r)$ into $F_{0,\ell}$,
 we have 
 \begin{align*}
-    F_{0,\ell}(v)=&\frac{2^{-4\ell}\pi}{(2\ell)!(A+B)^{\ell+1/2}}\sum_{r=0}^{\ell}(-1)^{r}2^{2\ell-2r}\frac{(2\ell)!(2\ell+2r)!}{(r!)^{2}(\ell+r)!(\ell-r)!}\\
+    F_{0,\ell}(v)=&\frac{2^{-4\ell}\pi}{(2\ell)!(A+B)^{\ell+1/2}}\sum_{r=0}^{\ell}(-1)^{r}2^{2\ell-2r}\frac{(2\ell)!(2\ell+2r)!}{(r!)^{2}(\ell+r)!(\ell-r)!}z^{r}\\
     =&\frac{2^{-3\ell}(2\ell)!\pi}{(\ell!)^{2}(A+B)^{\ell+1/2}}\sum_{r=0}^{\ell}\frac{(-\ell)_{r}(\ell+1/2)_{r}}{1_{r}}\frac{z^{r}}{r!}\\
     =&\frac{2^{-3\ell}(2\ell)!\pi}{(\ell!)^{2}(A+B)^{\ell+1/2}}\cdot {_{2}F_{1}}(-\ell,\ell+1/2;1;z).
 \end{align*}
