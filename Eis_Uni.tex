@@ -436,66 +436,49 @@ At finite places, one has
    Now we switch to the archimedean place.
    Set $c_{1}=v_{0}$ and $c_{2}$ another isotropic vector in $V_{0}$ with $\lrangle{c_{1}}{c_{2}}=1$.
    We can take $u_{2}=\frac{1}{\sqrt{2}}(c_{1}+c_{2})$ and $v_{n-1}=\frac{1}{\sqrt{2}}(c_{1}-c_{2})$.
+   We identify $\bff{N}_{\ell_{0}}(\R)\backslash \bff{N}(\R)$ with $\C$ via the map $n(v,\lambda)\mapsto-\lrangle{c_{1}}{v}$,
+   and for any $z\in\C$ we choose an element $n(z)\in \bff{N}(\R)$ under this identification.
    \begin{lemma}
-    We have 
-    \[f_{0,\infty}(g,s)=\]
+    When $\ell\geq 1$,
+    we have $f_{0,\infty}\equiv 0$.
    \end{lemma}
    \begin{proof}
-    One picks the following representatives for $\bff{N}_{\ell_{0}}(\R)\backslash\bff{N}(\R)$: 
-   $\left\{n(-xc_{2},0),\,x\in\R \right\}$,
-   thus 
-   $b_{1}\gamma_{0}n(-xc_{2},0)g=\lambda(g)^{-1}c_{1}+x\nu(g)^{-1}b_{1}$.
-    Suppose that $\gamma_{0}n(-xc_{2},0)g=pk$ for some $p\in\bff{P}(\R)$ and $k=(k^{+},k^{-})\in K_{\infty}$,
-    then one has 
-    \[\lambda(p)^{-1}b_{1}k=\lambda(g)^{-1}c_{1}+x\nu(g)^{-1}b_{1}.\]
-    Projecting both sides to $V_{2}^{+}$,
-    one has 
-    \[\lambda(p)^{-1}u_{1}k^{+}=x\nu(g)^{-1}u_{1}+\lambda(g)^{-1}u_{2}.\]
-    So one can take $p$ such that 
-    \[\lambda(p)^{-1}=\sqrt{|\lambda(g)|^{-2}+x^{2}|\nu(g)|^{-2}}\]
-    and 
-    \[k^{+}=\lambda(p)\left(\begin{matrix}
-        x\nu(g)^{-1} & -\overline{\lambda(g)}^{-1}\\
-        \lambda(g)^{-1} & x\overline{\nu(g)}^{-1}
-    \end{matrix}\right)
-    .
-    \]
-    Hence we have 
+    Similarly to \Cref{lemma rank 1 archimedean section},
+    for any $g\in \bff{P}_{0}(\R)$ one has 
+    \[f_{\ell,\infty}(\gamma_{0}n(z)g)=\frac{(z\nu(g)^{-1}u_{1}+\lambda(g)^{-1}u_{2})^{\ell}(-\overline{\lambda(g)}^{-1}u_{1}+\overline{z\nu(g)^{-1}}u_{2})^{\ell}}{(|\lambda(g)|^{-2}+|z|^{2}|\nu(g)|^{-2})^{2\ell+1}(\ell!)^{2}}.\]
+    From now on we write $\lambda(g)$ (\emph{resp.\,}$\nu(g)$) as $\lambda$ (\emph{resp.\,}$\nu$).
+
+    The coefficient of $[u_{1}^{\ell-v}][u_{2}^{\ell+v}]$ in $f_{\ell,\infty}(\gamma_{0}n(z)g)$ is 
     \begin{align*}
-        f_{\ell,\infty}(\gamma_{0}n(-xc_{2},0)g)&=f_{\ell,\infty}(pk)\\
-        &=|\nu(p)|^{s}([u_{1}^{\ell}][u_{2}^{\ell}])k\\
-        &=\frac{(x\nu(g)^{-1}u_{1}+\lambda(g)^{-1}u_{2})^{\ell}(-\overline{\lambda(g)}^{-1}u_{1}+x\overline{\nu(g)}^{-1}u_{2})^{\ell}}{(|\lambda(g)|^{-2}+x^{2}|\nu(g)|^{-2})^{s+\ell}(\ell!)^{2}}\\
+        &\frac{(\ell-v)!(\ell+v)!}{(\ell!)^{2}(|\lambda|^{-2}+|z|^{2}|\nu|^{-2})^{2\ell+1}}\sum_{\substack{0\leq i,j\leq \ell\\ i+j=\ell-v}}\binom{\ell}{i}\binom{\ell}{j}z^{i}\nu^{-i}\lambda^{-(\ell-i)}(-\overline{\lambda})^{-j}(\overline{z\nu^{-1}})^{\ell-j}\\
+        =&\frac{(\ell-v)!(\ell+v)!|\nu|^{-2\ell}\nu^{v}\lambda^{-v}|z|^{2\ell}z^{-v}}{(\ell!)^{2}(|\lambda|^{-2}+|z|^{2}|\nu|^{-2})^{2\ell+1}}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}|\nu|^{2j}|\lambda|^{-2j}|z|^{-2j},
     \end{align*}
-    The coefficient of $[u_{1}^{\ell-v}][u_{2}^{\ell+v}]$ in $f_{\ell,\infty}(\gamma_{0}n(-xc_{2},0)g)$ is 
+    and the corresponding coefficient in $f_{0,\infty}(g,s)$ is the integral of this function over $z\in\C$.
+    Set $w=z\lambda/\nu$,
+    then we have $dw=|\lambda/\nu|^{2}dz$ 
+    and this function equals 
+    \[\frac{(\ell-v)!(\ell+v)!|\lambda|^{2\ell+2}w^{-v}|w|^{2\ell}}{(\ell!)^{2}(1+|w|^{2})^{2\ell+1}}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}|w|^{-2j}.\]
+    Hence the coefficient of $[u_{1}^{\ell-v}][u_{2}^{\ell+v}]$ in $f_{0,\infty}(g,s=\ell+1)$ equals
+    \begin{equation}
+        \frac{(\ell-v)!(\ell+v)!}{(\ell!)^{2}}|\lambda|^{2\ell}|\nu|^{2}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}\left(\int_{\C}\frac{w^{-v}|w|^{2\ell-2j}}{(1+|w|^{2})^{2\ell+1}}dw\right)
+    \end{equation}
+    Notice that the inner integral is nonzero only when $v=0$,
+    and we have 
+    \[\int_{\C}\frac{|w|^{2\ell-2j}}{(1+|w|^{2})^{2\ell+1}}dw=\pi\frac{(\ell-j)!(\ell+j-1)!}{(2\ell)!},\,j=0,1,\ldots,\ell.\]
+    So we only need to consider the coefficient of $[u_{1}^{\ell}][u_{2}^{\ell}]$,
+    which is equal to 
     \begin{align*}
-        &\frac{(\ell-v)!(\ell+v)!}{(\ell!)^{2}(|\lambda|^{-2}+x^{2}|\nu|^{-2})^{2\ell+1}}\sum_{\substack{0\leq i,j\leq \ell\\ i+j=\ell-v}}\binom{\ell}{i}\binom{\ell}{j}x^{i}\nu^{-i}\lambda^{-(\ell-i)}(-\overline{\lambda})^{-j}(x\overline{\nu}^{-1})^{\ell-j}\\
-        =&\frac{(\ell-v)!(\ell+v)!|\nu|^{-2\ell}\nu^{v}\lambda^{-v}}{(\ell!)^{2}(|\lambda|^{-2}+x^{2}|\nu|^{-2})^{2\ell+1}}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}|\nu|^{2j}|\lambda|^{-2j}x^{2\ell-v-2j}\\
+        &\pi((2\ell)!)^{-1}|\lambda|^{2\ell}|\nu|^{2}\sum_{j=0}^{\ell}(-1)^{j}\binom{\ell}{j}^{2}(\ell-j)!(\ell+j-1)!\\
+        =&\frac{\pi (\ell!)^{2} |\lambda|^{2\ell}|\nu|^{2}}{\ell(2\ell)!}{_{2}F_{1}}(\ell,-\ell;1;1),    
     \end{align*}
-    Using the fact that 
-    \[\int_{x\in\R}\frac{x^{2m}}{(|\lambda|^{-2}+x^{2}|\nu|^{-2})^{2\ell+1}}=\pi|\lambda|^{4\ell-2m+1}|\nu|^{2m+1}2^{-4\ell}\frac{(4\ell-2m)!(2m)!}{(2\ell-m)!m!(2\ell)!},\]
-    we can integrate $f_{\ell,\infty}(\gamma_{0}n(-xc_{2},0)g)$ over $x\in\R$,
-    and its $[u_{1}^{\ell-v}][u_{2}^{\ell+v}]$ coefficient is $0$ when $v$ is odd,
-    otherwise,
-    it is 
-    %\[\frac{(\ell-v)!(\ell+v)!|\nu|^{-2\ell}\nu^{v}\lambda^{-v}}{(\ell!)^{2}}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}|\nu/\lambda|^{2j}\pi |\lambda|^{2\ell+v+2j+1}|\nu|^{2\ell-v-2j+1}2^{-4\ell}\frac{(2\ell+v+2j)!(2\ell-v-2j)!}{(\ell+v/2+j)!(\ell-v/2-j)!(2\ell)!}\]
-    \begin{align*}
-        \frac{\pi|\lambda|^{2\ell+1}|\nu|}{(2\ell)!(\ell!)^{2}2^{4\ell}}\cdot (\ell-v)!(\ell+v)!(\nu/\lambda)^{v}|\nu/\lambda|^{-v}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}\frac{(2\ell+v+2j)!(2\ell-v-2j)!}{(\ell+v/2+j)!(\ell-v/2-j)!}.    
-    \end{align*}
-    The inner sum is symmetric under $v\mapsto -v$,
-    and when $v$ is non-negative,
-    then 
-    it equals
-    \begin{align*}
-        &\sum_{j=0}^{\ell-v}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}\frac{(2\ell+v+2j)!(2\ell-v-2j)!}{(\ell+v/2+j)!(\ell-v/2-j)!}\\
-        =&\frac{2^{4\ell}}{\pi}\Gamma(\ell+v/2+1/2)\Gamma(\ell-v/2+1/2){_{3}F_{2}(-\ell,-\ell+v,\ell+v/2+1;v+1,-\ell+v/2+1/2;1)}.
-    \end{align*}
-    So we have 
-    {\scriptsize\begin{align*}
-        f_{0,\infty}(s)=\frac{|\lambda(g)|^{2\ell+1}|\nu(g)|}{(2\ell)!}\sum_{\substack{-\ell\leq v\leq \ell\\ v\text{ is even}}}\binom{\ell+|v|}{\ell}\Gamma(\ell+v/2+1)\Gamma(\ell-v/2+1)\left(\frac{\nu(g)\overline{\lambda(g)}}{\overline{\nu(g)}\lambda(g)}\right)^{v/2}{_{3}F_{2}(-\ell,-\ell+v,\ell+v/2+1;v+1,-\ell+v/2+1/2;1)}.
-    \end{align*}}
+    which is $0$ when $\ell\leq 1$.
    \end{proof}
-   \textcolor{red}{There must be some mistake in this computation. I need to check it.}
-   
+  
+\subsubsection{The \texorpdfstring{$i=2$}{PDFstring}-term}
+\label{section i=2 part constant term}
+This term vanishes when we have the condition $\ell>n+1$ (by analyzing the singularity of $K_{v}(x)$ at $x=0$).
+
+
 \subsection{Rank 1 Fourier coefficients}
 \label{section rank 1 Fourier coefficients}
 For rank $1$ Fourier coefficients,
@@ -512,6 +495,30 @@ thus
     E_{1,p}^{T}(1,s)&=\int_{x\in E_{p}}\int_{t\in E_{p}^{\times}}\psi_{E}(x)|t|_{E}^{s}\Phi_{p}(txb_{1}+tT)dtdx\\
     &=\int_{x\in E_{p}}\int_{t\in E_{p}^{\times}}\psi_{E}(x/t)|t|_{E}^{s-1}\Phi_{p}(xb_{1}+tT)dtdx
 \end{align*}
+\paragraph{Split case}
+\label{section non-archimedean rank 1 split}
+When $p$ is split in $E$,
+we write $T$ as $(T_{1},T_{2})$ with $T_{i}\in \Z_{p}^{n}$,\,$i=1,2$.
+Let $\alpha=v_{p}(T_{1})$ and $\beta=v_{p}(T_{2})$,
+then we have:
+\begin{align*}
+    E_{1,p}^{T}:=&E_{1,p}^{T}(1,s=\ell+1)\\
+    =&\int_{(x_{1},x_{2})\in \Q_{p}^{2}}\int_{(t_{1},t_{2})\in (\Q_{p}\times\Q_{p})^{\times}}\psi_{p}\left(x_{1}/t_{1}+x_{2}/t_{2}\right)|t_{1}t_{2}|_{p}^{s-1}\Phi_{p}\left((x_{1},x_{2})b_{1}+(t_{1},t_{2})T\right)dt_{1}dt_{2}dx_{1}dx_{2}\\
+    =&\sum_{\substack{r_{1}\geq -\alpha\\r_{2}\geq -\beta}}p^{-\ell(r_{1}+r_{2})}\int_{(x_{1},x_{2})\in \Z_{p}}\psi_{p}(x_{1}/p^{r_{1}})\psi_{p}(x_{2}/p^{r_{2}})dx_{1}dx_{2}\\
+    =&\sum_{\substack{r_{1}\geq -\alpha\\r_{2}\geq -\beta}}p^{-\ell(r_{1}+r_{2})}\left(\frac{1}{p^{r_{1}}}\sum_{x_{1}\in \Z/p^{r_{1}}\Z}\psi_{p}(x_{1}/p^{r_{1}})\right)\left(\frac{1}{p^{r_{1}}}\sum_{x_{2}\in \Z/p^{r_{2}}\Z}\psi_{p}(x_{2}/p^{r_{2}})\right)\\
+    =&(1+p^{\ell}+p^{2\ell}+\cdots+p^{\alpha\ell})(1+p^{\ell}+p^{2\ell}+\cdots+p^{\beta\ell}).
+\end{align*}
+
+\paragraph{Inert case}
+\label{section non-archimedean rank 1 inert}
+When $p$ is inert in $E$ and $p\neq 2$,
+we have:
+\begin{align*}
+    E_{1,p}^{T}=&\sum_{r\geq -v_{p}(T)}p^{-2r \ell}\int_{x\in \oo_{E_{p}}}\psi_{E}(x/p^{r})dx\\
+    =&1+p^{2\ell}+p^{4\ell}+\cdots+p^{2\ell v_{p}(T)}.
+\end{align*}
+\paragraph{Ramified case}
+\label{section non-archimedean rank 1 ramified}
 
 
 
@@ -900,6 +907,13 @@ we get the following theorem:
     we have
     \[I_{0}(T;\ell)=\frac{2^{-\ell-2}\pi^{4\ell-n+3}\lrangle{T}{T}^{2\ell-n+1}}{\ell!(2\ell-n+1)!}\call{W}_{T}(1).\]
 \end{thm}
-
+\section{\textcolor{red}{Our progress}}
+If there is no mistake in the previous calculations,
+that means 
+\begin{align*}
+    &E_{\ell}(g,\Phi_{f},s=\ell+1)\\
+    =&f_{\ell}(g,s=\ell+1)+\pi^{2\ell+1}\left(\sum_{\substack{T\neq 0\in \call{V}\\ \lrangle{T}{T}=0}}\square\cdot \sigma_{E}(T)\call{W}_{T}(g)+\sum_{\substack{T\in\call{V}\\ \lrangle{T}{T}>0}}\square\cdot\lrangle{T}{T}^{2\ell-n+1}\call{W}_{T}(g)\right),
+\end{align*}
+where $f_{\ell}(g,s=\ell+1)=\zeta_{E}(\ell+1)|\nu(g)|_{E}^{\ell+1}[u_{1}^{n}][u_{2}^{n}]$ and $\square$ means certain rational factor.
 \printbibliography
 \end{document}
