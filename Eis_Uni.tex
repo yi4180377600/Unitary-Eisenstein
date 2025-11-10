@@ -21,7 +21,7 @@
 \usepackage{mathtools}
 \usepackage{graphicx} % support the \includegraphics command and options
 %\usepackage{hyperref}
-\usepackage[unicode=true,bookmarks=true,bookmarksnumbered=false,bookmarksopen=false, breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=true,citecolor=violet!50!white,linkcolor=green]{hyperref}
+\usepackage[unicode=true,bookmarks=true,bookmarksnumbered=false,bookmarksopen=false, breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=true,citecolor=violet!50!white,urlcolor=orange!80!white,linkcolor=green!60!blue]{hyperref}
 \usepackage{csquotes}
 %\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{booktabs} % for much better looking tables
@@ -32,6 +32,7 @@
 \usepackage{stmaryrd}
 \usepackage{float}
 \usepackage{enumitem}
+%\setlist{nosep}
 \usepackage{url}
 \usepackage{tkz-graph}
 %\usepackage[mathcal]{euler}
@@ -52,7 +53,7 @@
 \setlist[enumerate]{label=(\arabic*)}  % all levels
 \setlist[enumerate,2]{label=(\roman*)}
 \setlist[enumerate,3]{label=(\alph*)}
-\renewcommand\labelitemi{---}
+%\renewcommand\labelitemi{---}
 
 %\renewcommand*{\EdgeLineWidth}{0.15pt}
 
@@ -187,117 +188,203 @@ densely dashed}}
 %++++++++++++++++++++++++++++++++++++++++
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
+\numberwithin{equation}{section}
 
 \begin{document}
-\title{Quaternionic Degenerate Eisenstein series on \texorpdfstring{$\bff{U}(2,n)$}{}}
+\title{Rationality of the Fourier expansion of quaternionic Heisenberg Eisenstein series on \texorpdfstring{$\bff{U}(2,n)$}{}}
 \author{}
 \date{\today}
 \maketitle
 \begin{abstract}
     tba
 \end{abstract}
-\section{Unitary groups of split rank 2}
+\section{Introduction}
+
+\section{Preliminaries on the unitary groups of split rank 2}
 \label{section rank 2 unitary groups}
-\textcolor{red}{
-If some notation appearing in this section is not defined,
-then it should be defined in \cite{Hilado_McGlade_Yan_Fourier_coefficients_unitary_group}.
-}
-
-Let $E$ be an imaginary quadratic extension of $\Q$,
-and we denote the nonzero element in $\mathrm{Gal}(E/\Q)$ by $c$ or $x\mapsto \overline{x}$.
-Write the norm of $E/\Q$ as $|\,|$.
-
-Define $\bff{G}=\bff{U}(V)=\bff{U}(2,n)$ to be the unitary group of a non-degenerate Hermitian space $(V,\lrangle{\,}{\,})$ over $E$ with signature $(2,n)$.
-We write the $\bff{G}$-action on $V$ as a right action.
-
-Fix a pair of isotropic lines $(U,U^{\vee})$ inside $V$ such that $\lrangle{U}{U^{\vee}}\neq 0$,
-and take $V_{0}$ to be the orthogonal complement of $U\oplus U^{\vee}$,
-which is a Hermitian space of signature $(1,n-1)$.
-Fix $b_{1}\in U$ and $b_{2}\in U^{\vee}$ such that $\lrangle{b_{1}}{b_{2}}=1$.
-
-One can define a parabolic subgroup $\bff{P}$ of $\bff{G}$
-as the stabilizer of $U$, 
-and it has the following realization of Levi decomposition $\bff{P}=\bff{MN}$:
+Fix an imaginary quadratic field extension $E$ of $\Q$,
+as a subfield of $\C$.
+Denote the nonzero element in $\mathrm{Gal}(E/\Q)$ by $x\mapsto \overline{x}$,
+and for any $\Q$-algebra $R$ we extend this involution to $E\otimes_{\Q}R$ and define the following two maps:
 \begin{itemize}
-    \item $\bff{M}$ is the stabilizer of $U$ and $U^{\vee}$, and it is isomorphic to $\rmm{Res}_{E/\Q}(\bff{G}_{\rmm{m}})\times\bff{U}(V_{0})$.
-    One can write the $\bff{M}$-action on $(u,w,u^{\vee})\in U\oplus V_{0}\oplus U^{\vee}$ explicitly:
-    \[(u,w,u^{\vee}).(z,h)=(z^{-1}u,wh,\overline{z}u^{\vee}).\]
-    \item $\bff{N}$ is a Heisenberg, and it is isomorphic to the group 
-    \[\set{(v,\lambda)\in V_{0}\times \rmm{Res}_{E/\Q}\bff{G}_{\rmm{a}}}{\overline{\lambda}=-\lambda},\]
+    \item $\tr_{E\otimes_{\Q}R}:E\otimes_{\Q}R\rightarrow R,\,x\mapsto x+\overline{x}$, and 
+    \item $|\,\,|_{E\otimes_{\Q}R}:E\otimes_{\Q}R\rightarrow R,\,x\mapsto |x|_{E\otimes_{\Q}R}=x\overline{x}$.
+\end{itemize}
+Denote by $\A=\A_{\Q}$ (\emph{resp.\,}$\A_{E}$) the ad\`ele ring of $\Q$ (\emph{resp.\,}$E$).
+Fix an additive $\psi=\psi_{\Q}$ on $\Q\backslash\A$ 
+satisfying that for every finite prime $p$, $\psi_{p}$ is an additive character of $\Q_{p}$ with conductor $\Z_{p}$,
+and at the archimedean place, $\psi_{\infty}(x)=e^{2\pi i x}$.  
+Set $\psi_{E}$ to be the additive character of $E\backslash\A_{E}$
+that sends $x\in E$ to $\psi(\tr_{\A_{E}}(x))$.
+
+\subsection{Hermitian spaces}
+\label{section Hermitian spaces}
+For any natural number $n\geq 2$,
+let $(\bff{V},\lrangle{\,}{\,})$ be a non-degenerate Hermitian space over $E$ with signature $(2,n)$,
+where the Hermitian form is conjugate-linear in the second variable.
+For any $\Q$-algebra $R$,
+we denote by $\bff{V}(R)$ the Hermitian module $\bff{V}\otimes_{\Q}R$ over $E\otimes_{\Q}R$. 
+
+Fix a pair of isotropic vectors $(b_{1},b_{2})$ in $\bff{V}$
+such that $\lrangle{b_{1}}{b_{2}}=1$,
+and take $\bff{V}_{0}$ to be the orthogonal complement of $Eb_{1}\oplus Eb_{2}$ in $\bff{V}$,
+which is a non-degenerate Hermitian space of signature $(1,n-1)$.
+We fix again a pair of isotropic vectors $(c_{1},c_{2})$ in $\bff{V}_{0}$ with $\lrangle{c_{1}}{c_{2}}=1$,
+then $\bff{V}$ is the orthogonal direct sum of $Eb_{1}\oplus Eb_{2}\oplus Ec_{1}\oplus Ec_{2}$ and a Hermitian space $\bff{V}_{00}$ with signature $(0,n-2)$.
+
+Take $u_{1}=\frac{1}{\sqrt{2}}(b_{1}+b_{2})$, $u_{2}=\frac{1}{\sqrt{2}}(c_{1}+c_{2})$, $v_{n}=\frac{1}{\sqrt{2}}(b_{1}-b_{2})$ and $v_{n-1}=\frac{1}{\sqrt{2}}(c_{1}-c_{2})$,
+and they form an orthogonal basis of $\C b_{1}\oplus \C b_{2}\oplus \C c_{1}\oplus \C c_{2}\subseteq V:=\bff{V}(\R)$.
+Fix a basis $\{v_{1},\ldots,v_{n-2}\}$ of $V_{00}:=\bff{V}_{00}(\R)$ such that 
+$\lrangle{v_{i}}{v_{j}}=-\delta_{ij}$ for any $1\leq i,j\leq n-2$.
+We have obtained a basis of $V$ with the following properties:
+\begin{itemize}
+    \item $\lrangle{u_{i}}{u_{j}}=\delta_{ij}$, for any $1\leq i,j\leq 2$;
+    \item $\lrangle{v_{i}}{v_{j}}=-\delta_{ij}$, for any $1\leq i,j\leq n$;
+    \item $\lrangle{u_{i}}{v_{j}}=0$ for any $1\leq i\leq 2$ and $1\leq j\leq n$;
+    \item $\{u_{2},v_{1},\ldots,v_{n-1}\}$ is a basis for $V_{0}:=\bff{V}_{0}(\R)$.
+\end{itemize}
+Set $V_{2}^{+}=\C u_{1}\oplus \C u_{2}$ and $V_{n}^{-}=\C v_{1}\oplus \cdots\oplus \C v_{n}$,
+and we have a decomposition $V_{2}^{+}\oplus V_{n}^{-}$ of $V$ into definite subspaces.
+\subsection{Unitary group \texorpdfstring{$\bff{U}(2,n)$}{PDFstring} and its Heisenberg parabolic subgroup}
+\label{section unitary group and its Heisenberg parabolic}
+Define $\bff{G}=\bff{U}(\bff{V})=\bff{U}(2,n)$ to be the unitary group of the Hermitian space $(\bff{V},\lrangle{\,}{\,})$,
+and we write the $\bff{G}$-action on $\bff{V}$ as a right action.
+
+The Heisenberg parabolic subgroup $\bff{P}$ of $\bff{G}$ is defined as the stabilizer of the isotropic line spanned by $b_{1}$,
+and it admits the following Levi decomposition $\bff{P}=\bff{MN}$:
+\begin{itemize}
+    \item The Levi factor $\bff{M}$ is chosen to be the stabilizer in $\bff{P}$ of the isotropic line $Eb_{2}$. 
+    By its action on $Eb_{1}\oplus \bff{V}_{0}\oplus Eb_{2}$,
+    one identifies this subgroup with $\rmm{Res}_{E/\Q}(\bff{G}_{\rmm{m}})\times\bff{U}(\bff{V}_{0})$,
+    so that $(z,h)\in \rmm{Res}_{E/\Q}(\bff{G}_{\rmm{m}})\times \bff{U}(\bff{V}_{0})\simeq \bff{M}$ acts on $\bff{V}$ by
+    \[(xb_{1}+w+yb_{2})\cdot(z,h)=z^{-1}xb_{1}+wh+\overline{z}yb_{2},\text{ for any }x,y\in\bff{G}_{\rmm{a}},\,w\in \bff{V}_{0}.\]
+    \item The unipotent radical $\bff{N}$ is a two-step nilpotent group, and it is isomorphic to the group 
+    \[\set{(v,\lambda)\in \bff{V}_{0}\times \rmm{Res}_{E/\Q}\bff{G}_{\rmm{a}}}{\overline{\lambda}=-\lambda},\]
     equipped with the following multiplication:
     \[(v_{1},\lambda_{1})\cdot(v_{2},\lambda_{2}):=\left(v_{1}+v_{2},\lambda_{1}+\lambda_{2}-\frac{\lrangle{v_{1}}{v_{2}}-\lrangle{v_{2}}{v_{1}}}{2}\right).\]
-    The action of the corresponding element $n(v,\lambda)\in\bff{N}$ on $V$ is given as: 
-    \[b_{1}\mapsto b_{1},\,b_{2}\mapsto (-\frac{1}{2}\lrangle{v}{v}+\lambda)b_{1}+b_{2}+v,\,w\in V_{0}\mapsto -\lrangle{w}{v}b_{1}+w.\]
-    One has 
-    \[(z,h)n(v,\lambda)(z^{-1},h^{-1})=n(\overline{z}vh^{-1},|z|\lambda).\]
+    The action of the corresponding element $n(v,\lambda)\in\bff{N}$ on $\bff{V}$ is given as: 
+    \[b_{1}\mapsto b_{1},\,b_{2}\mapsto (-\frac{1}{2}\lrangle{v}{v}+\lambda)b_{1}+b_{2}+v,\,w\in \bff{V}_{0}\mapsto -\lrangle{w}{v}b_{1}+w.\]
+    The center of $\bff{N}$ is $\bff{Z}:=\set{n(0,\lambda)}{\overline{\lambda}=-\lambda}$, which has dimension $1$.
 \end{itemize}
-Denote the center of $\bff{N}$ by $\bff{N}_{0}$.
-We denote by $\nu$
-the similitude character of $\bff{M}$: $\nu(z,h)=z\in \rmm{Res}_{E/\Q}\bff{G}_{\rmm{m}}$,
-so that $b_{1}(z,h)=\nu(z,h)^{-1}b_{1}$.
+The conjugation action of $\bff{M}$ on $\bff{N}$ is given by 
+\[(z,h)n(v,\lambda)(z^{-1},h^{-1})=n(\overline{z}vh^{-1},|z|\lambda).\]
+Denote by $\nu$
+the similitude character of $\bff{P}$: 
+\[\nu\left((z,h)n(v,\lambda)\right)=z\in \rmm{Res}_{E/\Q}\bff{G}_{\rmm{m}},\text{ for any }(z,h)\in\bff{M},\,n(v,\lambda)\in\bff{N},\]
+then we have $b_{1}p=\nu(p)^{-1}b_{1}$ for any $p\in \bff{P}$.
 
-Fix an addictive character $\psi:\Q\backslash\A\rightarrow \C^{\times}$,
-so that $\psi_{p}$ has conductor $\Z_{p}$
-and $\psi_{\infty}(x)=e^{2\pi i x}$.
-We have the following identification $V_{0}\xrightarrow{\sim}\Hom([\bff{N}],\mbb{S}^{1})$:
-for any element $T\in V_{0}$,
-one associates a unitary character $\chi_{T}$ of $[\bff{N}]$ by 
-\[\chi_{T}:[\bff{N}]\rightarrow \C^{\times},\,n(v,\lambda)\mapsto \psi(-\rmm{Im}\lrangle{T}{v}).\]
-\textcolor{red}{I am really confused with this identification in \cite{Hilado_McGlade_Yan_Fourier_coefficients_unitary_group}. 
-This character $\chi_{T}$ seems not well-defined:
-the symplectic form $-\rmm{Im}\lrangle{T}{v}=\frac{\lrangle{v}{T}-\lrangle{T}{v}}{2i}$ involves $1/2i$, which may not lie in $E$.
-Maybe one should define $\chi_{T}$ to be $n(v,\lambda)\mapsto \psi(\rmm{Re}\lrangle{T}{v})$.}
+Using the unitary character $\psi_{E}:E\backslash\A_{E}\rightarrow\mbb{S}^{1}\subset\C^{\times}$,
+we identify $\bff{V}_{0}$ with $\Hom([\bff{N}],\mbb{S}^{1})$
+by sending $T\in\bff{V}_{0}$ to the unitary character
+$\chi_{T}(n(v,\lambda))=\psi_{E}(\lrangle{T}{v})=\psi(\tr_{\A_{E}}\lrangle{T}{v})$.
+Its archimedean analogue is 
+\[V_{0}\xrightarrow{\simeq}\Hom(\bff{N}(\R),\mbb{S}^{1}),\,T\mapsto \left(\chi_{T,\infty}:v\mapsto e^{2\pi i\left(\lrangle{T}{v}+\lrangle{v}{T}\right)} \right).\]
 
-For a finite place $p$ of $\Q$,
-we define $E_{p}$ to be $E_{p}:=\Q_{p}\otimes_{\Q}E$,
-which is isomorphic to
+
+%For a finite place $p$ of $\Q$,
+%we define $E_{p}$ to be $E_{p}:=\Q_{p}\otimes_{\Q}E$,
+%which is isomorphic to
+%\begin{itemize}
+%    \item $\Q_{p}\times \Q_{p}$, if $p$ splits in $E$;
+%    \item a degree $2$ unramified (\emph{resp.\,}ramified) extension of $\Q_{p}$, if $p$ is inert (\emph{resp.\,}ramified).
+%\end{itemize}
+
+
+\section{Quaternionic Heisenberg Eisenstein series}
+\label{section quaternionic Heisenberg Eisenstein series}
+\subsection{Quaternionic modular forms on \texorpdfstring{$\bff{U}(2,n)$}{PDFstring}}
+\label{section quaternionic modular forms on unitary groups}
+We first recall from \cite[\S 3]{Hilado_McGlade_Yan_Fourier_coefficients_unitary_group} the theory of quaternionic modular forms on the unitary group $\bff{G}=\bff{U}(2,n)$.
+
+In \Cref{section Hermitian spaces},
+we have a decomposition $V=V_{2}^{+}\oplus V_{n}^{-}$ of $V=\bff{V}(\R)$ into definite subspaces.
+The group $K_{\infty}=\rmm{U}(V_{2}^{+})\times\rmm{U}(V_{n}^{-})\simeq \rmm{U}(2)\times \rmm{U}(n)$
+is a maximal compact subgroup of $\rmm{U}(2,n):=\bff{G}(\R)$.
+For any integer $\ell\geq 1$,
+consider the following irreducible representation of $K_{\infty}=\rmm{U}(V_{2}^{+})\times\rmm{U}(V_{n}^{-})$:
+\[\mbb{V}_{\ell}:=\left(\sym^{2\ell}V_{2}^{+}\otimes {\det}^{-\ell}_{\bff{U}(V_{2}^{+})}\right)\boxtimes\bff{1}\]
+We fix a basis $\{[u_{1}^{\ell-v}][u_{2}^{\ell+v}],\,-\ell\leq v\leq \ell\}$ of $\mbb{V}_{\ell}$,
+where $[u_{i}^{j}]:=u_{i}^{j}/j!$.
+
+When $\ell\geq n$,
+Gross and Wallach \cite{Gross_Wallach_Quaternionic_discrete_series} construct an irreducible unitary discrete series representation $\Pi_{\ell}$ of $\bff{G}(\R)$,
+which contains $\bff{V}_{\ell}$ as its minimal $K_{\infty}$-type with multiplicity $1$,
+and two Schmid operators $\call{D}_{\ell}^{\pm}$ associated with $\Pi_{\ell}$ are constructed in \cite[\S 3.1]{Hilado_McGlade_Yan_Fourier_coefficients_unitary_group}.
+\begin{defi}\label{def quaternionic modular form on unitary groups}
+    \cite[Definition 3.1]{Hilado_McGlade_Yan_Fourier_coefficients_unitary_group}
+    A \emph{weight $\ell$ quaternionic modular form on $\bff{G}=\bff{U}(2,n)$} is a smooth function 
+    $F:\bff{G}(\A)\rightarrow \mbb{V}_{\ell}$ of moderate growth such that:
+    \begin{enumerate}
+        \item For any $g\in \bff{G}(\A)$ and $\gamma\in \bff{G}(\Q)$, $F(\gamma g)=F(g)$ .
+        \item For every $k\in K_{\infty}$ and $g\in\bff{G}(\A)$, $F(gk)=F(g)\cdot k$.
+        \item The functions $\call{D}_{\ell}^{\pm}\left(F|_{\bff{G}(\R)}\right)$ vanish identically on $\bff{G}(\R)$.
+    \end{enumerate}
+\end{defi}
+Let $F$ be a weight $\ell$ quaternionic modular form on $\bff{G}$.
+If $T\in\bff{V}_{0}$, then the \emph{$T$-th Fourier coefficient of $F$ along $\bff{N}$} is 
+\[F_{\bff{N},T}:\bff{G}(\A)\rightarrow \mbb{V}_{\ell},\,g\mapsto \int_{[\bff{N}]}F(ng)\overline{\chi_{T}(n)}dn.\]
+We have the following result on the Fourier expansion of $F$:
+\begin{thm}\label{thm Fourier expansion theorem of quaternionic modular forms}
+    \cite[Corollary 3.7]{Hilado_McGlade_Yan_Fourier_coefficients_unitary_group}
+    Let $F:\bff{G}(\A)\rightarrow\mbb{V}_{\ell}$ be a weight $\ell$ quaternionic modular form,
+    and $F_{\bff{Z}}$ (\emph{resp.\,}$F_{\bff{N}}$) the constant term of $F$ along $\bff{Z}$ (\emph{resp.\,}$\bff{N}$).
+    There exist locally constant functions 
+    \[\{a_{T}(F,\cdot):\bff{G}(\A_{f})\rightarrow \C\}_{T\in\bff{V}_{0},\,\lrangle{T}{T}\geq 0}\]
+    such that for any $g_{f}\in \bff{G}(\A_{f})$ and $g_{\infty}\in \bff{G}(\R)$ one has:
+    \begin{align}\label{eqn general Fourier expansion of modular form}
+        F_{\bff{Z}}(g_{f}g_{\infty})=F_{\bff{N}}(g_{f}g_{\infty})+\sum_{\substack{T\in \bff{V}_{0}\\\lrangle{T}{T}\geq 0}}a_{T}(F,g_{f})\call{W}_{T}(g_{\infty}),
+    \end{align}
+    where $\call{W}_{T}$ is the $\mbb{V}_{\ell}$-valued function on $\bff{G(\R)}$ given by the formula
+    \begin{align}\label{eqn generalized Whittaker function}
+        \call{W}_{T}\left(nmk\right)=\chi_{T,\infty}(n)\sum_{v=-\ell}^{\ell}|\nu(m)|^{2\ell+2}\left(\frac{|\beta_{T}(m)|}{\beta_{T}(m)}\right)^{v}K_{v}\left(|\beta_{T}(m)|\right)[u_{1}^{\ell-v}][u_{2}^{\ell+v}]\cdot k,
+    \end{align}
+    for any $n\in\bff{N}(\R),m\in\bff{M}(\R)$ and $k\in K_{\infty}$.
+    Here $K_{v}$ denotes the K-Bessel function $K_{v}(x)=\frac{1}{2}\int_{0}^{\infty}t^{v-1}e^{-x(t+t^{-1})}dt$ and 
+    $\beta_{T}:\bff{M}(\R)\rightarrow\C$ is defined by mapping $(z,h)$ to $2\sqrt{2}\pi \lrangle{u_{2}}{zT\cdot h}$.
+\end{thm}
+
+\subsection{Heisenberg Eisenstein series}
+\label{section Heisenberg Eisenstein series on unitary groups}
+For $\ell\geq n$, the quaternionic discrete series $\Pi_{\ell}$ can be embedded into the (unnormalized) degenerate principal series $\rmm{Ind}_{\bff{P}(\R)}^{\bff{G}(\R)}|\nu|_{\C}^{\ell+1}$ \cite[Theorem 9]{Wallach_Generalized_Whittaker_vectors_holomorphic_quaternionic}
+(by our notation $|z|_{\C}=z\overline{z}=|z|^{2}$),
+thus we now construct an Eisenstein series on $\bff{G}$ from some section of $\rmm{Ind}_{\bff{P}(\A)}^{\bff{G}(\A)}|\nu|_{\A_{E}}^{s}$, $s\in \C$.
+
+Suppose that $\Phi_{f}=\otimes_{p<\infty}\Phi_{p}$ is a Schwartz-Bruhat function on $\bff{V}(\A_{f})$.
+We choose a section $f_{\ell}(g_{f}g_{\infty},\Phi_{f},s)=f_{fte}(g_{f},\Phi_{f},s)f_{\ell,\infty}(g_{\infty},s)$ 
+of $\rmm{Ind}_{\bff{P}(\A)}^{\bff{G}(\A)}|\nu|^{s}$ as follows:
 \begin{itemize}
-    \item $\Q_{p}\times \Q_{p}$, if $p$ splits in $E$;
-    \item a degree $2$ unramified (\emph{resp.\,}ramified) extension of $\Q_{p}$, if $p$ is inert (\emph{resp.\,}ramified).
+    \item The archimedean part $f_{\ell,\infty}$ is the $\mbb{V}_{\ell}$-valued, $K_{\infty}$-equivariant induced section
+    whose restriction to $\bff{M}(\R)$ satisfies
+    $f_{\ell,\infty}((z,h),s)=|z|_{\C}^{s}[u_{1}^{\ell}][u_{2}^{\ell}]=|z|^{2s}[u_{1}^{\ell}][u_{2}^{\ell}]$ for any $(z,h)\in \bff{M}(\R)$.
+    \item The finite part $f_{fte}$ is defined by 
+    $f_{fte}(g_{f},\Phi_{f},s)=\int_{\GL_{1}(\A_{E,f})}|t|_{\A_{E,f}}^{s}\Phi_{f}(t\cdot b_{1}g_{f})dt$.
 \end{itemize}
-
-
-\section{Heisenberg Eisenstein series}
-Choose a section $f=f_{\ell,\infty}\otimes f_{fte}$ of $\rmm{Ind}_{\bff{P}(\A)}^{\bff{G}(\A)}|\nu|^{s}$ (unnormalized) as follow:
-\begin{itemize}
-    \item $f_{\ell,\infty}$ is the $\mbb{V}_{\ell}=\left(\sym^{2\ell}V_{2}^{+}\otimes \det^{-\ell}_{\bff{U}(2)}\right)\boxtimes\bff{1}$-valued, $K_{\infty}$-equivariant induced section
-    whose restriction to $\bff{M}(\R)$ is 
-    \[f_{\ell,\infty}((z,h),s)=|z|^{s}[u_{1}^{\ell}][u_{2}^{\ell}],\]
-    where $[u_{i}^{k}]:=u_{i}^{k}/k!$.
-    \item $f_{fte}$ is defined as 
-    \[f_{fte}(g_{f},\Phi_{f},s)=\int_{\GL_{1}(\A_{E,f})}|t|^{s}\Phi_{f}(t\cdot b_{1}g_{f})dt,\]
-    where $\Phi_{f}=\prod \Phi_{p}$ is a Schwartz-Bruhat function on $V(\A_{f})$.
-    %Here we assume that $\Phi_{p}$ is the characteristic function of the lattice $\oo_{E,p}b_{1}\oplus V_{0}(\oo_{E,p})\oplus\oo_{E,p}b_{2}$,
-    %where $\oo_{E,p}=\Z_{p}\otimes_{\Z}\oo_{E}$ and $V_{0}(\oo_{E,p})$ is some lattice of $V_{0}\otimes_{\Q_{p}}\Q$ (\textcolor{red}{precise definition to be added}). 
-\end{itemize}
-One defines the degenerate Heisenberg Eisenstein series: 
-\[E_{\ell}(g,\Phi_{f},s)=\sum_{\gamma\in \bff{P}(\Q)\backslash \bff{G}(\Q)}f(\gamma g,s).\]
-To prove the modularity of this Eisenstein series,
-one needs the following result:
-\begin{prop}\label{prop archimedean section killed by Schmid operators}
-    The $\mbb{V}_{\ell}$-valued section $f_{\ell,\infty}$ of $\rmm{Ind}_{\bff{P}(\R)}^{\bff{G}(\R)}|\nu|^{s}$,
-    as a function on $\bff{G}(\R)$,
-    is killed by the Schmid operators $\call{D}_{\ell}^{\pm}$
-    if and only if $s=\ell+1$.
+We set the (Heisenberg) Eisenstein series 
+\[E_{\ell}(g,\Phi_{f},s)=\sum_{\gamma\in \bff{P}(\Q)\backslash \bff{G}(\Q)}f_{\ell}(\gamma g,\Phi_{f},s).\]
+\begin{prop}
+    \label{prop at some point Eisenstein series is modular form}
+    For $\ell\geq n$,
+    the Eisenstein series $E_{\ell}(g,\Phi_{f},s=\ell+1)$ is a weight $\ell$ quaternionic modular form on $\bff{G}=\bff{U}(2,n)$.
 \end{prop}
 \begin{proof}
+    The only condition in \Cref{def quaternionic modular form on unitary groups} that is not obvious is the third one.
+    It suffices to show that the restriction of $f_{\ell,\infty}$ to $\bff{M}(\R)$ is killed by the Schmid operators $\call{D}_{\ell}^{\pm}$.
+
     Write an element $(z,h)\in\bff{M}(\R)$ as $m=(h,r,\theta)$ so that $z=re^{i\theta},\,r\in\R_{>0}$ and $\theta\in [0,2\pi)$.
     Using this coordinates,
-    we define a function $F$ on $\bff{M}(\R)$,
-    sending $(h,r,\theta)$ to $r^{s}$.
+    we define a function $F\left(h,r,\theta\right)=r^{2s}$ on $\bff{M}(\R)$
+    so that $f_{\ell,\infty}(m)=F(m)[u_{1}^{\ell}][u_{2}^{\ell}]$.
     By \cite[Proposition 3.10]{Hilado_McGlade_Yan_Fourier_coefficients_unitary_group},
     $f_{\ell,\infty}$ is killed by $\call{D}_{\ell}^{\pm}$ if and only if 
-    \[\left\{\begin{array}{l}
-            (r\partial r-2(\ell+1))F(m)=0\\[6pt]
-            [u_{2}\otimes\overline{v_{k}}]^{+}F(m)=0,\text{ if } 1 \leq k<n\\[6pt]
-            [u_{2}\otimes\overline{v_{k}}]^{-}F(m)=0,\text{ if }1\leq k<n
-        \end{array}\right.\]
-    It can be easily verified that these equations hold if and only if $s=\ell+1$.
+    $(r\partial r-2(\ell+1))F\equiv 0$ on $\bff{M}(\R)$,
+    which holds when $s=\ell+1$.
+    %\[\left\{\begin{array}{l}
+    %        (r\partial r-2(\ell+1))F(m)=0\\[6pt]
+    %        [u_{2}\otimes\overline{v_{k}}]^{+}F(m)=0,\text{ if } 1 \leq k<n\\[6pt]
+    %        [u_{2}\otimes\overline{v_{k}}]^{-}F(m)=0,\text{ if }1\leq k<n
+    %    \end{array}\right.\]
 \end{proof}
-As a consequence,
-the Eisenstein series $E_{\ell}(g,\Phi_{f},s=\ell+1)$ is a quaternionic modular form of weight $\ell$.
-\section{The Fourier expansion of \texorpdfstring{$E_{\ell}(g,\Phi_{f},s=\ell+1)$}{PDFstring}}
-\label{section Fourier expansion of Eisenstein series}
+\textcolor{red}{PROGRESS MARK}
 \subsection{Abstract Fourier expansion}
 \label{section abstract Fourier expansion}
 In this subsection,
@@ -374,6 +461,13 @@ we set
 %    \item $\Phi^{U}=\Phi^{U^{\vee}}$ is the characteristic function on $\widehat{\Z}$.
 %    \item \textcolor{red}{Maybe more assumptions? To be added when needed.}
 %\end{itemize}
+\section{Rank 2 Fourier coefficients of \texorpdfstring{$E_{\ell}$}{PDFstring}}
+\section{Rank 1 Fourier coefficients of \texorpdfstring{$E_{\ell}$}{PDFstring}}
+\section{The constant term of \texorpdfstring{$E_{\ell}$}{PDFstring}}
+
+\section{The Fourier expansion of \texorpdfstring{$E_{\ell}(g,\Phi_{f},s=\ell+1)$}{PDFstring}}
+\label{section Fourier expansion of Eisenstein series}
+
 \subsection{Computation of constant term}
 \label{section constant term of Eisenstein series}
 The constant term of $E_{\ell}(g,\Phi_{f},s=\ell+1)$ consists of three parts:

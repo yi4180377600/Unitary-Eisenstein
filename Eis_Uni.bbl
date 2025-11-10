@@ -19,6 +19,49 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{Gross_Wallach_Quaternionic_discrete_series}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=981443a317d443897cef5b9c3bbcfe0d}{%
+           family={Gross},
+           familyi={G\bibinitperiod},
+           given={Benedict\bibnamedelima H.},
+           giveni={B\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=a9f0dbda3f94fd74406381e38305e9dc}{%
+           family={Wallach},
+           familyi={W\bibinitperiod},
+           given={Nolan\bibnamedelima R.},
+           giveni={N\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{7f04cd98daae62531fcec30befa78764}
+      \strng{fullhash}{7f04cd98daae62531fcec30befa78764}
+      \strng{fullhashraw}{7f04cd98daae62531fcec30befa78764}
+      \strng{bibnamehash}{7f04cd98daae62531fcec30befa78764}
+      \strng{authorbibnamehash}{7f04cd98daae62531fcec30befa78764}
+      \strng{authornamehash}{7f04cd98daae62531fcec30befa78764}
+      \strng{authorfullhash}{7f04cd98daae62531fcec30befa78764}
+      \strng{authorfullhashraw}{7f04cd98daae62531fcec30befa78764}
+      \field{labelalpha}{GW96}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0075-4102,1435-5345}
+      \field{journaltitle}{J. Reine Angew. Math.}
+      \field{title}{On quaternionic discrete series representations, and their continuations}
+      \field{volume}{481}
+      \field{year}{1996}
+      \field{pages}{73\bibrangedash 123}
+      \range{pages}{51}
+      \verb{doi}
+      \verb 10.1515/crll.1996.481.73
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1515/crll.1996.481.73
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1515/crll.1996.481.73
+      \endverb
+    \endentry
     \entry{Hilado_McGlade_Yan_Fourier_coefficients_unitary_group}{misc}{}{}
       \name{author}{3}{}{%
         {{hash=a44fc8aded30a7eac17a7321796acc66}{%
@@ -104,6 +147,45 @@
       \verb 10.1016/j.jnt.2021.09.011
       \endverb
       \keyw{11F55,11F11}
+    \endentry
+    \entry{Wallach_Generalized_Whittaker_vectors_holomorphic_quaternionic}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=a9f0dbda3f94fd74406381e38305e9dc}{%
+           family={Wallach},
+           familyi={W\bibinitperiod},
+           given={Nolan\bibnamedelima R.},
+           giveni={N\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{a9f0dbda3f94fd74406381e38305e9dc}
+      \strng{fullhash}{a9f0dbda3f94fd74406381e38305e9dc}
+      \strng{fullhashraw}{a9f0dbda3f94fd74406381e38305e9dc}
+      \strng{bibnamehash}{a9f0dbda3f94fd74406381e38305e9dc}
+      \strng{authorbibnamehash}{a9f0dbda3f94fd74406381e38305e9dc}
+      \strng{authornamehash}{a9f0dbda3f94fd74406381e38305e9dc}
+      \strng{authorfullhash}{a9f0dbda3f94fd74406381e38305e9dc}
+      \strng{authorfullhashraw}{a9f0dbda3f94fd74406381e38305e9dc}
+      \field{labelalpha}{Wal03}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0010-2571,1420-8946}
+      \field{journaltitle}{Comment. Math. Helv.}
+      \field{number}{2}
+      \field{title}{Generalized {W}hittaker vectors for holomorphic and quaternionic representations}
+      \field{volume}{78}
+      \field{year}{2003}
+      \field{pages}{266\bibrangedash 307}
+      \range{pages}{42}
+      \verb{doi}
+      \verb 10.1007/s000140300012
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s000140300012
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s000140300012
+      \endverb
     \endentry
   \enddatalist
 \endrefsection
