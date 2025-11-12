@@ -855,7 +855,7 @@ We first analyze the function $f_{\ell,\infty}(w_{2}n,s=\ell+1)$:
     we set:
     \[\alpha(v,x)=-\frac{\lrangle{v}{v}}{2}+ix+1,\,\beta(v)=\sqrt{2}\lrangle{v}{u_{2}},\]
     then we have 
-    \[f_{\ell,\infty}(w_{2}n(v,ix),s)=\frac{(\alpha u_{1}+\beta u_{2})^{\ell}(-\overline{\beta}u_{1}+\overline{\alpha}u_{2})^{\ell}}{(|\alpha(v,x)|+|\beta(v)|)^{\ell+s}(\ell!)^{2}}.\]
+    \[f_{\ell,\infty}(w_{2}n(v,ix),s)=\frac{(\alpha u_{1}+\beta u_{2})^{\ell}(-\overline{\beta}u_{1}+\overline{\alpha}u_{2})^{\ell}}{(|\alpha(v,x)|^{2}+|\beta(v)|^{2})^{\ell+s}(\ell!)^{2}}.\]
 \end{lemma}
 \begin{proof}
     One has 
@@ -870,16 +870,16 @@ We first analyze the function $f_{\ell,\infty}(w_{2}n,s=\ell+1)$:
     Taking the $V_{2}^{+}$ components of \Cref{eqn searching Iwasawa decomposition},
     one gets:
     \[\frac{1}{\sqrt{2}}\left(\alpha(v,x)u_{1}+\beta(v)u_{2}\right)=\left[\frac{1}{\sqrt{2}}\left(-\frac{\lrangle{v}{v}}{2}+ix+1\right)u_{1}+v_{+}\right]k_{+}^{-1}=\nu(p)^{-1}\frac{u_{1}}{\sqrt{2}}.\]
-    The norms of both sides give us the identity $|\alpha(v,x)|+|\beta(v)|=|\nu(p)|^{-1}$.
+    The norms of both sides give us the identity $|\alpha(v,x)|^{2}+|\beta(v)|^{2}=|\nu(p)|^{-2}$.
     One may assume that 
-    $\nu(p)^{-1}=\sqrt{|\alpha(v,x)|+|\beta(v)|}$,
+    $\nu(p)^{-1}=\sqrt{|\alpha(v,x)|^{2}+|\beta(v)|^{2}}$,
     then in the basis of $u_{1},u_{2}$,
     the element $k^{+}\in \rmm{U}(V_{2}^{+})$ can be written as the Hermitian matrix 
-    \[\frac{1}{\sqrt{|\alpha(v,x)|+|\beta(v)|}}\left(\begin{matrix}
+    \[\frac{1}{\sqrt{|\alpha(v,x)|^{2}+|\beta(v)|^{2}}}\left(\begin{matrix}
         \alpha(v,x) & -\overline{\beta(v)}\\
         \beta(v) & \overline{\alpha(v,x)}
     \end{matrix}\right).\]
-    Plug $k^{+}$ and $\nu(p)$ into $f_{\ell,\infty}(w_{2}n(v,ix),s)=f_{\ell,\infty}(pk,s)=|\nu(p)|^{s}[u_{1}^{\ell}][u_{2}^{\ell}].k^{+}$,
+    Plug $k^{+}$ and $\nu(p)$ into $f_{\ell,\infty}(w_{2}n(v,ix),s)=f_{\ell,\infty}(pk,s)=|\nu(p)|^{2s}[u_{1}^{\ell}][u_{2}^{\ell}].k^{+}$,
     and we get the desired value.
 \end{proof}
 Let $I_{0}(T;\ell)$ be the coefficient of $[u_{1}^{\ell}][u_{2}^{\ell}]$ in $E_{2,\infty}^{T}(s=\ell+1)$,
@@ -888,7 +888,7 @@ which can be written as
     I_{0}(T;\ell)=&\int_{v\in V_{0}\otimes_{\Q}\R}\int_{x\in \R}\chi_{T}^{-1}(v)\sum_{k=0}^{\ell}\frac{{\ell \choose k}{\ell\choose k}(x^{2}+A)^{k}(-B)^{\ell-k}}{(x^{2}+A+B)^{2\ell+1}}dxdv\\
     =&\int_{v\in V_{0}\otimes \R}\chi_{T}^{-1}(v)\sum_{k=0}^{\ell}(-B)^{\ell-k}{\ell\choose k}^{2}\int_{x\in \R}\frac{(x^{2}+A)^{k}}{(x^{2}+A+B)^{2\ell+1}}dxdv
 \end{align*}
-where $A=|\alpha|-x^{2}=\left(1-\lrangle{v}{v}/2\right)^{2}$, and $B=|\beta|=2|\lrangle{v}{u_{2}}|$.
+where $A=|\alpha|^{2}-x^{2}=\left(1-\lrangle{v}{v}/2\right)^{2}$, and $B=|\beta|^{2}=2|\lrangle{v}{u_{2}}|^{2}$.
 \begin{lemma}
     \label{lemma integral over center of Heisenberg}
     For any real number $C,D$
