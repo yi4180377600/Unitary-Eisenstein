@@ -1,0 +1,1141 @@
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,amscd,  latexsym, graphicx, mathrsfs, enumerate}
+
+\renewcommand{\baselinestretch}{1.4}
+\setlength{\textwidth}{460pt} \setlength{\hoffset}{-45pt}
+
+%\setlength{\textwidth}{16cm}
+%\setlength{\textheight}{23cm}
+%\setlength{\topmargin}{0cm}
+%\setlength{\oddsidemargin}{0cm}
+%\setlength{\evensidemargin}{0cm}
+%\usepackage{graphicx}
+%\usepackage[all]{xy}
+%\usepackage{amssymb}
+%\usepackage{amscd}
+%\usepackage{latexsym}
+%\renewcommand{\baselinestretch}{1.3}
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{prob}[thm]{Problem}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{const}[thm]{Construction}
+\newtheorem{exer}[thm]{Exercise}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{ques}[thm]{Question}
+\newtheorem*{warn}{\textcolor{red}{Warning}}
+\theoremstyle{definition}
+\newtheorem{defi}[thm]{Definition}
+
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\norm}{\mathrm{N}}
+\newcommand{\sym}{\operatorname{Sym}}
+\newcommand{\spin}{\operatorname{Spin}}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\alg}{\mathrm{alg}}
+\newcommand{\catset}{\mathsf{Set}}
+\newcommand{\spec}{\operatorname{Spec}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\mor}{\mathbf{Mor}}
+\newcommand{\oo}{\mathcal{O}}
+\newcommand{\sch}{\mathsf{Sch}}
+\newcommand{\affsch}{\mathsf{AffSch}}
+\newcommand{\falg}{\mathsf{fAlg}}
+\newcommand{\grp}{\mathsf{Grp}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\gal}{\mathrm{Gal}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\oct}{\mathbb{O}}
+\newcommand{\coct}{\mathscr{R}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\tr}{\operatorname{Tr}}
+\newcommand{\frob}{\mathrm{Frob}}
+\newcommand{\aut}{\mathrm{Aut}}
+\newcommand{\st}{\mathrm{St}}
+\newcommand{\modulo}{\operatorname{mod}}
+\newcommand{\cusp}{\mathrm{cusp}}
+\newcommand{\disc}{\mathrm{disc}}
+\newcommand{\weights}{\mathrm{Weights}}
+\newcommand{\Gtwo}{\mathrm{G}_{2}}
+\newcommand{\lie}{\operatorname{Lie}}
+\newcommand{\Ind}[2]{\operatorname{Ind}_{#1}^{#2}}
+\newcommand{\ind}[2]{\operatorname{ind}_{#1}^{#2}}
+\newcommand{\hind}[2]{\mbox{$\mathrm{h}$-$\operatorname{ind}_{#1}^{#2}$}}
+\newcommand{\lietype}[2]{\operatorname{#1}_{#2}}
+\newcommand{\smallmat}[4]{\left(\begin{smallmatrix}#1&#2\\#3&#4\end{smallmatrix}\right)}
+\newcommand{\mat}[4]{\left(\begin{matrix}#1&#2\\#3&#4\end{matrix}\right)}
+\newcommand{\lrangle}[2]{\langle #1,#2\rangle}
+\newcommand{\bracket}[1]{\left(#1\right)}
+\newcommand{\spa}[2]{\operatorname{Spa}\left(#1,#2\right)}
+\newcommand{\et}{\acute{e}t}
+\newcommand{\grade}[1]{\operatorname{gr}#1}
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\overcirc}[1]{\accentset{\circ}{#1}}
+\newcommand{\Nu}{\mathcal{V}}
+\newcommand{\isom}{\overset{\sim}{\rightarrow}}
+\newcommand{\rmm}[1]{\mathrm{#1}}
+\newcommand{\bff}[1]{\mathbf{#1}}
+\newcommand{\triv}{\mathbb{1}}
+\newcommand{\set}[2]{\left\{#1\midline #2\right\}}
+\newcommand{\vrep}[1]{\mathrm{V}_{#1}}
+\newcommand{\cstar}{$C^{*}$}
+\newcommand{\funspace}[2]{\call{C}_{#1}^{#2}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\call}[1]{\mathcal{#1}}
+\newcommand{\frakk}[1]{\mathfrak{#1}}
+\newcommand{\ltwo}[1]{\rmm{L}^{2}(#1)}
+\newcommand{\ifff}{if and only if}
+\newcommand{\mbb}[1]{\mathbb{#1}}
+\newcommand{\redcstar}[1]{\funspace{r}{*}(#1)}
+\newcommand{\avgfin}[2]{\frac{1}{|#2|}\sum_{#1 \in #2}}
+\newcommand{\rank}{\operatorname{rank}}
+
+\newcommand{\GL}{\mathbf{GL}}
+\newcommand{\LieGL}{\mathrm{GL}}
+\newcommand{\SL}{\mathbf{SL}}
+\newcommand{\LieSL}{\mathrm{SL}}
+\newcommand{\Orth}{\mathbf{O}}
+\newcommand{\LieOrth}{\operatorname{O}}
+\newcommand{\Sorth}{\mathbf{SO}}
+\newcommand{\LieSorth}{\operatorname{SO}}
+\newcommand{\Symp}{\mathbf{Sp}}
+\newcommand{\LieSymp}{\operatorname{Sp}}
+\newcommand{\Pgl}{\mathbf{PGL}}
+\newcommand{\LiePgl}{\operatorname{PGL}}
+\newcommand{\grpF}{\bff{F}_{4}}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+%\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+%\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+%++++++++++++++++++++++++++++++++++++++++
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\begin{document}
+\title[Rationality of quaternionic Eisenstein series on ${\rm U}(2,n)$]{Rationality of quaternionic Eisenstein series on ${\rm U}(2,n)$}
+\author{Henry H. Kim and Yi Shan}
+\date{\today}
+\thanks{The first author is partially supported by NSERC grant \#482564. 
+%The second author is partially supported by JSPS KAKENHI Grant Number (B) No.21H00972. 
+}
+\subjclass[2010]{Primary 11F30, Secondary 11F55}
+\address{Henry H. Kim \\
+Department of mathematics \\
+ University of Toronto \\
+Toronto, Ontario M5S 2E4, CANADA \\
+and Korea Institute for Advanced Study, Seoul, KOREA}
+\email{henrykim@math.toronto.edu}
+
+\address{Yi Shan \\
+Department of mathematics \\
+ University of Toronto \\
+Toronto, Ontario M5S 2E4, CANADA}
+\email{yshan@math.toronto.edu}
+
+
+\keywords{Eisenstein series, unitary groups, quaternionic modular forms}
+
+\date{\today}
+\maketitle
+\begin{abstract}
+We show that quaternionic Eisenstein series on ${\rm U}(2,n)$ have algebraic Fourier coefficients.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+Quaternionic modular forms and their Fourier expansions on ${\rm U}(2,n)$ were introduced in \cite{HMY}, modeled after Pollack's study of quaternionic modular forms on quaternionic exceptional groups \cite{Po, Po20}. In their paper, they give explicit Fourier expansion of quaternionic modular forms, and 
+construct a theta lift which is a cusp form of weight $\ell$ on ${\rm U}(2,n)$ from a holomorphic modular form of weight 
+$2\ell+2-n$. They also have explicit Fourier expansion of the theta lift, and show that the Fourier coefficients are algebraic.
+
+In this paper, we study quaternionic Eisenstein series on ${\rm U}(2,n)$, and show that the Fourier coefficients are rational.
+We follow Pollack \cite{Po} who proved the rationality of Eisenstein series on ${\rm SO}(3,n+1)$. In fact, we can show that they have bounded denominator.
+More precisely, we prove
+
+\begin{thm}\label{main} Suppose $\ell\geq n$ and $n$ is even. Let $E_\ell(g)=E_\ell(g,\Phi_f, s=\ell+1)$ be the Eisenstein series defined 
+in Section \ref{section quaternionic Heisenberg Eisenstein series}
+which is a quaternionic modular form of weight $\ell$ on ${\rm U}(2,n)$. Then $E_\ell(g)$ has algebraic Fourier coefficients. 
+\end{thm}
+
+The Fourier coefficients have bounded denominator under Conjecture \ref{conj-rank1}, \ref{conj-split} and \ref{conj-ram}. (Proposition \ref{bounded})
+
+For holomorphic Eisenstein series on tube domains, or more generally, Hermitian symmetric domains, the rationality is known due to Shimura, Baily, Tsao and Harris, and others. (cf. \cite{B, H, Ka1, Sh, Ts})
+In fact, the Fourier coefficients have bounded denominator.
+
+In Section \ref{Saito-Kuro}, we construct Saito-Kurokawa type lift on ${\rm U}(2,n)$ assuming Conjecture \ref{conj-split} and \ref{conj-ram},
+and compute its standard $L$-function.
+
+\smallskip
+
+\noindent {\bf Notations}: For $v=-\ell,-\ell+1,...,\ell$, let $[u^{\ell-v}]=\frac {u^{\ell-v}}{(\ell-v)!}$; 
+Let $(x)_j=x(x+1)\cdots (x+j-1)=\frac {\Gamma(x+j)}{\Gamma(x)}$ be the Pochhammer symbol. For $n$ a positive integer, 
+$n!!$ is the product of $k$ up to $n$ such that $k$ has the same parity as $n$. So if $n$ is even, $n!!=\prod_{k=1}^{\frac n2} (2k)$ and if $n$ is odd, $n!!=\prod_{k=1}^{\frac {n+1}2} (2k-1)$. For undefined notations, we refer to \cite{HMY}.
+
+\section{Preliminaries on the unitary groups of split rank 2}
+\label{section rank 2 unitary groups}
+Fix an imaginary quadratic field extension $E$ of $\Q$,
+as a subfield of $\C$.
+Denote the nonzero element in $\mathrm{Gal}(E/\Q)$ by $x\mapsto \overline{x}$,
+and for any $\Q$-algebra $R$ we extend this involution to $E\otimes_{\Q}R$ and define the following two maps:
+\begin{itemize}
+    \item $\tr_{E\otimes_{\Q}R}:E\otimes_{\Q}R\rightarrow R,\,x\mapsto x+\overline{x}$, and 
+    \item $|\,\,|_{E\otimes_{\Q}R}:E\otimes_{\Q}R\rightarrow R,\,x\mapsto |x|_{E\otimes_{\Q}R}=x\overline{x}$.
+\end{itemize}
+Denote by $\A=\A_{\Q}$ (\emph{resp.\,}$\A_{E}$) the ad\`ele ring of $\Q$ (\emph{resp.\,}$E$).
+Fix an additive $\psi=\psi_{\Q}$ on $\Q\backslash\A$ 
+satisfying that for every finite prime $p$, $\psi_{p}$ is an additive character of $\Q_{p}$ with conductor $\Z_{p}$,
+and at the archimedean place, $\psi_{\infty}(x)=e^{2\pi i x}$.  
+Set $\psi_{E}$ to be the additive character of $E\backslash\A_{E}$
+that sends $x\in E$ to $\psi(\tr_{\A_{E}}(x))$.
+
+\subsection{Hermitian spaces}
+\label{section Hermitian spaces}
+For any natural number $n\geq 2$,
+let $(\bff{V},\lrangle{\,}{\,})$ be a non-degenerate Hermitian space over $E$ with signature $(2,n)$,
+where the Hermitian form is conjugate-linear in the second variable.
+For any $\Q$-algebra $R$,
+we denote by $\bff{V}(R)$ the Hermitian module $\bff{V}\otimes_{\Q}R$ over $E\otimes_{\Q}R$. 
+
+Fix a pair of isotropic vectors $(b_{1},b_{2})$ in $\bff{V}$
+such that $\lrangle{b_{1}}{b_{2}}=1$,
+and take $\bff{V}_{0}$ to be the orthogonal complement of $Eb_{1}\oplus Eb_{2}$ in $\bff{V}$,
+which is a non-degenerate Hermitian space of signature $(1,n-1)$.
+We fix again a pair of isotropic vectors $(c_{1},c_{2})$ in $\bff{V}_{0}$ with $\lrangle{c_{1}}{c_{2}}=1$,
+then $\bff{V}$ is the orthogonal direct sum of $Eb_{1}\oplus Eb_{2}\oplus Ec_{1}\oplus Ec_{2}$ and a Hermitian space $\bff{V}_{00}$ with signature $(0,n-2)$.
+
+Take $u_{1}=\frac{1}{\sqrt{2}}(b_{1}+b_{2})$, $u_{2}=\frac{1}{\sqrt{2}}(c_{1}+c_{2})$, $v_{n}=\frac{1}{\sqrt{2}}(b_{1}-b_{2})$ and $v_{n-1}=\frac{1}{\sqrt{2}}(c_{1}-c_{2})$,
+and they form an orthogonal basis of $\C b_{1}\oplus \C b_{2}\oplus \C c_{1}\oplus \C c_{2}\subseteq V:=\bff{V}(\R)$.
+Fix a basis $\{v_{1},\ldots,v_{n-2}\}$ of $V_{00}:=\bff{V}_{00}(\R)$ such that 
+$\lrangle{v_{i}}{v_{j}}=-\delta_{ij}$ for any $1\leq i,j\leq n-2$.
+We have obtained a basis of $V$ with the following properties:
+\begin{itemize}
+    \item $\lrangle{u_{i}}{u_{j}}=\delta_{ij}$, for any $1\leq i,j\leq 2$;
+    \item $\lrangle{v_{i}}{v_{j}}=-\delta_{ij}$, for any $1\leq i,j\leq n$;
+    \item $\lrangle{u_{i}}{v_{j}}=0$ for any $1\leq i\leq 2$ and $1\leq j\leq n$;
+    \item $\{u_{2},v_{1},\ldots,v_{n-1}\}$ is a basis for $V_{0}:=\bff{V}_{0}(\R)$.
+\end{itemize}
+Set $V_{2}^{+}=\C u_{1}\oplus \C u_{2}$ and $V_{n}^{-}=\C v_{1}\oplus \cdots\oplus \C v_{n}$,
+and we have a decomposition $V_{2}^{+}\oplus V_{n}^{-}$ of $V$ into definite subspaces.
+
+\subsection{Unitary group ${\rm U}(2,n)$ and its Heisenberg parabolic subgroup}
+\label{section unitary group and its Heisenberg parabolic}
+Define $\bold{G}=\bold{U}(\bold{V})={\rm U}(2,n)$ to be the unitary group of the Hermitian space $(\bold{V},\langle{\,}{\,}\rangle)$,
+and we write the $\bold{G}$-action on $\bold{V}$ as a right action.
+
+The Heisenberg parabolic subgroup $\bold{P}$ of $\bold{G}$ is defined as the stabilizer of the isotropic line spanned by $b_{1}$,
+and it admits the following Levi decomposition $\bold{P}=\bold{MN}$:
+\begin{itemize}
+    \item The Levi factor $\bold{M}$ is chosen to be the stabilizer in $\bold{P}$ of the isotropic line $Eb_{2}$. 
+    By its action on $Eb_{1}\oplus \bold{V}_{0}\oplus Eb_{2}$,
+    one identifies this subgroup with $\rmm{Res}_{E/\Q}(\bold{G}_{\rmm{m}})\times\bold{U}(\bold{V}_{0})$,
+    so that $(z,h)\in \rmm{Res}_{E/\Q}(\bold{G}_{\rmm{m}})\times \bold{U}(\bold{V}_{0})\simeq \bold{M}$ acts on $\bold{V}$ by
+    \[(xb_{1}+w+yb_{2})\cdot(z,h)=z^{-1}xb_{1}+wh+\overline{z}yb_{2},\text{ for any }x,y\in\bold{G}_{\rmm{a}},\,w\in \bold{V}_{0}.\]
+    \item The unipotent radical $\bold{N}$ is a two-step nilpotent group, and it is isomorphic to the group 
+    \[\{(v,\lambda)\in \bold{V}_{0}\times \rm{Res}_{E/\Q}\bold{G}_{\rm{a}} : \, \overline{\lambda}=-\lambda \},\]
+    equipped with the following multiplication:
+    \[(v_{1},\lambda_{1})\cdot(v_{2},\lambda_{2}):=\left(v_{1}+v_{2},\lambda_{1}+\lambda_{2}-\frac{\lrangle{v_{1}}{v_{2}}-\lrangle{v_{2}}{v_{1}}}{2}\right).\]
+    The action of the corresponding element $n(v,\lambda)\in\bold{N}$ on $\bold{V}$ is given as: 
+    \[b_{1}\mapsto b_{1},\,b_{2}\mapsto (-\frac{1}{2}\lrangle{v}{v}+\lambda)b_{1}+b_{2}+v,\,w\in \bold{V}_{0}\mapsto -\lrangle{w}{v}b_{1}+w.\]
+    The center of $\bold{N}$ is $\bold{Z}:=\{n(0,\lambda) : \, \overline{\lambda}=-\lambda \}$, which has dimension $1$.
+\end{itemize}
+The conjugation action of $\bold{M}$ on $\bold{N}$ is given by 
+\[(z,h)n(v,\lambda)(z^{-1},h^{-1})=n(\overline{z}vh^{-1},|z|\lambda).\]
+Denote by $\nu$
+the similitude character of $\bold{P}$: 
+\[\nu\left((z,h)n(v,\lambda)\right)=z\in \rmm{Res}_{E/\Q}\bold{G}_{\rmm{m}},\text{ for any }(z,h)\in\bold{M},\,n(v,\lambda)\in\bold{N},\]
+then we have $b_{1}p=\nu(p)^{-1}b_{1}$ for any $p\in \bold{P}$.
+
+Using the unitary character $\psi_{E}:E\backslash\A_{E}\rightarrow\mbb{S}^{1}\subset\C^{\times}$,
+we identify $\bold{V}_{0}$ with $\Hom([\bold{N}],\mbb{S}^{1})$
+by sending $T\in\bold{V}_{0}$ to the unitary character
+$\chi_{T}(n(v,\lambda))=\psi_{E}(\lrangle{T}{v})=\psi(\tr_{\A_{E}}\lrangle{T}{v})$.
+Its archimedean analogue is 
+\[V_{0}\xrightarrow{\simeq}\Hom(\bold{N}(\R),\mbb{S}^{1}),\,T\mapsto \left(\chi_{T,\infty}:v\mapsto e^{2\pi i\left(\lrangle{T}{v}+\lrangle{v}{T}\right)} \right).\]
+
+
+%For a finite place $p$ of $\Q$,
+%we define $E_{p}$ to be $E_{p}:=\Q_{p}\otimes_{\Q}E$,
+%which is isomorphic to
+%\begin{itemize}
+%    \item $\Q_{p}\times \Q_{p}$, if $p$ splits in $E$;
+%    \item a degree $2$ unramified (\emph{resp.\,}ramified) extension of $\Q_{p}$, if $p$ is inert (\emph{resp.\,}ramified).
+%\end{itemize}
+
+
+\section{Quaternionic modular forms on ${\rm U}(2,n)$}
+\label{section quaternionic modular forms on unitary groups}
+We first recall from \cite[\S 3]{HMY} the theory of quaternionic modular forms on the unitary group $\bold{G}={\rm U}(2,n)$.
+
+In \S\ref{section Hermitian spaces},
+we have a decomposition $V=V_{2}^{+}\oplus V_{n}^{-}$ of $V=\bold{V}(\R)$ into definite subspaces.
+The group $K_{\infty}=\rmm{U}(V_{2}^{+})\times\rmm{U}(V_{n}^{-})\simeq \rmm{U}(2)\times \rmm{U}(n)$
+is a maximal compact subgroup of $\rmm{U}(2,n):=\bold{G}(\R)$.
+For any integer $\ell\geq 1$,
+consider the following irreducible representation of $K_{\infty}=\rmm{U}(V_{2}^{+})\times\rmm{U}(V_{n}^{-})$:
+\[\mbb{V}_{\ell}:=\left(\sym^{2\ell}V_{2}^{+}\otimes {\det}^{-\ell}_{\bold{U}(V_{2}^{+})}\right)\boxtimes\bold{1}\]
+We fix a basis $\{[u_{1}^{\ell-v}][u_{2}^{\ell+v}],\,-\ell\leq v\leq \ell\}$ of $\mbb{V}_{\ell}$.
+
+When $\ell\geq n$,
+Gross and Wallach \cite{GW} construct an irreducible unitary discrete series representation $\Pi_{\ell}$ of $\bold{G}(\R)$,
+which contains $\Bbb V_{\ell}$ as its minimal $K_{\infty}$-type with multiplicity $1$,
+and two Schmid operators $\call{D}_{\ell}^{\pm}$ associated with $\Pi_{\ell}$ are constructed in \cite[\S 3.1]{HMY}.
+\begin{defi}\label{def quaternionic modular form on unitary groups}
+    \cite[Definition 3.1]{HMY}
+    A \emph{weight $\ell$ quaternionic modular form on $\bold{G}={\rm U}(2,n)$} is a smooth function 
+    $F:\bold{G}(\A)\rightarrow \mbb{V}_{\ell}$ of moderate growth such that:
+    \begin{enumerate}
+        \item For any $g\in \bold{G}(\A)$ and $\gamma\in \bold{G}(\Q)$, $F(\gamma g)=F(g)$ .
+        \item For every $k\in K_{\infty}$ and $g\in\bold{G}(\A)$, $F(gk)=F(g)\cdot k$.
+        \item The functions $\call{D}_{\ell}^{\pm}\left(F|_{\bold{G}(\R)}\right)$ vanish identically on $\bold{G}(\R)$.
+    \end{enumerate}
+\end{defi}
+Let $F$ be a weight $\ell$ quaternionic modular form on $\bold{G}$.
+If $T\in\bold{V}_{0}$, then the \emph{$T$-th Fourier coefficient of $F$ along $\bold{N}$} is 
+\[F_{\bold{N},T}:\bold{G}(\A)\rightarrow \mbb{V}_{\ell},\,g\mapsto \int_{[\bold{N}]}F(ng)\overline{\chi_{T}(n)}dn.\]
+We have the following result on the Fourier expansion of $F$:
+\begin{thm}\label{thm Fourier expansion theorem of quaternionic modular forms}
+    \cite[Corollary 3.7]{HMY}
+    Let $F:\bold{G}(\A)\rightarrow\mbb{V}_{\ell}$ be a weight $\ell$ quaternionic modular form,
+    and $F_{\bold{Z}}$ (\emph{resp.\,}$F_{\bold{N}}$) the constant term of $F$ along $\bold{Z}$ (\emph{resp.\,}$\bold{N}$).
+    There exist locally constant functions 
+    \[\{a_{T}(F,\cdot):\bold{G}(\A_{f})\rightarrow \C\}_{T\in\bold{V}_{0},\,\lrangle{T}{T}\geq 0}\]
+    such that for any $g_{f}\in \bold{G}(\A_{f})$ and $g_{\infty}\in \bold{G}(\R)$ one has:
+    \begin{align}\label{eqn general Fourier expansion of modular form}
+        F_{\bold{Z}}(g_{f}g_{\infty})=F_{\bold{N}}(g_{f}g_{\infty})+\sum_{\substack{T\in \bold{V}_{0}\\\lrangle{T}{T}\geq 0}}a_{T}(F,g_{f})\call{W}_{T}(g_{\infty}),
+    \end{align}
+    where $\call{W}_{T}$ is the $\mbb{V}_{\ell}$-valued function on $\bold{G(\R)}$ given by the formula
+    \begin{align}\label{eqn generalized Whittaker function}
+        \call{W}_{T}\left(nmk\right)=\chi_{T,\infty}(n)\sum_{v=-\ell}^{\ell}|\nu(m)|^{2\ell+2}\left(\frac{|\beta_{T}(m)|}{\beta_{T}(m)}\right)^{v}K_{v}\left(|\beta_{T}(m)|\right)[u_{1}^{\ell-v}][u_{2}^{\ell+v}]\cdot k,
+    \end{align}
+    for any $n\in\bold{N}(\R),m\in\bold{M}(\R)$ and $k\in K_{\infty}$.
+    Here $K_{v}$ denotes the K-Bessel function $K_{v}(x)=\frac{1}{2}\int_{0}^{\infty}t^{v-1}e^{-x(t+t^{-1})}dt$ and 
+    $\beta_{T}:\bold{M}(\R)\rightarrow\C$ is defined by mapping $(z,h)$ to $2\sqrt{2}\pi \lrangle{u_{2}}{zT\cdot h}$.
+\end{thm}
+
+
+If $F$ is cuspidal, then the Fourier expansion of $F_Z$ takes the form
+$$F_Z(g_{\rmm fin}g_\infty)=\sum_{T\in V_0\atop \langle T,T\rangle> 0} a_T(F,g_{\rm fin})\mathcal W_T(g_\infty).
+$$
+
+\section{Quaternionic Heisenberg Eisenstein series}
+\label{section quaternionic Heisenberg Eisenstein series}
+
+For $\ell\geq n$, the quaternionic discrete series $\Pi_{\ell}$ can be embedded into the (unnormalized) degenerate principal series $\rm{Ind}_{\bff{P}(\R)}^{\bff{G}(\R)}|\nu|_{\C}^{\ell+1}$ \cite[Theorem 9]{Wallach}
+(by our notation $|z|_{\C}=z\overline{z}=|z|^{2}$),
+thus we now construct an Eisenstein series on $\bff{G}$ from some section of $\rmm{Ind}_{\bff{P}(\A)}^{\bff{G}(\A)}|\nu|_{\A_{E}}^{s}$, $s\in \C$.
+
+Suppose that $\Phi_{f}=\otimes_{p<\infty}\Phi_{p}$ is a Schwartz-Bruhat function on $\bff{V}(\A_{f})$.
+We choose a section $f_{\ell}(g_{f}g_{\infty},\Phi_{f},s)=f_{fte}(g_{f},\Phi_{f},s)f_{\ell,\infty}(g_{\infty},s)$ 
+of $\rmm{Ind}_{\bff{P}(\A)}^{\bff{G}(\A)}|\nu|^{s}$ as follows:
+\begin{itemize}
+    \item The archimedean part $f_{\ell,\infty}$ is the $\mbb{V}_{\ell}$-valued, $K_{\infty}$-equivariant induced section
+    whose restriction to $\bff{M}(\R)$ satisfies
+    $f_{\ell,\infty}((z,h),s)=|z|_{\C}^{s}[u_{1}^{\ell}][u_{2}^{\ell}]=|z|^{2s}[u_{1}^{\ell}][u_{2}^{\ell}]$ for any $(z,h)\in \bff{M}(\R)$.
+    \item The finite part $f_{fte}$ is defined by 
+    $f_{fte}(g_{f},\Phi_{f},s)=\int_{\GL_{1}(\A_{E,f})}|t|_{\A_{E,f}}^{s}\Phi_{f}(t\cdot b_{1}g_{f})dt$.
+\end{itemize}
+We set the (Heisenberg) Eisenstein series 
+\[E_{\ell}(g,\Phi_{f},s)=\sum_{\gamma\in \bff{P}(\Q)\backslash \bff{G}(\Q)}f_{\ell}(\gamma g,\Phi_{f},s).\]
+\begin{prop}
+    \label{prop at some point Eisenstein series is modular form}
+    For $\ell\geq n$,
+    the Eisenstein series $E_{\ell}(g,\Phi_{f},s=\ell+1)$ is a weight $\ell$ quaternionic modular form on $\bff{G}=\bff{U}(2,n)$.
+\end{prop}
+\begin{proof}
+    The only condition in \S\ref{def quaternionic modular form on unitary groups} that is not obvious is the third one.
+    It suffices to show that the restriction of $f_{\ell,\infty}$ to $\bff{M}(\R)$ is killed by the Schmid operators $\call{D}_{\ell}^{\pm}$.
+
+    Write an element $(z,h)\in\bff{M}(\R)$ as $m=(h,r,\theta)$ so that $z=re^{i\theta},\,r\in\R_{>0}$ and $\theta\in [0,2\pi)$.
+    Using this coordinates,
+    we define a function $F\left(h,r,\theta\right)=r^{2s}$ on $\bff{M}(\R)$
+    so that $f_{\ell,\infty}(m)=F(m)[u_{1}^{\ell}][u_{2}^{\ell}]$.
+    By \cite[Proposition 3.10]{HMY},
+    $f_{\ell,\infty}$ is killed by $\call{D}_{\ell}^{\pm}$ if and only if 
+    $(r\partial r-2(\ell+1))F\equiv 0$ on $\bff{M}(\R)$,
+    which holds when $s=\ell+1$.
+\end{proof}
+
+\subsection{Abstract Fourier expansion}
+\label{section abstract Fourier expansion}
+In this subsection,
+we give the ``abstract'' Fourier expansion of $E_{\ell}(g,\Phi_{f},s)$.
+\begin{lemma}\label{lemma double coset of parabolic of unitary groups}
+    The right $\bold{P}(\Q)$-space $\bold{P}(\Q)\backslash \bold{G}(\Q)$,
+    the space of isotropic lines in $V(\Q)$,
+    has exactly $3$ orbits of $\bold{P}(\Q)$,
+    represented respectively by $\Q b_{1}$, $\Q v_{0}$ and $\Q b_{2}$,
+    where $v_{0}$ is an arbitrary non-zero isotropic vector in $V_{0}(\Q)$.
+\end{lemma}
+\begin{proof}
+    Directly by the explicit action given in \S\ref{section rank 2 unitary groups}.
+\end{proof}
+Set $\bold{G}(\Q)=\bigsqcup_{i=0}^{2}\bold{P}(\Q)w_{i} \bold{P}(\Q)$,
+such that $w_{0}=1$,
+$b_{1}w_{1}=v_{0}$ and $b_{1}w_{2}=b_{2}$.
+Now we can write the degenerate Eisenstein series as 
+\[E_{\ell}(g,\Phi_{f},s)=\sum_{i=0}^{2}E_{\ell,i}(g,\Phi_{f},s),\,E_{\ell,i}(g,\Phi_{f},s)=\sum_{\gamma\in \bold{P}(\Q)\backslash \bold{P}(\Q)w_{i}\bold{P}(\Q)}f(\gamma g,s),\]
+thus $E_{\ell,0}(g,\Phi_{f},s)=f(g,s)$.
+From now on,
+when there is no confusion
+we will omit the $\ell$ and $\Phi_{f}$ in $E_{\ell}(g,\Phi_{f},s)$,
+and write it as $E(g,s)=\sum_{i=0}^{2}E_{i}(g,s)$.
+
+\begin{lemma}
+    \label{lemma rank decomposition of Eisenstein series}
+    Assume that $\rmm{Re}(s)\gg 0$ so that the sum defining $E(g,s)$ converges absolutely.
+    Then one has the following expressions for the $E_{i}(g,s)$:
+    \begin{enumerate}
+        \item Let $\call{L}_{0}$ be the set of non-zero isotropic lines $\ell$ in $V_{0}$ 
+        and for any $\ell\in\call{L}_{0}$, select $\gamma(\ell)\in \bold{G}(\Q)$ with $b_{1}\gamma(\ell)\in\ell$.
+        Then \[E_{1}(g,s)=\sum_{\ell\in\call{L}_{0}}\sum_{\mu\in(\ell)^{\perp}\bold{N}_{0}(\Q)\backslash\bold{N}(\Q)}f(\gamma(\ell)\mu g,s).\] 
+        \item One has 
+        \[E_{2}(g,s)=\sum_{\mu\in \bold{N}(\Q)}f(w_{2}\mu g,s).\]
+    \end{enumerate}
+\end{lemma} 
+
+For any $T\in V_{0}$,
+we set 
+\[E_{i}^{T}(g,s)=\int_{\bold{N}(F)\backslash\bold{N}(\A)}\chi_{T}^{-1}(n)E_{i}(ng,s)dn,\,i=0,1,2.\]
+
+\begin{lemma}
+    \label{lemma Eulerian Fourier coefficients}
+    \begin{enumerate}
+        \item If $T$ is anisotropic, then $E_{1}^{T}=0$. 
+            If $T$ is isotropic, define $\bold{N}_{T}=(\ell_{T})^{\perp}\bold{N}_{0}\subseteq \bold{N}$,
+            then 
+            \[E_{1}^{T}(g,s)=\int_{\bold{N}_{T}(\A)\backslash \bold{N}(\A)}\chi_{T}^{-1}(n)f(\gamma(\ell_{T})ng,s)dn.\]
+        \item For any $T\in V_{0}$, one has 
+        \[E_{2}^{T}(g,s)=\int_{\bold{N}(\A)}\chi_{T}^{-1}(n)f(w_{2}ng,s)dn.\]
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    It suffices only to prove the $i=1$ case.
+    For any $\ell\in \call{L}_{0}$,
+    set 
+$$\bold{N}_{\ell}=\{n(v,\lambda)\in\bold{N} | \, v\in\ell^{\perp} \}\subseteq \bold{N}.
+$$
+    For any $T\in V_{0}$,
+    \begin{align*}
+        E_{1}^{T}(g,s)=&\sum_{\ell\in\call{L}_{0}}\int_{[N]}\chi_{T}^{-1}(n)\left(\sum_{\mu\in\bold{N}_{\ell}(\Q)\backslash \bold{N}(\Q)}f(\gamma(\ell)\mu ng,s)\right)dn\\
+        =&\sum_{\ell\in\call{L}_{0}}\int_{\bold{N}_{\ell}(\Q)\backslash\bold{N}(\A)}\chi_{T}^{-1}(n)f(\gamma(\ell)ng,s)dn\\
+        =&\sum_{\ell\in\call{L}_{0}}\int_{\bold{N}_{\ell}(\A)\backslash\bold{N}(\A)}\left(\int_{[\bold{N}_{\ell}]}\chi_{T}^{-1}(r)dr\right)\chi_{T}^{-1}(n)f(\gamma(\ell)ng,s)dn\\
+        =&\sum_{\ell\in\call{L}_{0},\,\chi_{T}|_{\bold{N}_{\ell}}\equiv 1}\int_{\bold{N}_{\ell}(\A)\backslash \bold{N}(\A)}\chi_{T}^{-1}(n)f(\gamma(\ell)ng,s)dn.
+    \end{align*}
+    Then the lemma follows from the fact that $\chi_{T}|_{\bold{N}_{\ell}}\equiv 1$ if and only if $T\in\ell$, \emph{i.e.\,}$T$ is isotropic and $\ell=\ell_{T}$. 
+\end{proof}
+
+
+\section{Fourier Expansion of $E_\ell(g,\Phi_f, s=\ell+1)$}\label{Eisenstein}
+
+In this section, we explicitly compute the Fourier coefficients of the weight $\ell$ quaternionic modular form $E_\ell(g,\Phi_f, s=\ell+1)$.
+
+\subsection{Computation of constant term}
+\label{section constant term of Eisenstein series}
+The constant term of $E_{\ell}(g,\Phi_{f},s=\ell+1)$ consists of three parts:
+\begin{itemize}
+    \item $E_{\ell,0}(g,\Phi_{f},s)=f(g,s)$,
+    \item $E_{1}^{0}(g,s)=\sum_{\ell\in\call{L}_{0}}\int_{\bold{N}_{\ell}(\A)\backslash \bold{N}(\A)}f(\gamma(\ell)ng,s)dn$,
+    \item and $E_{2}^{0}(g,s)=\int_{\bold{N}(\A)}f(w_{2}ng)dn$.
+\end{itemize}
+
+\subsubsection{The $i=0$-term}
+\label{section i=0 part constant term}
+\begin{lemma}
+    For $g\in \bold{P}(\A)$,
+    \[E_{0}(g,s)=f(g,s)=|\nu(g)|_{E}^{s}\zeta_{E}(s)[u_{1}^{n}][u_{2}^{n}].\]
+\end{lemma}
+\begin{proof}
+    For $g_{f}\in \bold{P}(\A_{f})$,
+    we have 
+    \begin{align*}
+        f_{fte}(g_f,s)&=\int_{\A_{E,f}^{\times}}|t|_{E}^{s}\Phi_{f}(tb_{1}g_{f})dt
+        =\int_{\A_{E,f}^{\times}}|t|_{E}^{s}\Phi_{f}(t\nu(g_{f})^{-1}b_{1})dt
+        =|\nu(g_{f})|_{E}^{s}\int_{\A_{E,f}^{\times}}|t|_{E}^{s}\Phi_{f}(tb_{1})dt.
+    \end{align*}
+    Thus, the non-archimedean contribution is $|\nu(g_{f})|_{E}^{s}\zeta_{E}(s)$.
+    Combining with $f_{n,\infty}(g_{\infty},s)=|\nu(g_{\infty})|_{E}^{s}[u_{1}^{n}][u_{2}^{n}]$,
+    we get the desired identity.
+\end{proof}
+\subsubsection{The $i=1$-term}
+\label{section i=1 part constant term}
+We fix a non-zero isotropic vector in $V_{0}$,
+such that $v_{0}=b_{1}\gamma_{0}$,
+and set $\ell_{0}=Ev_{0}$.
+Define $\bold{P}_{0}$ be the stabilizer of $\ell_{0}$ in $\bold{U}(V_{0})$,
+which is a parabolic subgroup of $\bold{M}$.
+We denote the similitude character of $\bold{P}_{0}$ by $\lambda$,
+\emph{i.e.\,}$v_{0}g=\lambda(g)^{-1}v_{0}$ for any $g\in\bold{P}_{0}$.
+For $g\in\bold{P}_{0}(\A)$,
+we have:
+\begin{align*}
+    E_{1}^{0}(g,s)&=\sum_{\ell\in \call{L}_{0}}\int_{\bold{N}_{\ell}(\A)\backslash \bold{N}(\A)}f(\gamma(\ell)ng,s)dn
+    =\sum_{\gamma\in \bold{P}_{0}(\Q)\backslash\bold{M}(\Q)}\int_{\bold{N}_{\ell_{0}}(\A)\backslash \bold{N}(\A)}f(\gamma_{0}\gamma ng,s)dn.
+\end{align*}
+If we set $f_{0}(g,s)=\int_{\bold{N}_{\ell_{0}}(\A)\backslash \bold{N}(\A)}f(\gamma_{0}ng,s)dn,$
+then for $\rmm{Re}(s)\gg 0$,
+\[E_{1}^{0}(g,s)=\sum_{\gamma\in\bold{P}_{0}(\Q)\backslash \bold{M}(\Q)}f_{0}(\gamma g,s),\]
+and it defines an Eisenstein series on $\bold{M}$.
+Now we want to determine this section $f_{0}(g,s)\in\rmm{Ind}_{\bold{P}_{0}(\A)}^{\bold{M}(\A)}|\lambda|^{s}$ (still unnormalized).
+%\begin{prop}\label{prop i=1 contribution of constant term}
+%    s
+%\end{prop}
+%\begin{proof}
+   
+At finite places, one has 
+   \begin{align*}
+       \int_{\bold{N}_{\ell_{0}}(\A_{E,f})\backslash\bold{N}(\A_{E,f})}f(\gamma_{0}ng,s)dn&=\int_{x\in\A_{E,f}}\int_{t\in\A_{E,f}^{\times}}|t|^{s}\Phi_{fte}(t(v_{0}+xb_{1})g)dtdx\\
+       &=\int_{x\in\A_{E,f}}\int_{t\in\A_{E,f}^{\times}}|t|^{s}\Phi_{fte}(t\lambda(g)^{-1}v_{0}+tx\nu(g)^{-1}b_{1})dtdx\\
+       &=|\lambda(g)|_{f}^{s-1}|\nu(g)|_{f}\int_{x\in\A_{E,f}}\int_{t\in\A_{f,E}^{\times}}|t|^{s-1}\Phi_{fte}(tv_{0}+xb_{1})dtdx\\
+       &=|\lambda(g)|_{f}^{s-1}|\nu(g)|_{f}\zeta_{E}(s-1).
+   \end{align*}
+   Now we switch to the archimedean place.
+   Set $c_{1}=v_{0}$ and $c_{2}$ another isotropic vector in $V_{0}$ with $\lrangle{c_{1}}{c_{2}}=1$.
+   We can take $u_{2}=\frac{1}{\sqrt{2}}(c_{1}+c_{2})$ and $v_{n-1}=\frac{1}{\sqrt{2}}(c_{1}-c_{2})$.
+   We identify $\bold{N}_{\ell_{0}}(\R)\backslash \bold{N}(\R)$ with $\C$ via the map $n(v,\lambda)\mapsto-\lrangle{c_{1}}{v}$,
+   and for any $z\in\C$ we choose an element $n(z)\in \bold{N}(\R)$ under this identification.
+   \begin{lemma}
+    When $\ell\geq 1$,
+    we have $f_{0,\infty}\equiv 0$.
+   \end{lemma}
+   \begin{proof}
+    Similarly to \ref{lemma rank 1 archimedean section},
+    for any $g\in \bold{P}_{0}(\R)$ one has 
+    \[f_{\ell,\infty}(\gamma_{0}n(z)g)=\frac{(z\nu(g)^{-1}u_{1}+\lambda(g)^{-1}u_{2})^{\ell}(-\overline{\lambda(g)}^{-1}u_{1}+\overline{z\nu(g)^{-1}}u_{2})^{\ell}}{(|\lambda(g)|^{-2}+|z|^{2}|\nu(g)|^{-2})^{2\ell+1}(\ell!)^{2}}.\]
+    From now on we write $\lambda(g)$ (\emph{resp.\,}$\nu(g)$) as $\lambda$ (\emph{resp.\,}$\nu$).
+
+    The coefficient of $[u_{1}^{\ell-v}][u_{2}^{\ell+v}]$ in $f_{\ell,\infty}(\gamma_{0}n(z)g)$ is 
+    \begin{align*}
+        &\frac{(\ell-v)!(\ell+v)!}{(\ell!)^{2}(|\lambda|^{-2}+|z|^{2}|\nu|^{-2})^{2\ell+1}}\sum_{\substack{0\leq i,j\leq \ell\\ i+j=\ell-v}}\binom{\ell}{i}\binom{\ell}{j}z^{i}\nu^{-i}\lambda^{-(\ell-i)}(-\overline{\lambda})^{-j}(\overline{z\nu^{-1}})^{\ell-j}\\
+        =&\frac{(\ell-v)!(\ell+v)!|\nu|^{-2\ell}\nu^{v}\lambda^{-v}|z|^{2\ell}z^{-v}}{(\ell!)^{2}(|\lambda|^{-2}+|z|^{2}|\nu|^{-2})^{2\ell+1}}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}|\nu|^{2j}|\lambda|^{-2j}|z|^{-2j},
+    \end{align*}
+    and the corresponding coefficient in $f_{0,\infty}(g,s)$ is the integral of this function over $z\in\C$.
+    Set $w=z\lambda/\nu$,
+    then we have $dw=|\lambda/\nu|^{2}dz$ 
+    and this function equals 
+    \[\frac{(\ell-v)!(\ell+v)!|\lambda|^{2\ell+2}w^{-v}|w|^{2\ell}}{(\ell!)^{2}(1+|w|^{2})^{2\ell+1}}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}|w|^{-2j}.\]
+    Hence the coefficient of $[u_{1}^{\ell-v}][u_{2}^{\ell+v}]$ in $f_{0,\infty}(g,s=\ell+1)$ equals
+    \begin{equation}
+        \frac{(\ell-v)!(\ell+v)!}{(\ell!)^{2}}|\lambda|^{2\ell}|\nu|^{2}\sum_{j=\max(0,-v)}^{\min(\ell,\ell-v)}(-1)^{j}\binom{\ell}{j}\binom{\ell}{j+v}\left(\int_{\C}\frac{w^{-v}|w|^{2\ell-2j}}{(1+|w|^{2})^{2\ell+1}}dw\right)
+    \end{equation}
+    Notice that the inner integral is nonzero only when $v=0$,
+    and we have 
+    \[\int_{\C}\frac{|w|^{2\ell-2j}}{(1+|w|^{2})^{2\ell+1}}dw=\pi\frac{(\ell-j)!(\ell+j-1)!}{(2\ell)!},\,j=0,1,\ldots,\ell.\]
+    So we only need to consider the coefficient of $[u_{1}^{\ell}][u_{2}^{\ell}]$,
+    which is equal to 
+    \begin{align*}
+        \pi((2\ell)!)^{-1}|\lambda|^{2\ell}|\nu|^{2}\sum_{j=0}^{\ell}(-1)^{j}\binom{\ell}{j}^{2}(\ell-j)!(\ell+j-1)!
+        =\frac{\pi (\ell!)^{2} |\lambda|^{2\ell}|\nu|^{2}}{\ell(2\ell)!}{_{2}F_{1}}(\ell,-\ell;1;1),    
+    \end{align*}
+    which is $0$ when $\ell\leq 1$.
+   \end{proof}
+  
+\subsubsection{The $i=2$-term}
+\label{section i=2 part constant term}
+This term vanishes when we have the condition $\ell>n+1$ (by analyzing the singularity of $K_{v}(x)$ at $x=0$).
+
+
+\subsection{Rank 1 Fourier coefficients}
+\label{section rank 1 Fourier coefficients}
+For rank $1$ Fourier coefficients,
+one needs to calculate 
+\[E_{1}^{T}(g,s)=\int_{\bold{N}_{T}(\A)\backslash \bold{N}(\A)}\chi_{T}^{-1}(n)f(\gamma(\ell_{T})ng,s)dn\]
+for any nonzero isotropic vector $T$.
+
+\subsubsection{Non-archimedean components}
+\label{section rank 1 Fourier non-archimedean}
+For any prime $p$,
+we identify $\bold{N}_{T}(\Q_{p})\backslash \bold{N}(\Q_{p})$ with $E_{p}$ via the map $n(v,\lambda)\mapsto -\lrangle{T}{v}$,
+thus 
+\begin{align*}
+    E_{1,p}^{T}(1,s)&=\int_{x\in E_{p}}\int_{t\in E_{p}^{\times}}\psi_{E}(x)|t|_{E}^{s}\Phi_{p}(txb_{1}+tT)dtdx\\
+    &=\int_{x\in E_{p}}\int_{t\in E_{p}^{\times}}\psi_{E}(x/t)|t|_{E}^{s-1}\Phi_{p}(xb_{1}+tT)dtdx
+\end{align*}
+\noindent Split case:
+\label{section non-archimedean rank 1 split}
+When $p$ splits in $E$,
+we write $T$ as $(T_{1},T_{2})$ with $T_{i}\in \Z_{p}^{n}$,\,$i=1,2$.
+Let $\alpha=v_{p}(T_{1})$ and $\beta=v_{p}(T_{2})$,
+then we have:
+\begin{align*}
+    E_{1,p}^{T}:=&E_{1,p}^{T}(1,s=\ell+1)\\
+    =&\int_{(x_{1},x_{2})\in \Q_{p}^{2}}\int_{(t_{1},t_{2})\in (\Q_{p}\times\Q_{p})^{\times}}\psi_{p}\left(\frac {x_{1}}{t_{1}}+\frac {x_{2}}{t_{2}}\right)|t_{1}t_{2}|_{p}^{s-1}\Phi_{p}\left((x_{1},x_{2})b_{1}+(t_{1},t_{2})T\right)dt_{1}dt_{2}dx_{1}dx_{2}\\
+    =&\sum_{\substack{r_{1}\geq -\alpha\\r_{2}\geq -\beta}}p^{-\ell(r_{1}+r_{2})}\int_{(x_{1},x_{2})\in \Z_{p}}\psi_{p}(x_{1}/p^{r_{1}})\psi_{p}(x_{2}/p^{r_{2}})dx_{1}dx_{2}\\
+    =&\sum_{\substack{r_{1}\geq -\alpha\\r_{2}\geq -\beta}}p^{-\ell(r_{1}+r_{2})}\left(\frac{1}{p^{r_{1}}}\sum_{x_{1}\in \Z/p^{r_{1}}\Z}\psi_{p}(x_{1}/p^{r_{1}})\right)\left(\frac{1}{p^{r_{1}}}\sum_{x_{2}\in \Z/p^{r_{2}}\Z}\psi_{p}(x_{2}/p^{r_{2}})\right)\\
+    =&(1+p^{\ell}+p^{2\ell}+\cdots+p^{\alpha\ell})(1+p^{\ell}+p^{2\ell}+\cdots+p^{\beta\ell}):=\sigma_{E,p}(T).
+\end{align*}
+
+\noindent Inert case:
+\label{section non-archimedean rank 1 inert}
+When $p$ is inert in $E$ and $p\neq 2$,
+we have:
+\begin{align*}
+    E_{1,p}^{T}=\sum_{r\geq -v_{p}(T)}p^{-2r \ell}\int_{x\in \oo_{E_{p}}}\psi_{E}(x/p^{r})dx=1+p^{2\ell}+p^{4\ell}+\cdots+p^{2\ell v_{p}(T)}:=\sigma_{E,p}(T).
+\end{align*}
+
+\noindent Ramified case: For bad finite primes including ramified primes, we use Karel's result (Lemma \ref{Karel}).
+
+We conjecture the following:
+
+\begin{conj}\label{conj-rank1}
+Suppose $p$ is ramified or $p=2$. Then $E_{1,p}^T=C_n\sigma_{E,p}(T)$ for some rational number $C_n$.
+\end{conj}
+
+
+\subsubsection{Archimedean components}
+\label{section rank 1 Fourier archimedean}
+Again, 
+we identify $\bold{N}_{T}(\R)\backslash\bold{N}(\R)$ with $\C$ via the map $n(v,\lambda)\mapsto -\lrangle{T}{v}$,
+and for any $z\in \C$ we choose an element $n(z)\in\bold{N}(\R)$ corresponding to $z$ under this identification.
+\begin{lemma}
+    \label{lemma rank 1 archimedean section}
+    For any $z\in \C$,
+    we have 
+    \[f_{\ell,\infty}(\gamma(\ell_{T})n(z),s=\ell+1)=\frac{(zu_{1}+\beta u_{2})^{\ell}(-\overline{\beta}u_{1}+\overline{z}u_{2})^{\ell}}{(|z|^{2}+|\beta|^{2})^{2\ell+1}(\ell!)^{2}},\]
+    where $\beta=\beta(T):=\sqrt{2}\lrangle{T}{u_{2}}$.
+\end{lemma}
+\begin{proof}
+    Suppose that $\gamma(\ell_{T})n(z)=pk$ for $p\in \bold{P}(\R)$ and $k=(k_{+},k_{-})\in K_{\infty}=\rmm{U}(V_{2}^+)\times \rmm{U}(V_{n}^{-})$,
+    then one has 
+    \[T+zb_{1}=b_{1}\gamma(\ell_{T})n(z)=b_{1}pk=\nu(p)^{-1}b_{1}k.\]
+    Taking the projection to $V_{2}^{+}$ of both sides,
+    we obtain that 
+    \[zu_{1}+\sqrt{2}\lrangle{T}{u_{2}}u_{2}=\nu(p)^{-1}u_{1}k_{+}.\]
+    One can take $\nu(p)$ to be $(|z|^{2}+|\beta|^{2})^{-1/2}$,
+    then 
+    \[k_{+}=\nu(p)\mat{z}{-\overline{\beta}}{\beta}{\overline{z}}\in\rmm{U}(V_{2}^{+}),\]
+    which gives us the desired value of $f_{\ell,\infty}$.
+\end{proof}
+Using Lemma \ref{lemma rank 1 archimedean section},
+the coefficient of $[u_{1}^{\ell}][u_{2}^{\ell}]$ in $E_{1,\infty}^{T}:=E_{1,\infty}^{T}(1,s=\ell+1)$ is equal to 
+\begin{align}
+    \label{eqn central coefficient rank 1 archimedean}
+    \int_{z\in \C}e^{2\pi i \rmm{Re}(z)}\frac{\sum\limits_{k=0}^{\ell}\binom{\ell}{k}^{2}|z|^{2k}(-|\beta|^{2})^{\ell-k}}{(|z|^{2}+|\beta|^{2})^{2\ell+1}}dz.
+\end{align}
+We set $B=|\beta|^{2}$ and $z=x+iy$, where $x,y\in \R$,
+then the integral in (\ref{eqn central coefficient rank 1 archimedean}) equals 
+\begin{align*}
+    &\int_{\R^{2}}e^{2\pi i x}\sum_{k=0}^{\ell}\binom{\ell}{k}^{2}(-B)^{\ell-k}\frac{(x^{2}+y^{2})^{k}}{(x^{2}+y^{2}+B)^{2\ell+1}}dxdy\\
+    =&\int_{\R}e^{2\pi i x}\sum_{k=0}^{\ell}\binom{\ell}{k}^{2}(-B)^{\ell-k}\left(\int_{\R}\frac{(y^{2}+x^{2})}{(y^{2}+x^{2}+B)^{2\ell+1}}dy \right)dx.
+\end{align*}
+By Lemma \ref{lemma integral over center of Heisenberg},
+the inner integral over $y\in\R$ equals 
+\[\frac{(x^{2}+B)^{k-2\ell-1/2}}{(2\ell)!}\sum_{j=0}^{k}\binom{k}{j}\left(\frac{x^{2}}{x^{2}+B}\right)^{k-j}\Gamma(j+1/2)\Gamma(2\ell-j+1/2).\]
+Similarly to our calculation in \S\ref{section archimedean place rank 2 Fourier infinite part},
+we have 
+\begin{align*}
+    E_{1,\infty}^{T}=2^{-2\ell}\pi\sum_{k=0}^{\ell}\frac{(-B)^{k}2^{-2k}(2\ell+2k)!}{(k!)^{2}(\ell+k)!(\ell-k)!}\int_{\R}\frac{e^{2\pi i x}dx}{(x^{2}+B)^{\ell+k+1/2}}.
+\end{align*}
+Using Basset's integral,
+one has 
+\[\int_{\R}\frac{e^{iwt}dt}{(t^{2}+z^{2})^{n+1/2}}=\frac{2\sqrt{\pi}}{\Gamma(n+1/2)}\left(\frac{|w|}{2|z|}\right)^{n}K_{n}(|wz|),\,w,z\in \R.\]
+Plugging this into $E_{1,\infty}^{T}$,
+we obtain
+\begin{align*}
+    E_{1,T}^{\infty}&=2^{-2\ell}\pi\sum_{k=0}^{\ell}\frac{(-B)^{k}2^{-2k}(2\ell+2k)!}{(k!)^{2}(\ell+k)!(\ell-k)!}\cdot \frac{2^{l+k+1}(\ell+k)!B^{-(\ell+k)/2}(2\pi)^{\ell+k}K_{\ell+k}(2\pi\sqrt{B})}{(2\ell+2k)!}\\
+    &=2\pi B^{-\ell}\sum_{k=0}^{\ell}\frac{(-1)^{k}}{(k!)^{2}(\ell-k)!}(\pi\sqrt{B})^{\ell+k}K_{\ell+k}(2\pi \sqrt{B}).
+\end{align*}
+\begin{lemma}\label{lemma summation of Bessel functions}
+    For any $C>0$,
+    we have 
+    \[S_{\ell}:=\sum_{k=0}^{\ell}\frac{(-1)^{k}C^{\ell+k}K_{\ell+k}(2C)}{(k!)^{2}(\ell-k)!}=\frac{(-1)^{\ell}C^{2\ell}}{(\ell!)^{2}}K_{0}(2C).\]
+\end{lemma}
+\begin{proof}
+    Using the recurrence relation for K-Bessel functions:
+    \[K_{n+1}(z)=K_{n-1}(z)+\frac{2n}{z}K_{n}(z),\]
+    we can write $-C^{2}S_{\ell}$ as 
+    \begin{align*}
+        -C^{2}S_{\ell}&=\sum_{k=0}^{\ell}(-1)^{k+1}\frac{C^{\ell+k+2}}{(k!)^{2}(\ell-k)!}K_{\ell+k}(2C)\\
+        &=\sum_{j=1}^{\ell+1}(-1)^{j}\frac{C^{\ell+1+j}}{((j-1)!)^{2}(\ell-j+1)!}\left(K_{\ell+1+j}(2C)-\frac{\ell+j}{C}K_{\ell+j}(2C)\right)\\
+        &=\sum_{j=1}^{\ell+1}\frac{(-1)^{j}C^{\ell+1+j}K_{\ell+1+j}(2C)}{((j-1)!)^{2}(\ell-j+1)!}+\sum_{j=0}^{\ell}\frac{(-1)^{j}(\ell+j+1)C^{\ell+1+j}K_{\ell+j+1}(2C)}{(j!)^{2}(\ell-j)!}\\
+        &=\frac{(\ell+1)C^{\ell+1}K_{\ell+1}(2C)}{\ell!}+\sum_{j=1}^{\ell}\frac{(-1)^{j}C^{\ell+1+j}K_{\ell+1+j}(2C)}{(j!)^{2}(\ell+1-j)!}(\ell+1)^{2}+(-1)^{\ell+1}\frac{C^{2\ell+2}K_{2\ell+2}(2C)}{(\ell!)^{2}}\\
+        &=(\ell+1)^{2}S_{\ell+1}.
+    \end{align*}
+    Since $S_{0}=K_{0}(2C)$ and $S_{\ell+1}=-\frac{C^{2}}{(\ell+1)^{2}}S_{\ell}$,
+    we have 
+    \[S_{\ell}=(-1)^{\ell}\frac{C^{2\ell}}{(\ell!)^{2}}K_{0}(2C).\qedhere\]
+\end{proof}
+By this lemma,
+one has 
+\[E_{1,T}^{\infty}=2\pi B^{-\ell}\cdot\frac{(-1)^{\ell}(\pi \sqrt{B})^{2\ell}}{(\ell!)^{2}}K_{0}(2\pi\sqrt{B})=\frac{2\pi^{2\ell+1}}{(\ell!)^{2}}K_{0}(2\pi \sqrt{B}).\]
+
+
+\subsection{Rank 2 Fourier coefficients: non-archimedean components}
+\label{section rank 2 Fourier coefficients finite part}
+One decomposes $E_{2}^{T}(1,s)$ as $\prod_{v}E_{2,v}^{T}(s)$.
+
+\begin{align*}
+    E_{2,p}^{T}(s)&=\int_{\bold{N}(\Q_{p})}\chi_{T}^{-1}(n)f_{p}(w_{2}n,s)dn\\
+    &=\int_{\bold{N}(\Q_{p})}\int_{t\in E_{p}^{\times}}\chi_{T}^{-1}(n)|t|^{s}\Phi_{p}(t\cdot b_{1}w_{2}n)dtdn\\
+    &=\int_{v\in \bold{V}_{0}(\Q_{p})}\int_{\substack{x\in E_{p}\\ \overline{x}=-x}}\int_{t\in E_{p}^{\times}}\chi_{T}^{-1}(v)|t|^{s}\Phi_{p}\left(t\left(\left(-\lrangle{v}{v}/2+x\right)b_{1}+b_{2}+v\right)\right)dtdxdv
+\end{align*}
+Take $\oo_{E_{p}}$ to be $\Z_{p}\otimes_{\Z}\oo_{E}\subseteq E_{p}$,
+$\frakk{p}$ to be its maximal ideal,
+and $\call{V}$ an $\oo_{E_{p}}$-lattice of $V_{0}(\Q_{p})=V_{0}\otimes_{\Q}\Q_{p}$ 
+such that $\call{V}\otimes_{\oo_{E_{p}}}\left(\oo_{E,p}/\frakk{p}\right)$ is a non-degenerate Hermitian space over $\oo_{E_{p}}/\frakk{p}$.
+Assume that $\Phi_{p}$ is the characteristic function of the lattice 
+$\oo_{E_{p}}b_{1}\oplus \call{V}\oplus \oo_{E_{p}}b_{2}$.
+
+%\textcolor{red}{Write down a precise definition of $\call{V}$?}
+\begin{lemma}\label{lemma finite rank 2 coefficients}
+    \begin{enumerate}
+        \item If $p$ splits in $E$,
+        then 
+        \[E_{2,p}^{T}(s)=\sum_{r_{1},r_{2}\geq 0}p^{-(r_{1}+r_{2})s+\min(r_{1},r_{2})}\left(\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\rmm{max}(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\right).\]
+        \item If $p$ is inert in $E$,
+        then
+        \begin{equation}\label{inert-int} E_{2,p}^{T}(s)=\sum_{r\geq 0}p^{-2rs+r}\left(\int_{v\in p^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}\left(p^{r}\lrangle{v}{v}/2\in \Z_{p}\right)dv\right).
+\end{equation}
+        \item If $p$ is ramified in $E$, then 
+$$
+    E_{2,p}^{T}(s)=\sum_{r\geq 0}|\varpi|^{rs}p^{\lceil r/2 \rceil}\left(\int_{v\in \varpi^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\lfloor r/2\rfloor}\lrangle{v}{v}\in\Z_{p})dv\right).
+$$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (1) If $p$ splits in $E$, then
+$E_{p}=\Q_{p}\times\Q_{p}$:
+\begin{align*}
+    E_{2,p}^{T}(s)=&\sum_{r_{1}\geq 0,\,r_{2}\geq 0}|p|^{(r_{1}+r_{2})s}\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\left(\int_{\substack{x\in (p^{-r_{1}},p^{-r_{2}})\oo+\lrangle{v}{v}/2\\ x+\overline{x}=0}}dx\right)dv
+\end{align*}
+If we write $x=(y,-y)\in E_{p}$,
+then $x\in (p^{-r_{1}},p^{-r_{2}})\oo+\lrangle{v}{v}/2$ is equivalent to 
+\[y\in p^{-r_{1}}\Z_{p}+\lrangle{v}{v}/2,\,-y\in p^{-r_{2}}\Z_{p}+\lrangle{v}{v}/2.\]
+There are such $x$ only if $\lrangle{v}{v}\in p^{-\max(r_{1},r_{2})}\Z_{p}$,
+If $r_{1}\geq r_{2}$,
+then $y\in p^{-r_{2}}\widetilde{y}-\lrangle{v}{v}/2$ for some $\widetilde{y}\in \Z_{p}$.
+Since the measure on the line $\{x=(y,-y)\in E_{p}\}$ is the normalized Haar measure $dy$ on $\Q_{p}$,
+one has $dy=p^{r_{2}}d\widetilde{y}$,
+and 
+\[\int_{x=(y,-y)\in p^{-r_{1}}\Z_{p}\times p^{-r_{2}}\Z_{p}+\lrangle{v}{v}/2}dx=\int_{\widetilde{y}\in \Z_{p}}p^{r_{2}}d\widetilde{y}=p^{r_{2}}=p^{\min(r_{1},r_{2})}.\]
+Hence
+\[E_{2,p}^{T}(s)=\sum_{r_{1},r_{2}\geq 0}p^{-(r_{1}+r_{2})s+\min(r_{1},r_{2})}\left(\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\rmm{max}(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\right).\]
+
+(2) If $p$ is inert in $E$,
+then $E_{p}$ is an unramified quadratic field extension of $\Q_{p}$, 
+and 
+\begin{align*}
+    E_{2,p}^{T}(s)=\sum_{r\geq 0}|p|_{E_{p}}^{rs}\int_{v\in p^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{r}\lrangle{v}{v}\in\Z_{p})\left(\int_{x\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}}\rmm{Char}(x+\overline{x}=0)dx\right)dv
+\end{align*}
+Choose a unit $u\in \oo_{E_{p}}^{\times}$ with $u+\overline{u}=0$,
+then the line $\{x\in E_{p} |\, x+\overline{x}=0 \}$ can be written as $\{yu,\,y\in \Q_{p}\}$,
+with the normalized Haar measure $dy$.
+There exist elements $yu\in \lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}$ if and only if $\lrangle{v}{v}/2\in p^{-r}\Z_{p}$.
+When we have $\lrangle{v}{v}/2\in p^{-r}\Z_{p}$,
+any element $yu\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}$ is of the form 
+\[yu=\lrangle{v}{v}/2+p^{-r}\left(-p^{r}\lrangle{v}{v}/2+\widetilde{y}u\right),\,\widetilde{y}\in \Z_{p},\]
+thus one has 
+\begin{align*}
+    \int_{x\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}}\rmm{Char}(x+\overline{x}=0)dx&=\rmm{Char}(p^{r}\lrangle{v}{v}/2\in\Z_{p})|p|_{\Q_{p}}^{-r}\int_{\Z_{p}}d\widetilde{y}\\
+    &=p^{r}\rmm{Char}(p^{r}\lrangle{v}{v}/2\in\Z_{p}),    
+\end{align*}
+which gives us the desired identity.
+\end{proof}     
+
+
+If $p$ is ramified in $E$:
+(Assume $p\neq 2$)
+Then $E_{p}$ is a ramified quadratic field extension of $\Q_{p}$,
+and we choose an uniformizer $\varpi$ of $\frakk{p}\subset\oo_{E_{p}}$ such that $\varpi+\overline{\varpi}=0$ and $\varpi^{2}\in p\Z_{p}^{\times}$.
+The integral for $E_{2,p}^{T}$ can be rewritten as:
+$$
+\sum_{r\geq 0}p^{-rs}\int_{v\in \varpi^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\lfloor r/2\rfloor}\lrangle{v}{v}\in \Z_{p})\left(\int_{x\in\Q_{p}}\rmm{Char}(x\varpi-\frac{\lrangle{v}{v}}{2}\in \varpi^{-r}\oo_{E_{p}})dx\right)dv.
+$$
+Suppose $x\varpi-\frac{\lrangle{v}{v}}{2}=\varpi^{-r}(y+\varpi z)$ for $y,z\in \Bbb Z_p$. If $r$ is even, one has $x\varpi-\frac{\lrangle{v}{v}}{2}=(p^{-r/2}z)\varpi+p^{-r/2}y$, which implies that $\lrangle{v}{v}\in p^{-r/2}\Bbb Z_p$ and $x\in p^{-r/2}\Bbb Z_p$. If $r$ is odd, one has 
+$x\varpi-\frac{\lrangle{v}{v}}{2}=(p^{-(r+1)/2}y)\varpi+p^{-(r-1)2}z$, which implies that $\lrangle{v}{v}\in p^{-(r-1)/2}\Bbb Z_p$ and $x\in p^{-(r+1)/2}\Bbb Z_p$. Hence
+$$
+E_{2,p}^T=\sum_{r\geq 0}p^{-rs}p^{[r/2]}\int_{v\in \varpi^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\lfloor r/2\rfloor}\lrangle{v}{v}\in \Z_{p})\, dv.
+$$
+
+\subsubsection{Split case}
+\label{section split case of rank 2 coefficient}
+When $p$ splits in $E$,
+then one can view the Hermitian $\Q_{p}\times \Q_{p}$-space $V_{0}\otimes_{\Q} \Q_{p}$ as the direct sum of two copies of quadratic $\Q_{p}$-space $\left(\Q_{p}^{n},((x_{i}),(y_{i}))=\sum x_{i}y_{i}\right)$, and one has 
+\[2\rmm{Re}\lrangle{(x_{1},y_{1})}{(x_{2},y_{2})}=(x_{1},y_{2})+(x_{2},y_{1}).\]
+Denote by $L$ the lattice $\Z_{p}^{n}$ in $\Q_{p}^{n}$.
+We set 
+\begin{align*}
+        S(r_{1},r_{2}):=&\int_{v\in (p^{-r_{1}},p^{-r_{2}})\nu}\chi_{T}^{-1}(v)\rmm{Char}(p^{\max(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\\
+        =&\int_{\substack{x\in p^{-r_{1}}L\\y\in p^{-r_{2}}L}}\psi_{p}^{-1}\left((x,T_{2})+(y,T_{1})\right)\rmm{Char}(p^{\max(r_{1},r_{2})}(x,y)\in \Z_{p})dxdy,
+\end{align*}
+for any integers $r_{1},r_{2}\geq 0$.
+    
+\begin{prop}
+    \label{prop unramified split rank 2 coefficient}
+    Let $p$ be a prime split in $E$, and $r_{1}\leq r_{2}$ be two natural numbers.
+    For a vector $T=(T_{1},T_{2})\in \call{V}$
+    with $\alpha=v_{p}(T_{1}),\beta=v_{p}(T_{2}),v_{p}(\lrangle{T}{T})=\gamma$ and $B=B(r_{1},r_{2}):=\min(r_{1},\beta,\alpha+r_{1}-r_{2})$,
+    one has 
+    \[S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}-1+(n-1)(\gamma-r_{2}+1)}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right),\]
+    which is nonzero only if $r_{2}\leq \min(\gamma+1,r_{2}+\alpha)$.
+    In particular, if $\lrangle{T}{T}\in\oo_{E_{p}}^{\times}$,
+    then the nonzero terms are 
+    \[S(0,0)=1 \text{ and }S(1,1)=-p^{n-1}.\]    
+\end{prop}
+\begin{proof}
+    The integral $S(r_{1},r_{2})$ can be rewritten as an exponential sum:
+    \[S(r_{1},r_{2})=\sum_{\substack{x\in L/p^{r_{1}}L\\ y\in L/p^{r_{2}}L}}\psi_{p}\left(\frac{(x,T_{2})}{p^{r_{1}}}+\frac{(y,T_{1})}{p^{r_{2}}}\right)\rmm{Char}\left((x,y)\in p^{r_{1}}\Z_{p}\right).\]
+    The characteristic function has the following expression:
+    \[\rmm{Char}\left((x,y)\in p^{r_{1}}\Z_{p}\right)=p^{-r_{1}}\sum_{u\in \Z/p^{r_{1}}\Z}\psi_{p}\left(\frac{u(x,y)}{p^{r_{1}}}\right),\]
+    thus 
+    \[S(r_{1},r_{2})=p^{-r_{1}}\sum_{\substack{y\in L/p^{r_{2}}L\\u\in \Z/p^{r_{1}}\Z}}\psi_{p}^{-1}\left(\frac{(y,T_{1})}{p^{r_{2}}}\right)\left(\sum_{x\in L/p^{r_{1}}L}\psi_{p}^{-1}\left(\frac{(x,T_{2}-uy)}{p^{r_{1}}}\right)\right).\]
+    The inner sum equals $p^{r_{1}n}$ when $T_{2}-uy\in p^{r_{1}}L$, otherwise it equals $0$. Hence one has 
+    \[S(r_{1},r_{2})=p^{r_{1}(n-1)}\sum_{\substack{y\in L/p^{r_{2}}L\\u\in \Z/p^{r_{1}}\Z}}\psi_{p}^{-1}\left(\frac{(y,T_{1})}{p^{r_{2}}}\right)\rmm{Char}(T_{2}-uy\in p^{r_{1}}L).\]
+    The equation $T_{2}=uy \modulo p^{r_{1}}L$ has solution if and only if $k:=v_{p}(u)\leq v_{p}(T_{2})=\beta$,
+    and in this case,
+    $y=u^{-1}T_{2}+p^{r_{1}-k}z$ for $z\in L/p^{r_{2}-r_{1}+k}L$.
+    Plugging this in the exponential sum and replacing $u$ by $p^{k}u$,
+    we obtain that 
+    \begin{align*}
+        S(r_{1},r_{2})&=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\sum_{z\in L/p^{r_{2}-r_{1}+k}L}\psi_{p}^{-1}\left(\frac{(T_{1},u^{-1}p^{-k}T_{2}+p^{r_{1}-k}z)}{p^{r_{2}}}\right)\\
+        &=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}(T_{1},T_{2})}{p^{r_{2}+k}}\right)\left(\sum_{z\in L/p^{r_{2}-r_{1}+k}L}\psi_{p}^{-1}\left(\frac{(z,T_{1})}{p^{r_{2}-r_{1}+k}}\right)\right)\\
+        &=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}p^{(r_{2}-r_{1}+k)n}\rmm{Char}(\alpha\geq r_{2}-r_{1}+k)\left(\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}}{p^{r_{2}+k-\gamma}}\right)\right)
+    \end{align*}
+    For the inner sum,
+    we have 
+    \[\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}}{p^{r_{2}+k-\gamma}}\right)=\left\{\begin{array}{ll}
+        \phi(p^{r_{1}-k})=|(\Z/p^{r_{1}-k})^{\times}| & \text{, if }r_{2}+k-\gamma\leq 0 \\
+        -p^{r_{1}-k-1} & \text{, if }r_{2}+k-\gamma=1\\
+        0 & \text{, if }r_{2}+k-\gamma>1        
+    \end{array}\right.\]
+    Combining all these together,
+    we get the following formula: let $B=B(r_{1},r_{2},\alpha,\beta)$ be $\min(r_{1},\beta,\alpha+r_{1}-r_{2})$, then 
+    \begin{align*}
+        S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}-1+(n-1)(\gamma-r_{2}+1)}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right).
+    \end{align*}
+    This is nonzero only if $r_{1}\leq r_{2}\leq \min(\gamma+1,r_{1}+\alpha)$,
+    which only hold for finitely many terms.
+    Particularly,
+    if $T=(T_{1},T_{2})$ is unramified,
+    then $\alpha=\beta=\gamma=0$,
+    thus $r_{1}=r_{2}\leq 1$.
+    In this case we have $S(0,0)=1,\, S(1,1)=-p^{n-1}.$
+\end{proof}
+
+Hence we have proved 
+\begin{thm} Suppose $T$ and $\Phi_p$ are unramified. Then
+$$E_{2,p}^T(s)=1-p^{n-2s}.
+$$
+\end{thm}
+
+We hope to prove the following:
+
+\begin{conj}\label{conj-split}
+Let $T=(T_1,T_2)$, $p^k\|T$, and $p^{2k+k'}\|\langle T,T\rangle$. Then
+$$E_{2,p}^T(s)=(1-p^{n-2s})Q_{T,p}(p^{n+1-2s}),
+$$
+and $Q_{T,p}(X)\in\Bbb Z[X]$ satisfies the functional equataion
+$$X^{2k+k'}Q_{T,p}(X^{-1})=Q_{T,p}(X).
+$$
+\end{conj}
+
+\subsubsection{Inert case}
+
+When $p$ is inert in $E$, one can view the Hermitian space $V_0$ as the quadratic space $\tilde V_0$ with signature $(2,2n-2)$. Then 
+$$E_{2,p}^T(s)=\sum_{r=0}^\infty p^{-r(2s-1)}B_{r,T},
+$$
+where $B_{r,T}$ is the integral in (\ref{inert-int}). By \cite{KY2}, 
+$$E_{2,p}^T(s)=(1-p^{n-2s})Q_{T,p}(p^{n+1-2s}),
+$$
+where $Q_{T,p}(X)\in\Bbb Z[X]$ is a polynomial of degree $2k+k'$ and $p^{2k+k'}\|\langle T,T\rangle$. It satisfies the functional equation
+$$X^{2k+k'}Q_{T,p}(X^{-1})=Q_{T,p}(X).
+$$
+
+\subsubsection{Ramified case}
+
+We hope to prove the following:
+
+\begin{conj}\label{conj-ram}
+$$E_{2,p}^T(s)=(1-p^{n-2s})Q_{T,p}(p^{n+1-2s}),
+$$
+where $Q_{T,p}(X)\in \Bbb Z[X]$.
+\end{conj}
+
+At bad finite primes, we have
+
+\begin{lemma} \cite{Ka}\label{Karel} Suppose $\Phi_p$ is $\Bbb Q$-valued. Then
+$$\int_{\bold N(\Bbb Q_p)} \chi_T^{-1}(n) f_p(w_2 n,s)\, dn,
+$$
+is finite and valued in $\Bbb Q(\psi_p)$ at $s=m$, a positive integer.
+\end{lemma}
+
+
+\subsection{Rank 2 Fourier coefficients: archimedean components}
+\label{section archimedean place rank 2 Fourier infinite part}
+    In this section, we write $|z|$ for $z\in\C$ for $|z|_\Bbb C$, \emph{norm of $z$ with respect to the extension $\C/\R$}, instead of the usual modulus $\sqrt{z\overline{z}}$.
+  %  I admit that this is somehow strange and confusing, But I will fix this problem if this draft could become a paper...
+
+We first analyze the function $f_{\ell,\infty}(w_{2}n,s=\ell+1)$:
+\begin{lemma}
+    \label{lemma rank 2 values of archimedean section}
+    For any $v\in V_{0}\otimes_{\Q}\R$ and $x\in \R$,
+    we set:
+    \[\alpha(v,x)=-\frac{\lrangle{v}{v}}{2}+ix+1,\,\beta(v)=\sqrt{2}\lrangle{v}{u_{2}},\]
+    then we have 
+    \[f_{\ell,\infty}(w_{2}n(v,ix),s)=\frac{(\alpha u_{1}+\beta u_{2})^{\ell}(-\overline{\beta}u_{1}+\overline{\alpha}u_{2})^{\ell}}{(|\alpha(v,x)|+|\beta(v)|)^{\ell+s}(\ell!)^{2}}.\]
+\end{lemma}
+\begin{proof}
+    One has 
+    \[b_{1}w_{2}n(v,ix)=(-\lrangle{v}{v}/2+ix)b_{1}+b_{2}+v.\]
+    Suppose that we can decompose $w_{2}n(v,ix)$ as $pk$ for some $p\in \bold{P}(\R)$ and $k\in K_{\infty}$,
+    then 
+    \begin{equation}\label{eqn searching Iwasawa decomposition}
+         b_{1}w_{2}n(v,ix)k^{-1}=b_{1}p=\nu(p)^{-1}b_{1}.
+    \end{equation}  
+    Let $k_{+}$ be the factor of $k$ in $\rmm{U}(V_{2}^{+})$,
+    and $v=v_{+}+v_{-}\in \C u_{2}\oplus \rmm{Span}_{\C}(v_{1},\ldots,v_{n-1})$.
+    Taking the $V_{2}^{+}$ components of \ref{eqn searching Iwasawa decomposition},
+    one gets:
+    \[\frac{1}{\sqrt{2}}\left(\alpha(v,x)u_{1}+\beta(v)u_{2}\right)=\left[\frac{1}{\sqrt{2}}\left(-\frac{\lrangle{v}{v}}{2}+ix+1\right)u_{1}+v_{+}\right]k_{+}^{-1}=\nu(p)^{-1}\frac{u_{1}}{\sqrt{2}}.\]
+    The norms of both sides give us the identity $|\alpha(v,x)|+|\beta(v)|=|\nu(p)|^{-1}$.
+    One may assume that 
+    $\nu(p)^{-1}=\sqrt{|\alpha(v,x)|+|\beta(v)|}$,
+    then in the basis of $u_{1},u_{2}$,
+    the element $k^{+}\in \rmm{U}(V_{2}^{+})$ can be written as the Hermitian matrix 
+    \[\frac{1}{\sqrt{|\alpha(v,x)|+|\beta(v)|}}\left(\begin{matrix}
+        \alpha(v,x) & -\overline{\beta(v)}\\
+        \beta(v) & \overline{\alpha(v,x)}
+    \end{matrix}\right).\]
+    Plug $k^{+}$ and $\nu(p)$ into $f_{\ell,\infty}(w_{2}n(v,ix),s)=f_{\ell,\infty}(pk,s)=|\nu(p)|^{s}[u_{1}^{\ell}][u_{2}^{\ell}].k^{+}$,
+    and we get the desired value.
+\end{proof}
+Let $I_{0}(T;\ell)$ be the coefficient of $[u_{1}^{\ell}][u_{2}^{\ell}]$ in $E_{2,\infty}^{T}(s=\ell+1)$,
+which can be written as 
+\begin{align*}
+    I_{0}(T;\ell)=&\int_{v\in V_{0}\otimes_{\Q}\R}\int_{x\in \R}\chi_{T}^{-1}(v)\sum_{k=0}^{\ell}\frac{{\ell \choose k}{\ell\choose k}(x^{2}+A)^{k}(-B)^{\ell-k}}{(x^{2}+A+B)^{2\ell+1}}dxdv\\
+    =&\int_{v\in V_{0}\otimes \R}\chi_{T}^{-1}(v)\sum_{k=0}^{\ell}(-B)^{\ell-k}{\ell\choose k}^{2}\int_{x\in \R}\frac{(x^{2}+A)^{k}}{(x^{2}+A+B)^{2\ell+1}}dxdv
+\end{align*}
+where $A=|\alpha|-x^{2}=\left(1-\lrangle{v}{v}/2\right)^{2}$, and $B=|\beta|=2|\lrangle{v}{u_{2}}|$.
+\begin{lemma}
+    \label{lemma integral over center of Heisenberg}
+    For any real number $C,D$
+    and two natural numbers $m<n$,
+    we have 
+\begin{eqnarray*}
+&& \int_{\R}\frac{(x^{2}+C)^{m}}{(x^{2}+D)^{n}}dx=\frac {C^m D^{\frac 12-n}}{\Gamma(n)} \sqrt{\pi} \Gamma(n-\tfrac 12) {}_2 F_1(\tfrac 12,-m; \tfrac 32-n; \tfrac DC) \\
+&& \phantom{xxxxxxxxxxxx}=\frac{D^{m-n+\frac 12}}{(n-1)!}\sum_{k=0}^{m}{m\choose k}\left(\frac{C}{D}\right)^{m-k}\Gamma(k+\tfrac 12)\Gamma(n-k-\tfrac 12).
+\end{eqnarray*}
+\end{lemma}
+\begin{proof}
+    An exercise of calculus.
+\end{proof}
+Now Lemma \ref{lemma integral over center of Heisenberg} tells us $I_{0}(T;\ell)$ is the Fourier transform of the function 
+\begin{align*}
+    F_{0,\ell}(v):=\sum_{k=0}^{\ell}(-B)^{\ell-k}{\ell\choose k}^{2}\frac{(A+B)^{k-2\ell-1/2}}{(2\ell)!}\sum_{j=0}^{k}{k\choose j}\left(\frac{A}{A+B}\right)^{k-j}\Gamma(j+1/2)\Gamma(2\ell+1/2-j)
+\end{align*}
+Set $z=B/(A+B)$,
+then this function becomes 
+\[\frac{2^{-4\ell}}{(2\ell)!}\pi(A+B)^{-\ell-1/2}\sum_{k=0}^{\ell}\sum_{j=0}^{k}{\ell\choose k}^{2}{k\choose j}\frac{(2j)!(4\ell-2j)!}{j!(2\ell-j)!}(-z)^{\ell-k}(1-z)^{k-j}\]
+We write:
+\[\sum_{k=0}^{\ell}\sum_{j=0}^{k}c_{j,k}(-z)^{\ell-k}(1-z)^{k-j}=\sum_{r=0}^{\ell}(-1)^{r}C(r)z^{r},\]
+where $c_{j,k}={\ell\choose k}^{2}{k\choose j}\frac{(2j)!(4\ell-2j)!}{j!(2\ell-j)!}$.
+The term $(-z)^{\ell-k}(1-z)^{k-j}$ has a non-zero $z^{r}$ term if and only if 
+$\ell-k\leq r\leq \ell-j$,
+thus 
+\[(-1)^{r}C(r)=\sum_{j=0}^{\ell-r}\sum_{k=\ell-r}^{\ell}c_{j,k}{{k-j}\choose {r-\ell+k}}(-1)^{\ell-k+r-\ell+k}=(-1)^{r}\sum_{j=0}^{\ell-r}\sum_{k=\ell-r}^{\ell}c_{j,k}{{k-j}\choose {r-\ell+k}}.\]
+To compute $C(r)$,
+we need the following lemma:
+\begin{lemma}
+    \label{lemma combinatorics summations}
+    \begin{enumerate}
+        \item For integers $0\leq a\leq b$, one has \[\sum_{i=a}^{b}{b\choose i}{{b-a}\choose{b-i}}={{2b-a}\choose b}.\]
+        \item For any integer $0\leq r\leq \ell$, one has 
+        \[\sum_{i=0}^{\ell-r}\frac{\binom{2\ell}{i}\binom{\ell-r}{i}}{\binom{4\ell}{2i}}=2^{2\ell-2r}\frac{\binom{2\ell+2r}{\ell+r}}{\binom{4\ell}{2\ell}}.\]
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    The identity in (1) is obvious.
+    For the identity in (2),
+    the LHS can be rewritten as:
+    \begin{align*}
+        \sum_{i=0}^{\ell-r}\frac{(-\ell+r)_{j}(1/2)_{j}}{(-2\ell+1/2)_{j}j!}={_{2}F_{1}}(-(\ell-r),1/2;-2\ell+1/2;1),
+    \end{align*}
+    where $(x)_{j}$ is the (rising) Pochhammer symbol,
+    and $_{2}F_{1}$ is the hypergeometric function.
+    By Chu-Vandermond identity,
+    this value of hypergeometric function is
+    \[\frac{(-2\ell)_{\ell-r}}{(-2\ell+1/2)_{\ell-r}}=2^{\ell-r}\frac{\frac{(2\ell)!}{(\ell+r)!}}{\frac{(4\ell-1)!!}{(2\ell+2r-1)!!}}=2^{2\ell-2r}\frac{\binom{2\ell+2r}{\ell+r}}{\binom{4\ell}{2\ell}}.\qedhere\]
+\end{proof}
+Now we return to the value of $C(r)$:
+\begin{eqnarray*}
+   && C(r)=\sum_{j=0}^{\ell-r}\sum_{k=\ell-r}^{\ell}\frac{(\ell!)^{2}(2j)!(4\ell-2j)!}{k!((\ell-k)!)^{2}(j!)^{2}(r-\ell+k)!(\ell-r-j)!(2\ell-j)!}\\
+  &&\phantom{xxxx} =\sum_{j=0}^{\ell-r}\frac{\ell!(2j)!(4\ell-2j)!}{r!(j!)^{2}(\ell-r-j)!(2\ell-j)!}\sum_{k=\ell-r}^{\ell}\binom{\ell}{k}\binom{r}{\ell-k}\\
+  &&  \overset{(\text{by (1) of Lemma \ref{lemma combinatorics summations}})}{=}\frac{\ell!}{r!}\cdot\frac{(\ell+r)!}{\ell!r!}\sum_{j=0}^{\ell-r}\frac{(2j)!(4\ell-2j)!}{(j!)^{2}(\ell-r-j)!(2\ell-j)!}
+    =\frac{(\ell+r)!}{(r!)^{2}}\cdot \frac{(4\ell)!}{(\ell-r)!(2\ell)!}\sum_{j=0}^{\ell-r}\frac{\binom{2\ell}{j}\binom{\ell-r}{j}}{\binom{4\ell}{2j}}\\
+  &&  \overset{(\text{by (2) of Lemma \ref{lemma combinatorics summations}})}{=}\frac{(\ell+r)!}{(r!)^{2}}\cdot\frac{(4\ell)!}{(\ell-r)!(2\ell)!}\cdot 2^{2\ell-2r}\frac{\frac{(2\ell+2r)!}{((\ell+r)!)^{2}}}{\frac{(4\ell)!}{((2\ell)!)^{2}}}
+    =2^{2\ell-2r}\frac{(2\ell)!(2\ell+2r)!}{(r!)^{2}(\ell+r)!(\ell-r)!}.
+\end{eqnarray*}
+Putting the value of $C(r)$ into $F_{0,\ell}$,
+we have 
+\begin{eqnarray*}
+ && F_{0,\ell}(v) =\frac{2^{-4\ell}\pi}{(2\ell)!(A+B)^{\ell+1/2}}\sum_{r=0}^{\ell}(-1)^{r}2^{2\ell-2r}\frac{(2\ell)!(2\ell+2r)!}{(r!)^{2}(\ell+r)!(\ell-r)!}z^{r}\\
+  &&  =\frac{2^{-3\ell}(2\ell)!\pi}{(\ell!)^{2}(A+B)^{\ell+1/2}}\sum_{r=0}^{\ell}\frac{(-\ell)_{r}(\ell+1/2)_{r}}{1_{r}}\frac{z^{r}}{r!}
+    =\frac{2^{-3\ell}(2\ell)!\pi}{(\ell!)^{2}(A+B)^{\ell+1/2}}\cdot {_{2}F_{1}}(-\ell,\ell+1/2;1;z).
+\end{eqnarray*}
+We have shown the following result:
+\begin{prop}\label{prop archimedean rank 2 Fourier}
+    For $T\in V_{0}$ with $\lrangle{T}{T}>0$,T
+    the coefficient $I_{0}(T;\ell)$ of $[u_{1}^{\ell}][u_{2}^{\ell}]$ in $E_{2,\infty}^{T}(s=\ell+1)$ is the Fourier transform of the function:
+    \[F_{0,\ell}(v)=\frac{2^{-3\ell}(2\ell)!\pi}{(\ell!)^{2}(A+B)^{\ell+1/2}}\cdot {_{2}F_{1}}(-\ell,\ell+1/2;1;\frac{B}{A+B}),\]
+    where $A=\left(1-\frac{\lrangle{v}{v}}{2}\right)^{2}$ and $B=2|\lrangle{v}{u_{2}}|^{2}$.
+\end{prop}
+
+Let's recall the following result for quadratic spaces by Pollack:
+%\textcolor{red}{I know there are notation problems again... just let it be like this for now}
+\begin{prop}\label{prop Fourier transform of K Bessel functions}
+    ($v=0$ case of \cite[Proposition 4.5.3]{Po})
+    Let $(V^{\prime},(\,,\,))=V_{2}\oplus V_{n}$ be a non-degenerate quadratic space over $\R$ of signature $(2,n)$,
+    and $v_{1},v_{2}$ an orthonormal basis of $V_{2}$.
+    Set 
+    \[I_{0}(x;\ell)=\int_{V^{\prime}}e^{i(\omega,x)}\rmm{Char}(q(\omega)>0)q(\omega)^{\ell-n/2}K_{0}(\sqrt{2}|(\omega,v_{1}+\sqrt{-1}v_{2})|)d\omega.\]
+    This integral is absolutely convergent and we have 
+    \begin{align*}
+        I_{0}(x;\ell)=(2\pi)^{(n+2)/2}2^{\ell-1-n/2}\Gamma(\ell+1)\Gamma(\ell+1-n/2)F_{4}(\ell+1,\ell+1;\ell+1;1;-\|x_{n}\|^{2}/2;-\|x_{2}\|^{2}/2),
+    \end{align*}
+    where $x=x_{2}+x_{n}$,
+    and $F_{4}(a,b;c;d;x;y)$ is Appell's hypergeometric function.
+\end{prop} 
+Now we look at how this result fits into our unitary group setting.
+One take $V^{\prime}$ to be $(V_{0},\rmm{Re}(\lrangle{\,}{\,}))$,
+as a quadratic space of signature $(2,2n-2)$,
+$v^{\prime}_{1}=u_{2}$,
+$v^{\prime}_{2}=i u_{2}$,
+then 
+\begin{align*}
+    I_{0}(x;\ell)&=\int_{T\in V_{0},\,\lrangle{T}{T}>0}e^{i\rmm{Re}\lrangle{T}{x}}\lrangle{T}{T}^{\ell-n+1}K_{0}(\sqrt{2}|\lrangle{T}{u_{2}}|)dT\\
+    &=\int_{T\in V_{0},\,\lrangle{T}{T}>0}e^{2\pi i \rmm{Re}\lrangle{T}{x}}(2\pi)^{2\ell-2n+2}\lrangle{T}{T}^{\ell-n+1}K_{0}(2\sqrt{2}\pi |\lrangle{T}{u_{2}}|)(2\pi)^{2n}dT\\
+    &=(2\pi)^{2\ell+2}\int_{T\in V_{0},\,\lrangle{T}{T}>0}e^{2\pi i \rmm{Re}\lrangle{T}{x}}\lrangle{T}{T}^{\ell-n+1}K_{0}(2\sqrt{2}\pi |\lrangle{T}{u_{2}}|)dT,
+\end{align*}
+here $|z|=\sqrt{z\bar{z}}$,
+and for any $\ell>n-1$ we have
+\begin{align*}
+    I_{0}(x;\ell)=(2\pi)^{n}2^{\ell-n}\ell!(\ell-n+1)!(A+B)^{-(\ell+1)/2}{_{2}F_{1}}(-\ell/2,(\ell+1)/2;1;B/(A+B)).
+\end{align*}
+Replace $\ell$ by $2\ell$ (now $\ell>\frac{n-1}{2}$),
+and we have 
+\[I_{0}(x;2\ell)=(2\pi)^{n}2^{2\ell-n}(2\ell)!(2\ell-n+1)!(A+B)^{-\ell-1/2}\cdot{_{2}F_{1}}(-\ell,\ell+1/2;1;B/(A+B)).\]
+Comparing this with Proposition \ref{prop archimedean rank 2 Fourier},
+we get the following theorem:
+\begin{thm}\label{thm rank 2 Fourier archimedean generalised Whittaker}
+    For $T\in V_{0}$ with $\lrangle{T}{T}>0$ and $\ell>\frac{n-1}{2}$,
+    we have
+    \[I_{0}(T;\ell)=\frac{2^{-\ell-2}\pi^{4\ell-n+3}\lrangle{T}{T}^{2\ell-n+1}}{\ell!(2\ell-n+1)!}\call{W}_{T}(1).\]
+\end{thm}
+
+
+Therefore, if $T$ is of rank 2, the Fourier coefficient at $T$ is $\pi^{4\ell-n+3}/\zeta(2\ell+2-n)\times \text{(rational number)}$.
+If $n$ is even, $\zeta(2\ell+2-n)/\pi^{2\ell+2-n}$ is a rational number. 
+
+\subsection{Proof of Theorem \ref{main}}
+By combining the above results, we have
+
+\begin{thm} Suppose $n$ is even and $\ell\geq n$.
+\begin{align*}
+    &E_{\ell}(g,\Phi_{f},s=\ell+1)\\
+    =&f_{\ell}(g,s=\ell+1)+\pi^{2\ell+1}\left(\sum_{\substack{0\neq T\in V_0\\ \lrangle{T}{T}=0}}A_T \sigma_{E}(T)\call{W}_{T}(g)+\sum_{\substack{T\in V_0\\ \lrangle{T}{T}>0}} B_T \lrangle{T}{T}^{2\ell-n+1}\call{W}_{T}(g)\right),
+\end{align*}
+where $f_{\ell}(g,s=\ell+1)=\zeta_{E}(\ell+1)|\nu(g)|_{E}^{\ell+1}[u_{1}^{n}][u_{2}^{n}]$ and $A_T$ and $B_T$ are certain algebraic numbers, and $\sigma_E(T)=\prod_p \sigma_{E,p}(T)$, and
+$\sigma_{E,p}(T)= \begin{cases} \sum_{i=0}^{v_p(T)} p^{2i\ell}, &\text{if $p$ is inert}\\
+\left(\sum_{i=0}^{v_p(T_1)} p^{i\ell}\right)\left(\sum_{j=0}^{v_p(T_2)} p^{i\ell}\right), &\text{if $p$ splits, and $T=(T_1,T_2)$}\\
+\sum_{i=0}^{v_p(T)} p^{i\ell}, &\text{if $p$ is ramified.}\end{cases}
+$
+\end{thm}
+
+\section{Conjectural Saito-Kurokawa type lift}\label{Saito-Kuro}
+
+Suppose $n$ is even. Then under Conjecture \ref{conj-rank1}, \ref{conj-split} and \ref{conj-ram}, the rank one and rank two Fourier coefficient of $E_\ell(g,\Phi_f,s=\ell+1)$ is 
+$$
+\pi^{2\ell+1}\left(\sum_{\substack{0\neq T\in V_0\\ \lrangle{T}{T}=0}} C_n \sigma_{E}(T)\call{W}_{T}(g)+\sum_{\substack{T\in V_0\\ \lrangle{T}{T}>0}} D_n \prod_{p} Q_{T,p}(p^{2\ell+1-n})\call{W}_{T}(g)\right),
+$$
+for some rational numbers $C_n,D_n$. Hence we have
+
+\begin{prop} \label{bounded} The rank one and rank two coefficients have bounded denominator.
+\end{prop}
+
+Let $\widetilde Q_{T,p}(X)=X^{2k+k'}Q_{T,p}(X^{-2})$. Then $\widetilde Q_{T,p}(X^{-1})=\widetilde Q_{T,p}(X)$.
+Under Conjecture \ref{conj-split} and \ref{conj-ram}, the rank two Fourier coefficient of $E_\ell(g,\Phi_f,s=\ell+1)$ is 
+$$
+D_n \lrangle{T}{T}^{\ell-\frac n2+\frac 12}\prod_{p} \widetilde Q_{T,p}(p^{\frac {2\ell-n+2-1}2})\call{W}_{T}(g).
+$$
+
+Let $f$ be a Hecke eigen cusp form of weight $k:=2\ell-n+2$ with respect to $\SL_2(\Bbb Z)$. 
+Let $f(z)=\sum_{n=1}^\infty a_f(n)n^{\frac{k-1}{2}} q^n$. Let $a_f(p)=\alpha_p+\alpha_p^{-1}$. 
+Let $A_f(T)(g_f)=\lrangle{T}{T}^{\ell-\frac n2+\frac 12}\prod_p \widetilde 
+Q_{T,p}(\alpha_p)$ for $g_\bold f=(g_p)_p\in G(\Bbb A_\bold f)$. Let $F_f$ be the function on $\bold G(\Bbb A)$ whose constant term along $Z$ is
+
+$$F_{f,Z}(g)=\sum_{\substack{T\in V_0\\ \lrangle{T}{T}>0}} A_f(T)(g_f)\call{W}_{T}(g_\infty),\ g=g_\bold f g_\infty \in G(\A).
+$$
+
+\begin{conj} $F_f$ is a cusp form of weight $\ell$ on ${\rm U}(2,n)$.
+\end{conj}
+
+We expect that $F_f$ is the same as the one in \cite[Theorem 5.4]{HMY} constructed by the theta lift.
+
+Now $G$ is quasi-split over any $p$, i.e., $\bold G(\Bbb Q_p)\simeq U(\frac {n+2}2,\frac {n+2}2)$ if $p$ is inert.
+Let $\Pi_F=\otimes_p' \Pi_p$ be the cuspidal representation of ${\rm U}(2,n)$ associated to $F_f$. Then
+$\Pi_p=Ind_P^G\, |\ |^{\alpha_p}\otimes tr_{U(1,n-1)}$, where $p^{s_p}=\alpha_p$. 
+Then
+we have
+
+\begin{thm} $L(s,\Pi,St)=L(s,\pi_{f,E})\prod_{i=0}^{n-1} \zeta_E(s+\frac {n-1}2-i).$
+Here $\pi_{f,E}$ is the base change of $\pi_f$, and $L(s,\pi_{f,E})=L(s,\pi_f)L(s,\pi_f\otimes\chi)$, where $\chi=\chi_{E/\Bbb Q}$.
+\end{thm}
+
+
+\begin{thebibliography}{99}
+
+\bibitem{B} W.L. Baily Jr., {\em On the Fourier coefficients of certain Eisenstein series on the ad61e group}, In:
+Number Theory, Algebraic Geometry, and Commutative Algebra: in Honor of Y. Akizuki,
+Tokyo: Kinokuniya 1973.
+
+\bibitem{GW} B. Gross and N. Wallach, {\em On quaternionic discrete series representations, and their continuations},
+J. Reine Angew. Math. {\bf 481} (1996), 73--123.
+
+\bibitem{H} M. Harris, {\em The rationality of holomorphic Eisenstein series}, Inv. Math. {\bf 63} (1981), 305–-310.
+
+\bibitem{HMY} A. Hilado, F. McGlade and P. Yan, {\em Fourier coefficients and Algebraic cusp forms on $U(2,n)$}, arXiv:2404.
+
+\bibitem{Ik94} T.~Ikeda, {\em On the theory of Jacobi forms and Fourier-Jacobi coefficients of Eisenstein series}, 
+J. Math. Kyoto Univ. {\bf 34} (1994), no. 3, 615--636.
+
+\bibitem{Ik01} \bysame, {\em On the lifting of elliptic cusp forms to Siegel cusp forms of degree $2n$}, Ann. of Math. (2) {\bf 154} (2001), no. 3, 641--681.
+
+\bibitem{Ka} M. Karel, {\em Functional equations of Whittaker functions on $p$-adic groups}, Amer. J. Math. {\bf 101} (1979), 1303--1325.
+\bibitem{Ka1} \bysame, {\em Eisenstein series and fields of definition}, Compositio Math. {\bf 37} (1978), 121--169.
+
+\bibitem{KY} H-H.~Kim and T.~Yamauchi, {\em Cusp forms on the exceptional group of type $E_7$}, Comp. Math. {\bf 152} (2016), no. 2, 223--254.
+
+\bibitem{KY1} \bysame, {\em Higher level cusp forms on exceptional group of type $E_7$}, Kyoto J. Math. {\bf 63} (2023), no. 3, 579--614.
+
+\bibitem{KY2}\bysame, {\em Ikeda type lift on $SO(3,n+1)$}, preprint.
+
+\bibitem{Po} A.~Pollack, {\em Modular forms on indefinite orthogonal groups of rank three. With appendix ``Next to minimal representation" by Gordan Savin}, J. Num. Th. {\bf 238} (2022), 611--675. 
+
+\bibitem{Po20} \bysame, {\em The Fourier expansion of modular forms on quaternionic exceptional groups}, Duke Math. J. {\bf 169} (2020), 1209--1280.
+
+\bibitem{Po-aut}\bysame, {\em Automatic convergence and arithmeticity of modular forms on exceptional groups}, arXiv:2408.09519.
+
+\bibitem{Sh} G. Shimura, {\em The arithmetic of automorphic forms with respect to a unitary group}, Ann. of
+Math. {\bf 107} (1978), 569--605.
+
+\bibitem{Ts} L.C. Tsao, {\em The rationality of the Fourier coefficients of certain Eisenstein series on tube
+domains}, Compositio Math. {\bf 32} (1976), 225--291.
+
+\bibitem{Wallach} N. Wallach, {\em Generalized {W}hittaker vectors for holomorphic and quaternionic representations}, Comment. Math. Helv. {\rm 78} (2003), 266--307.
+
+\end{thebibliography}
+
+\end{document}

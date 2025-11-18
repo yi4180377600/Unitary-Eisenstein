@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber Eis_Uni"] 1762806289.56642 "Eis_Uni.bcf" "Eis_Uni.bbl" "Eis_Uni" 1762808031.00919 0
-  "Eis_Uni.bcf" 1762808030.88437 109435 9f5a6a4ff693e462cc5da6edf3fcd6b2 "pdflatex"
+["biber Eis_Uni"] 1763420494.14593 "Eis_Uni.bcf" "Eis_Uni.bbl" "Eis_Uni" 1763484153.34407 0
+  "Eis_Uni.bcf" 1763484153.21687 109652 ce82efe2c7edec60c7362c48fd03e58d "pdflatex"
   "bibliography.bib" 1762806269.46157 2495 2a003dd11b47dd4459f587b3a42defec ""
   (generated)
   "Eis_Uni.bbl"
   "Eis_Uni.blg"
   (rewritten before read)
-["pdflatex"] 1762808029.15945 "/Users/shanyi/LaTeX/Unitary_Eisenstein/Eis_Uni.tex" "Eis_Uni.pdf" "Eis_Uni" 1762808031.00946 0
-  "/Users/shanyi/LaTeX/Unitary_Eisenstein/Eis_Uni.tex" 1762808026.99578 59331 39ea964e8d6e5447f382f4f21536bbfc ""
+["pdflatex"] 1763484151.4053 "/Users/shanyi/LaTeX/Unitary_Eisenstein/Eis_Uni.tex" "Eis_Uni.pdf" "Eis_Uni" 1763484153.34435 0
+  "/Users/shanyi/LaTeX/Unitary_Eisenstein/Eis_Uni.tex" 1763484151.30113 63522 35387a5c90e58fbf52c79514b57c6726 ""
   "/Users/shanyi/Library/texmf/tex/latex/biblatex/bbx/alphabetic.bbx" 1566680006 1731 ebd75bda3dd71a7cbd30fde6e3bb6391 ""
   "/Users/shanyi/Library/texmf/tex/latex/biblatex/bbx/standard.bbx" 1609451401 25680 409c3f3d570418bc545e8065bebd0688 ""
   "/Users/shanyi/Library/texmf/tex/latex/biblatex/biblatex.cfg" 1342308459 69 249fa6df04d948e51b6d5c67bea30c42 ""
@@ -52,8 +52,10 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm" 1136768653 1012 955c4ca523d7827d33db91a33412b048 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm" 1136768653 1316 b4037e9c09961a72f8476628774e1ec1 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1229303445 688 37338d6ab346c2f1466b29e195316aa4 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1229303445 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/stmaryrd/stmary10.tfm" 1302307949 848 f478e0761563bbc369eca609a1741348 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/stmaryrd/stmary6.tfm" 1302307949 848 068dd119e13b75777e62821af7d4f2a6 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/stmaryrd/stmary7.tfm" 1302307949 848 26631fcb3e4cb6757598b9cda7967b63 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/stmaryrd/stmary8.tfm" 1302307949 848 6125cdd3627e68d3db8013b98e587508 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/stmaryrd/stmary9.tfm" 1302307949 848 594c171945930dfc7cc52fb30457c803 ""
@@ -313,11 +315,11 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1720187887 5483212 5ca4a6f711768cda56ff4b2d946fe634 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1720187941 8239396 3296211d263bb4366b7b213e6253e6e2 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "Eis_Uni.aux" 1762808030.88045 13782 7ee4b04315be44b7d8b594e02d0d48f4 "pdflatex"
-  "Eis_Uni.bbl" 1762806290.17337 7321 8d30411440e2b2aaa1e65be5d63a722a "biber Eis_Uni"
-  "Eis_Uni.out" 1762808030.88178 4883 54f6600da19f7fda0def8d8f76d11951 "pdflatex"
-  "Eis_Uni.run.xml" 1762808030.88534 2334 651ce0f687c81499f83b7175ad02b76d "pdflatex"
-  "Eis_Uni.tex" 1762808026.99578 59331 39ea964e8d6e5447f382f4f21536bbfc ""
+  "Eis_Uni.aux" 1763484153.21279 15551 4ec2cb43b49c085dbf147b4d92930622 "pdflatex"
+  "Eis_Uni.bbl" 1763420494.85507 7321 8d30411440e2b2aaa1e65be5d63a722a "biber Eis_Uni"
+  "Eis_Uni.out" 1763484153.21425 5886 8153c92e1787c551021ea571c3ccb7a0 "pdflatex"
+  "Eis_Uni.run.xml" 1763484153.21757 2334 651ce0f687c81499f83b7175ad02b76d "pdflatex"
+  "Eis_Uni.tex" 1763484151.30113 63522 35387a5c90e58fbf52c79514b57c6726 ""
   (generated)
   "Eis_Uni.aux"
   "Eis_Uni.bcf"

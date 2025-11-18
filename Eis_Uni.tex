@@ -205,17 +205,21 @@ densely dashed}}
 Fix an imaginary quadratic field extension $E$ of $\Q$,
 as a subfield of $\C$.
 Denote the nonzero element in $\mathrm{Gal}(E/\Q)$ by $x\mapsto \overline{x}$,
-and for any $\Q$-algebra $R$ we extend this involution to $E\otimes_{\Q}R$ and define the following two maps:
-\begin{itemize}
-    \item $\tr_{E\otimes_{\Q}R}:E\otimes_{\Q}R\rightarrow R,\,x\mapsto x+\overline{x}$, and 
-    \item $|\,\,|_{E\otimes_{\Q}R}:E\otimes_{\Q}R\rightarrow R,\,x\mapsto |x|_{E\otimes_{\Q}R}=x\overline{x}$.
-\end{itemize}
-Denote by $\A=\A_{\Q}$ (\emph{resp.\,}$\A_{E}$) the ad\`ele ring of $\Q$ (\emph{resp.\,}$E$).
+and for any $\Q$-algebra $R$ we extend this involution to $E\otimes_{\Q}R$ and define 
+$\tr_{E\otimes_{\Q}R}:E\otimes_{\Q}R\rightarrow R$ to be the trace map $x\mapsto x+\overline{x}$.
+
+For any place $v$ of $\Q$,
+let $|\,|_{\Q_{v}}$ be the normalized absolute value on the local field $\Q_{v}$.
+Set $E_{v}:=E\otimes_{\Q}\Q_{v}$,
+and denote by $|\,|_{E_{v}}$ the absolute value on $E_{v}$ defined by $x\mapsto |x\overline{x}|_{\Q_{v}}$.
+
+Denote by $\A=\A_{\Q}$ (\emph{resp.\,}$\A_{E}$) the adèle ring of $\Q$ (\emph{resp.\,}$E$).
 Fix an additive $\psi=\psi_{\Q}$ on $\Q\backslash\A$ 
 satisfying that for every finite prime $p$, $\psi_{p}$ is an additive character of $\Q_{p}$ with conductor $\Z_{p}$,
 and at the archimedean place, $\psi_{\infty}(x)=e^{2\pi i x}$.  
 Set $\psi_{E}$ to be the additive character of $E\backslash\A_{E}$
 that sends $x\in E$ to $\psi(\tr_{\A_{E}}(x))$.
+
 
 \subsection{Hermitian spaces}
 \label{section Hermitian spaces}
@@ -340,9 +344,14 @@ We have the following result on the Fourier expansion of $F$:
     \end{align}
     for any $n\in\bff{N}(\R),m\in\bff{M}(\R)$ and $k\in K_{\infty}$.
     Here $K_{v}$ denotes the K-Bessel function $K_{v}(x)=\frac{1}{2}\int_{0}^{\infty}t^{v-1}e^{-x(t+t^{-1})}dt$ and 
-    $\beta_{T}:\bff{M}(\R)\rightarrow\C$ is defined by mapping $(z,h)$ to $2\sqrt{2}\pi \lrangle{u_{2}}{zT\cdot h}$.
+    $\beta_{T}:\bff{M}(\R)\rightarrow\C$ is defined by mapping $(z,h)$ to $4\sqrt{2}\pi \lrangle{u_{2}}{zT\cdot h}$.
 \end{thm}
-
+\begin{rmk}
+\label{rmk different additive characters}
+Notice that in \cite{Hilado_McGlade_Yan_Fourier_coefficients_unitary_group},
+the function $\beta_{T}(z,h)$ is defined as $2\sqrt{2}\pi\lrangle{u_{2}}{zT\cdot h}$.
+This is because their additive character $\psi_{E}$ is chosen to be $\psi_{E}(x)=\psi(\frac{1}{2}\tr_{\A_{E}}(x))$.
+\end{rmk}
 \subsection{Heisenberg Eisenstein series}
 \label{section Heisenberg Eisenstein series on unitary groups}
 For $\ell\geq n$, the quaternionic discrete series $\Pi_{\ell}$ can be embedded into the (unnormalized) degenerate principal series $\rmm{Ind}_{\bff{P}(\R)}^{\bff{G}(\R)}|\nu|_{\C}^{\ell+1}$ \cite[Theorem 9]{Wallach_Generalized_Whittaker_vectors_holomorphic_quaternionic}
@@ -462,6 +471,378 @@ we set
 %    \item \textcolor{red}{Maybe more assumptions? To be added when needed.}
 %\end{itemize}
 \section{Rank 2 Fourier coefficients of \texorpdfstring{$E_{\ell}$}{PDFstring}}
+
+\subsection{Rank 2 Fourier coefficients: non-archimedean components}
+\label{section rank 2 Fourier coefficients finite part}
+One decomposes $E_{2}^{T}(1,s)$ as $\prod_{v}E_{2,v}^{T}(s)$.
+
+\begin{align*}
+    E_{2,p}^{T}(s)&=\int_{\bff{N}(\Q_{p})}\chi_{T}^{-1}(n)f_{p}(w_{2}n,s)dn\\
+    &=\int_{\bff{N}(\Q_{p})}\int_{t\in E_{p}^{\times}}\chi_{T}^{-1}(n)|t|^{s}\Phi_{p}(t\cdot b_{1}w_{2}n)dtdn\\
+    &=\int_{v\in \bff{V}_{0}(\Q_{p})}\int_{\substack{x\in E_{p}\\ \overline{x}=-x}}\int_{t\in E_{p}^{\times}}\chi_{T}^{-1}(v)|t|^{s}\Phi_{p}\left(t\left(\left(-\lrangle{v}{v}/2+x\right)b_{1}+b_{2}+v\right)\right)dtdxdv
+\end{align*}
+Take $\oo_{E_{p}}$ to be $\Z_{p}\otimes_{\Z}\oo_{E}\subseteq E_{p}$,
+$\frakk{p}$ to be its maximal ideal,
+and $\call{V}$ an $\oo_{E_{p}}$-lattice of $V_{0}(\Q_{p})=V_{0}\otimes_{\Q}\Q_{p}$ 
+such that $\call{V}\otimes_{\oo_{E_{p}}}\left(\oo_{E,p}/\frakk{p}\right)$ is a non-degenerate Hermitian space over $\oo_{E_{p}}/\frakk{p}$.
+Assume that $\Phi_{p}$ is the characteristic function of the lattice 
+$\oo_{E_{p}}b_{1}\oplus \call{V}\oplus \oo_{E_{p}}b_{2}$.
+
+\textcolor{red}{Write down a precise definition of $\call{V}$?}
+\begin{lemma}\label{lemma finite rank 2 coefficients}
+    \begin{enumerate}
+        \item If $p$ splits in $E$,
+        then 
+        \[E_{2,p}^{T}(s)=\sum_{r_{1},r_{2}\geq 0}p^{-(r_{1}+r_{2})s+\min(r_{1},r_{2})}\left(\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\rmm{max}(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\right).\]
+        \item If $p$ is inert in $E$,
+        then
+        \[E_{2,p}^{T}(s)=\sum_{r\geq 0}p^{-2rs+r}\left(\int_{v\in p^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}\left(p^{r}\lrangle{v}{v}/2\in \Z_{p}\right)dv\right).\] 
+        \item If $p$ is ramified in $E$, then 
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (1) If $p$ splits in $E$, then
+$E_{p}=\Q_{p}\times\Q_{p}$:
+\begin{align*}
+    E_{2,p}^{T}(s)=&\sum_{r_{1}\geq 0,\,r_{2}\geq 0}|p|^{(r_{1}+r_{2})s}\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\left(\int_{\substack{x\in (p^{-r_{1}},p^{-r_{2}})\oo+\lrangle{v}{v}/2\\ x+\overline{x}=0}}dx\right)dv
+\end{align*}
+If we write $x=(y,-y)\in E_{p}$,
+then $x\in (p^{-r_{1}},p^{-r_{2}})\oo+\lrangle{v}{v}/2$ is equivalent to 
+\[y\in p^{-r_{1}}\Z_{p}+\lrangle{v}{v}/2,\,-y\in p^{-r_{2}}\Z_{p}+\lrangle{v}{v}/2.\]
+There are such $x$ only if $\lrangle{v}{v}\in p^{-\max(r_{1},r_{2})}\Z_{p}$,
+If $r_{1}\geq r_{2}$,
+then $y\in p^{-r_{2}}\widetilde{y}-\lrangle{v}{v}/2$ for some $\widetilde{y}\in \Z_{p}$.
+Since the measure on the line $\{x=(y,-y)\in E_{p}\}$ is the normalized Haar measure $dy$ on $\Q_{p}$,
+one has $dy=p^{r_{2}}d\widetilde{y}$,
+and 
+\[\int_{x=(y,-y)\in p^{-r_{1}}\Z_{p}\times p^{-r_{2}}\Z_{p}+\lrangle{v}{v}/2}dx=\int_{\widetilde{y}\in \Z_{p}}p^{r_{2}}d\widetilde{y}=p^{r_{2}}=p^{\min(r_{1},r_{2})}.\]
+Hence
+\[E_{2,p}^{T}(s)=\sum_{r_{1},r_{2}\geq 0}p^{-(r_{1}+r_{2})s+\min(r_{1},r_{2})}\left(\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\rmm{max}(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\right).\]
+
+(2) If $p$ is inert in $E$,
+then $E_{p}$ is an unramified quadratic field extension of $\Q_{p}$, 
+and 
+\begin{align*}
+    E_{2,p}^{T}(s)=\sum_{r\geq 0}|p|_{E_{p}}^{rs}\int_{v\in p^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{r}\lrangle{v}{v}\in\Z_{p})\left(\int_{x\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}}\rmm{Char}(x+\overline{x}=0)dx\right)dv
+\end{align*}
+Choose a unit $u\in \oo_{E_{p}}^{\times}$ with $u+\overline{u}=0$,
+then the line $\set{x\in E_{p}}{x+\overline{x}=0}$ can be written as $\{yu,\,y\in \Q_{p}\}$,
+with the normalized Haar measure $dy$.
+There exist elements $yu\in \lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}$ if and only if $\lrangle{v}{v}/2\in p^{-r}\Z_{p}$.
+When we have $\lrangle{v}{v}/2\in p^{-r}\Z_{p}$,
+any element $yu\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}$ is of the form 
+\[yu=\lrangle{v}{v}/2+p^{-r}\left(-p^{r}\lrangle{v}{v}/2+\widetilde{y}u\right),\,\widetilde{y}\in \Z_{p},\]
+thus one has 
+\begin{align*}
+    \int_{x\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}}\rmm{Char}(x+\overline{x}=0)dx&=\rmm{Char}(p^{r}\lrangle{v}{v}/2\in\Z_{p})|p|_{\Q_{p}}^{-r}\int_{\Z_{p}}d\widetilde{y}\\
+    &=p^{r}\rmm{Char}(p^{r}\lrangle{v}{v}/2\in\Z_{p}),    
+\end{align*}
+which gives us the desired identity.
+\end{proof}     
+
+
+\textcolor{red}{If $p$ is ramified in $E$:}
+(Assume $p\neq 2$)
+$E_{p}$ is a ramified quadratic field extension of $\Q_{p}$,
+and we choose an uniformizer $\varpi$ of $\frakk{p}\subset\oo_{E_{p}}$ such that $\varpi+\overline{\varpi}=0$ and $\varpi^{2}=p$.
+Then the integral $E_{2,p}^{T}(s)$ equals
+\begin{align*}
+    \sum_{r\geq 0}p^{-rs}\int_{v\in\varpi^{-r}\call{V}}\chi_{T}^{-1}(v)\int_{x\in\Q_{p}}\rmm{Char}(x\varpi-\frac{\lrangle{v}{v}}{2}\in\varpi^{-r}\oo_{E_{p}})dxdv.
+\end{align*}
+Suppose that $x\varpi-\lrangle{v}{v}/2=\varpi^{-r}(y+\varpi z)$ for $y,z\in Z_{p}$.
+\begin{itemize}
+    \item If $r$ is even,
+one has $x\varpi-\lrangle{v}{v}/2=(p^{-r/2}z)\varpi+p^{-r/2}y$, which implies that $\lrangle{v}{v}\in p^{-r/2}\Z_{p}$ and $x\in p^{-r/2}\Z_{p}$.
+    \item If $r$ is odd,
+one has $x\varpi-\lrangle{v}{v}/2=(p^{-(r+1)/2}y)\varpi+p^{-(r-1)/2}z$, which implies that $\lrangle{v}{v}\in p^{-(r-1)/2}\Z_{p}$ and $x\in p^{-(r+1)/2}\Z_{p}$.
+\end{itemize}
+Hence 
+\begin{align*}
+    E_{2,p}^{T}(s)=\sum_{r\geq 0}p^{-rs}p^{\lceil r/2 \rceil}\int_{v\in\varpi^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\lfloor r/2\rfloor}\lrangle{v}{v}\in\Z_{p})dv.
+\end{align*}
+
+\subsubsection{Split case}
+\label{section split case of rank 2 coefficient}
+When $p$ splits in $E$,
+then one can view the Hermitian $\Q_{p}\times \Q_{p}$-space $V_{0}\otimes_{\Q} \Q_{p}$ as the direct sum of two copies of quadratic $\Q_{p}$-space $\left(\Q_{p}^{n},((x_{i}),(y_{i}))=\sum x_{i}y_{i}\right)$, and one has 
+\[2\rmm{Re}\lrangle{(x_{1},y_{1})}{(x_{2},y_{2})}=(x_{1},y_{2})+(x_{2},y_{1}).\]
+Denote by $L$ the lattice $\Z_{p}^{n}$ in $\Q_{p}^{n}$.
+We set 
+\begin{align*}
+        S(r_{1},r_{2}):=&\int_{v\in (p^{-r_{1}},p^{-r_{2}})\nu}\chi_{T}^{-1}(v)\rmm{Char}(p^{\max(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\\
+        =&\int_{\substack{x\in p^{-r_{1}}L\\y\in p^{-r_{2}}L}}\psi_{p}^{-1}\left((x,T_{2})+(y,T_{1})\right)\rmm{Char}(p^{\max(r_{1},r_{2})}(x,y)\in \Z_{p})dxdy,
+\end{align*}
+for any integers $r_{1},r_{2}\geq 0$.
+    
+\begin{prop}
+    \label{prop unramified split rank 2 coefficient}
+    Let $p$ be a prime split in $E$, and $r_{1}\leq r_{2}$ be two natural numbers.
+    For a vector $T=(T_{1},T_{2})\in \call{V}$
+    with $\alpha=v_{p}(T_{1}),\beta=v_{p}(T_{2}),v_{p}(\lrangle{T}{T})=\gamma$ and $B=B(r_{1},r_{2}):=\min(r_{1},\beta,\alpha+r_{1}-r_{2})$,
+    one has 
+    \[S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}-1+(n-1)(\gamma-r_{2}+1)}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right),\]
+    which is nonzero only if $r_{2}\leq \min(\gamma+1,r_{2}+\alpha)$.
+    In particular, if $\lrangle{T}{T}\in\oo_{E_{p}}^{\times}$,
+    then the nonzero terms are 
+    \[S(0,0)=1 \text{ and }S(1,1)=-p^{n-1}.\]    
+\end{prop}
+\begin{proof}
+    The integral $S(r_{1},r_{2})$ can be rewritten as an exponential sum:
+    \[S(r_{1},r_{2})=\sum_{\substack{x\in L/p^{r_{1}}L\\ y\in L/p^{r_{2}}L}}\psi_{p}\left(\frac{(x,T_{2})}{p^{r_{1}}}+\frac{(y,T_{1})}{p^{r_{2}}}\right)\rmm{Char}\left((x,y)\in p^{r_{1}}\Z_{p}\right).\]
+    The characteristic function has the following expression:
+    \[\rmm{Char}\left((x,y)\in p^{r_{1}}\Z_{p}\right)=p^{-r_{1}}\sum_{u\in \Z/p^{r_{1}}\Z}\psi_{p}\left(\frac{u(x,y)}{p^{r_{1}}}\right),\]
+    thus 
+    \[S(r_{1},r_{2})=p^{-r_{1}}\sum_{\substack{y\in L/p^{r_{2}}L\\u\in \Z/p^{r_{1}}\Z}}\psi_{p}^{-1}\left(\frac{(y,T_{1})}{p^{r_{2}}}\right)\left(\sum_{x\in L/p^{r_{1}}L}\psi_{p}^{-1}\left(\frac{(x,T_{2}-uy)}{p^{r_{1}}}\right)\right).\]
+    The inner sum equals $p^{r_{1}n}$ when $T_{2}-uy\in p^{r_{1}}L$, otherwise it equals $0$. Hence one has 
+    \[S(r_{1},r_{2})=p^{r_{1}(n-1)}\sum_{\substack{y\in L/p^{r_{2}}L\\u\in \Z/p^{r_{1}}\Z}}\psi_{p}^{-1}\left(\frac{(y,T_{1})}{p^{r_{2}}}\right)\rmm{Char}(T_{2}-uy\in p^{r_{1}}L).\]
+    The equation $T_{2}=uy \modulo p^{r_{1}}L$ has solution if and only if $k:=v_{p}(u)\leq v_{p}(T_{2})=\beta$,
+    and in this case,
+    $y=u^{-1}T_{2}+p^{r_{1}-k}z$ for $z\in L/p^{r_{2}-r_{1}+k}L$.
+    Plugging this in the exponential sum and replacing $u$ by $p^{k}u$,
+    we obtain that 
+    \begin{align*}
+        S(r_{1},r_{2})&=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\sum_{z\in L/p^{r_{2}-r_{1}+k}L}\psi_{p}^{-1}\left(\frac{(T_{1},u^{-1}p^{-k}T_{2}+p^{r_{1}-k}z)}{p^{r_{2}}}\right)\\
+        &=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}(T_{1},T_{2})}{p^{r_{2}+k}}\right)\left(\sum_{z\in L/p^{r_{2}-r_{1}+k}L}\psi_{p}^{-1}\left(\frac{(z,T_{1})}{p^{r_{2}-r_{1}+k}}\right)\right)\\
+        &=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}p^{(r_{2}-r_{1}+k)n}\rmm{Char}(\alpha\geq r_{2}-r_{1}+k)\left(\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}}{p^{r_{2}+k-\gamma}}\right)\right)
+    \end{align*}
+    For the inner sum,
+    we have 
+    \[\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}}{p^{r_{2}+k-\gamma}}\right)=\left\{\begin{array}{ll}
+        \phi(p^{r_{1}-k})=|(\Z/p^{r_{1}-k})^{\times}| & \text{, if }r_{2}+k-\gamma\leq 0 \\
+        -p^{r_{1}-k-1} & \text{, if }r_{2}+k-\gamma=1\\
+        0 & \text{, if }r_{2}+k-\gamma>1        
+    \end{array}\right.\]
+    Combining all these together,
+    we get the following formula: let $B=B(r_{1},r_{2},\alpha,\beta)$ be $\min(r_{1},\beta,\alpha+r_{1}-r_{2})$, then 
+    \begin{align*}
+        S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}-1+(n-1)(\gamma-r_{2}+1)}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right).
+    \end{align*}
+    This is nonzero only if $r_{1}\leq r_{2}\leq \min(\gamma+1,r_{1}+\alpha)$,
+    which only hold for finitely many terms.
+    Particularly,
+    if $T=(T_{1},T_{2})$ is unramified,
+    then $\alpha=\beta=\gamma=0$,
+    thus $r_{1}=r_{2}\leq 1$.
+    In this case we have 
+    \[S(0,0)=1,\, S(1,1)=-p^{n-1}.\]
+\end{proof}
+\subsection{Rank 2 Fourier coefficients: archimedean components}
+\label{section archimedean place rank 2 Fourier infinite part}
+We first analyze the function $f_{\ell,\infty}(w_{2}n,s=\ell+1)$ on $n\in\bff{N}(\R)$.
+\begin{lemma}
+    \label{lemma rank 2 values of archimedean section}
+    For any $v\in V_{0}=\bff{V}_{0}(\R)$ and $x\in \R$,
+    set:
+    \[\alpha(v,x)=-\frac{\lrangle{v}{v}}{2}+ix+1,\text{ and }\beta(v)=\sqrt{2}\lrangle{v}{u_{2}}.\]
+    Then we have 
+    \[f_{\ell,\infty}(w_{2}n(v,ix),s)=\frac{(\alpha u_{1}+\beta u_{2})^{\ell}(-\overline{\beta}u_{1}+\overline{\alpha}u_{2})^{\ell}}{(|\alpha(v,x)|^{2}+|\beta(v)|^{2})^{\ell+s}(\ell!)^{2}}.\]
+\end{lemma}
+\begin{proof}
+    From the explicit action of $\bff{P}$ on $\bff{V}$, 
+    one has 
+    \[b_{1}w_{2}n(v,ix)=(-\lrangle{v}{v}/2+ix)b_{1}+b_{2}+v.\]
+    Under the Iwasawa decomposition $\bff{G}(\R)=\bff{P}(\R)K_{\infty}$, 
+    we write $w_{2}n(v,ix)$ as $pk$ for some $p\in \bff{P}(\R)$ and $k\in K_{\infty}$,
+    then 
+    \begin{equation}\label{eqn searching Iwasawa decomposition}
+         b_{1}w_{2}n(v,ix)=\nu(p)^{-1}(b_{1}k).
+    \end{equation}  
+    Let $k_{+}$ be the factor of $k$ in $\rmm{U}(V_{2}^{+})$,
+    and $v=v_{+}+v_{-}\in \C u_{2}\oplus \rmm{Span}_{\C}(v_{1},\ldots,v_{n-1})$.
+    Taking the $V_{2}^{+}$ components of both sides of \eqref{eqn searching Iwasawa decomposition},
+    we obtain:
+    \[\frac{1}{\sqrt{2}}\left(\alpha(v,x)u_{1}+\beta(v)u_{2}\right)=\nu(p)^{-1}\frac{u_{1}k_{+}}{\sqrt{2}}.\]
+    The norms of both sides give us the identity $|\alpha(v,x)|^{2}+|\beta(v)|^{2}=|\nu(p)|^{-2}$.
+    One may assume that 
+    $\nu(p)^{-1}=\sqrt{|\alpha(v,x)|^{2}+|\beta(v)|^{2}}$,
+    then in the basis of $u_{1},u_{2}$,
+    the element $k^{+}\in \rmm{U}(V_{2}^{+})$ can be written as the Hermitian matrix 
+    \[\frac{1}{\sqrt{|\alpha(v,x)|^{2}+|\beta(v)|^{2}}}\left(\begin{matrix}
+        \alpha(v,x) & -\overline{\beta(v)}\\
+        \beta(v) & \overline{\alpha(v,x)}
+    \end{matrix}\right).\]
+    Plug $k^{+}$ and $\nu(p)$ into $f_{\ell,\infty}(w_{2}n(v,ix),s)=f_{\ell,\infty}(pk,s)=|\nu(p)|^{2s}[u_{1}^{\ell}][u_{2}^{\ell}]\cdot k^{+}$,
+    and we get the desired value.
+\end{proof}
+Using \Cref{lemma rank 2 values of archimedean section},
+one can write the archimedean coefficient 
+$E_{2,\infty}^{T}:=E_{2,\infty}^{T}(1,\ell+1)$ 
+as a concrete integral over $v\in V_{0}$ and $x\in\R$.
+In particular,
+we have the following formula for the coefficient of $[u_{1}^{\ell}][u_{2}^{\ell}]$ of $E_{2,\infty}^{T}$, denoted by $I_{0}(T;\ell)$:
+\begin{align*}
+    I_{0}(T;\ell)=&\int_{v\in V_{0}}\int_{x\in \R}\chi_{T}^{-1}(v)\sum_{k=0}^{\ell}\frac{{\ell \choose k}{\ell\choose k}(x^{2}+A)^{k}(-B)^{\ell-k}}{(x^{2}+A+B)^{2\ell+1}}dxdv\\
+    =&\int_{v\in V_{0}}\chi_{T}^{-1}(v)\sum_{k=0}^{\ell}(-B)^{\ell-k}{\ell\choose k}^{2}\int_{x\in \R}\frac{(x^{2}+A)^{k}}{(x^{2}+A+B)^{2\ell+1}}dxdv
+\end{align*}
+where $A=A(v):=|\alpha|^{2}-x^{2}=\left(1-\frac{\lrangle{v}{v}}{2}\right)^{2}$, and $B=B(v):=|\beta|^{2}=2|\lrangle{v}{u_{2}}|^{2}$.
+
+By \cite[Theorem 3.5]{Hilado_McGlade_Yan_Fourier_coefficients_unitary_group}, for a non-zero $T\in V_{0}$,
+when $\lrangle{T}{T}<0$,
+the $\mbb{V}_{\ell}$-valued function $E_{2,\infty}^{T}(g,\ell+1)$ on $\bff{G}(\R)$ is identically zero;
+when $\lrangle{T}{T}\geq 0$, 
+$E_{2,\infty}^{T}(g,\ell+1)$ must be a multiple of the generalized Whittaker function $\call{W}_{T}(g)$ given by \eqref{eqn generalized Whittaker function}.
+To exactly know this multiple,
+it suffices to compare the coefficients of $[u_{1}^{\ell}][u_{2}^{\ell}]$ in $E_{2,\infty}^{T}$ and $\call{W}_{T}(1)$ for any element $T$ with $\lrangle{T}{T}\geq 0$,
+\emph{i.e.\,}compare $I_{0}(T;\ell)$ and 
+$K_{0}(4\sqrt{2}\pi |\lrangle{u_{2}}{T}|)=K_{0}(4\pi\sqrt{B(T)})$.
+\subsubsection{Fourier transforms}
+\label{section Fourier transform of coefficients}
+Equipped with the symmetric form $(v,w):=\tr_{\C}\lrangle{v}{w}=2\operatorname{Re} \lrangle{v}{w}$,
+we view $V_{0}$ as a quadratic space with signature $(2,2n-2)$,
+and define the Fourier transform of a Schwartz function $f$ on $V_{0}$ to be 
+\[\widehat{f}(T)=\int_{v\in V_{0}}f(v)e^{-2\pi i (T,v)}dv,\,T\in V_{0}.\]
+
+We use the following lemma to write $I_{0}(T;\ell)$ as a Fourier transform on $V_{0}$:
+\begin{lemma}
+    \label{lemma integral over center of Heisenberg}
+    For any real number $C,D$
+    and two natural numbers $m<n$,
+    we have 
+    \[\int_{\R}\frac{(x^{2}+C)^{m}}{(x^{2}+D)^{n}}dx=\frac{D^{m-n+1/2}}{(n-1)!}\sum_{k=0}^{m}{m\choose k}\left(\frac{C}{D}\right)^{m-k}\Gamma(k+1/2)\Gamma(n-k-1/2).\]
+\end{lemma}
+\begin{proof}
+    An exercise of calculus.
+\end{proof}
+Applying \Cref{lemma integral over center of Heisenberg} to $I_{0}(T;\ell)$, 
+we obtain that $I_{0}(T;\ell)=\widehat{F_{0,\ell}}(T)$, where 
+\begin{align*}
+    F_{0,\ell}(v):=\sum_{k=0}^{\ell}(-B)^{\ell-k}{\ell\choose k}^{2}\frac{(A+B)^{k-2\ell-1/2}}{(2\ell)!}\sum_{j=0}^{k}{k\choose j}\left(\frac{A}{A+B}\right)^{k-j}\frac{\pi\cdot(2j)!(4\ell-2j)!}{2^{4\ell}\cdot j!(2\ell-j)!}.
+\end{align*}
+
+Now we can reduce the problem to the comparison of $F_{0,\ell}(T)$
+and the inverse Fourier transform of (the product of certain function with) $K_{0}(4\pi\sqrt{B(T)})$.
+Recall the following result for quadratic spaces by Pollack:
+\begin{prop}\label{prop Fourier transform of K Bessel functions}
+    ($v=0$ case of \cite[Proposition 4.5.3]{Pollack_Modular_forms_orthogonal_rank3})
+    Let $(V^{\prime},(\,,\,))=V_{2}\oplus V_{m}$ be a non-degenerate quadratic space over $\R$ of signature $(2,m)$,
+    and $v_{1}^{\prime},v_{2}^{\prime}$ an orthonormal basis of $V_{2}$.
+    For $x=x_{2}+x_{m}\in V_{2}\oplus V_{m}$,
+    define $\|x\|^{2}:=(x_{2},x_{2})-(x_{m},x_{m})$.
+    For any integer $\ell>m/2$ and $x=x_{2}+x_{m}\in V_{2}\oplus V_{m}$ with $\|x_{2}\|+\|x_{m}\|<\sqrt{2}$,
+    we have 
+    \begin{align*}
+        &\int_{V^{\prime}}e^{i(\omega,x)}\rmm{Char}((\omega,\omega)>0)\left(\frac{(\omega,\omega)}{2}\right)^{\ell-m/2}K_{0}(\sqrt{2}|(\omega,v_{1}^{\prime}+\sqrt{-1}v_{2}^{\prime})|)d\omega\\
+        =&2^{\ell}\pi^{\frac{m+2}{2}}\ell!\cdot\Gamma(\ell-m/2+1)\tau(\sqrt{2} x_{n},\sqrt{2}x_{2})^{-\ell-1}{_{2}F_{1}}\left(-\frac{\ell}{2},\frac{\ell+1}{2};1;\frac{2\|x_{2}\|^{2}}{\tau(\sqrt{2}x_{n},\sqrt{2}x_{2})^{2}}\right),
+    \end{align*}
+    where $\tau(\sqrt{2}x_{n},\sqrt{2}x_{2})^{2}:=\left(1+\frac{\|x_{n}\|^{2}-\|x_{2}\|^{2}}{2}\right)^{2}+2\|x_{2}\|^{2}$.
+    Here \[{_{2}F_{1}}(a,b;c;z)=\sum_{n=0}^{\infty}\frac{(a)_{n}(b)_{n}}{(c)_{n}}\cdot\frac{z^{n}}{n!},\,|z|<1\] 
+    is the hypergeometric function, where $(q)_{n}$ is the (rising) Pochhammer symbol.
+\end{prop}
+
+Take $V^{\prime}$ to be $(V_{0},\frac{1}{2}(,)=\operatorname{Re}\lrangle{\,}{\,})$,
+as a quadratic space of signature $(2,2n-2)$,
+and $v^{\prime}_{1}=u_{2}$,
+$v^{\prime}_{2}=i u_{2}$.
+Now we rewrite the objects appearing in \Cref{prop Fourier transform of K Bessel functions} in terms of our unitary notations:
+\begin{itemize}
+    \item The K-Bessel function appearing in the integral is $K_{0}(\sqrt{2}|\lrangle{\omega}{u_{2}}|)=K_{0}(\sqrt{B(\omega)})$.
+    \item The norm $\|x_{2}\|^{2}$ equals $|\lrangle{x}{u_{2}}|^{2}=B(x)/2$.
+    \item The function $\tau(\sqrt{2}x_{n},\sqrt{2}x_{2})^{2}$ equals $(1-\frac{\lrangle{x}{x}}{2})^{2}+2|\lrangle{x}{u_{2}}|^{2}=A(x)+B(x)$.
+\end{itemize}
+Hence \Cref{prop Fourier transform of K Bessel functions} can be rewritten as:
+\begin{align*}
+    &2^{-\ell+n-1}\int_{V_{0}}e^{i(\omega,x)/2}\rmm{Char}(\lrangle{\omega}{\omega}>0)\lrangle{w}{w}^{\ell-n+1}K_{0}(\sqrt{B(\omega)})d\omega\\
+    =&2^{\ell}\pi^{n}\ell!(\ell-n+1)!(A(x)+B(x))^{-\frac{\ell+1}{2}}{_{2}F_{1}}\left(-\frac{\ell}{2},\frac{\ell+1}{2};1;\frac{B(x)}{A(x)+B(x)}\right).
+\end{align*}
+We replace the variable $\omega$ in the integral by $4\pi \omega$ and 
+replace $\ell$ by $2\ell$ with $\ell>(n-1)/2$,
+then we obtain that the inverse Fourier transform of 
+\[\rmm{Char}(\lrangle{\omega}{\omega}>0)\lrangle{\omega}{\omega}^{2\ell-n+1}K_{0}(4\pi \sqrt{B(\omega)})\]
+is 
+{\footnotesize\begin{align}\label{eqn inverse Fourier of generalized Whittaker}
+    \pi^{n-4\ell-2}\cdot 2^{-4\ell-n-1}(2\ell)!(2\ell-n+1)!(A(x)+B(x))^{-\ell-1/2}{_{2}F_{1}}\left(-\ell,\ell+1/2;1;\frac{B(x)}{A(x)+B(x)}\right).
+\end{align}}
+
+\subsubsection{Write \texorpdfstring{$F_{0,\ell}$}{PDFstring} in terms of hypergeometric functions}
+\label{section write F as hypergeometric function}
+Now we want to write the function $F_{0,\ell}$ in a form close to \eqref{eqn inverse Fourier of generalized Whittaker}.
+
+Set $z(v)=B(v)/(A(v)+B(v))$,
+then we have: 
+\[F_{0,\ell}(v)=\frac{2^{-4\ell}}{(2\ell)!}\pi(A+B)^{-\ell-1/2}\sum_{k=0}^{\ell}\sum_{j=0}^{k}{\ell\choose k}^{2}{k\choose j}\frac{(2j)!(4\ell-2j)!}{j!(2\ell-j)!}(-z)^{\ell-k}(1-z)^{k-j}\]
+\begin{prop}\label{prop summation in terms of hypergeometric}
+    For any integers $0\leq k\leq \ell$ and $0\leq j\leq k$,
+    set
+    \[c_{j,k}={\ell\choose k}^{2}{k\choose j}\frac{(2j)!(4\ell-2j)!}{j!(2\ell-j)!}.\]
+    Then 
+    \begin{align}\label{eqn calculation of combinatorics in Fourier}
+        \sum_{k=0}^{\ell}\sum_{j=0}^{k}c_{j,k}(-z)^{\ell-k}(1-z)^{k-j}=\sum_{r=0}^{\ell}(-1)^{r}2^{2\ell-2r}\frac{(2\ell)!(2\ell+2r)!}{(r!)^{2}(\ell+r)!(\ell-r)!}z^{r}.
+    \end{align} 
+\end{prop}
+\begin{proof}
+    We write:
+\[\sum_{k=0}^{\ell}\sum_{j=0}^{k}c_{j,k}(-z)^{\ell-k}(1-z)^{k-j}=\sum_{r=0}^{\ell}(-1)^{r}C(r)z^{r},\]
+    The term $(-z)^{\ell-k}(1-z)^{k-j}$ has a non-zero $z^{r}$ term if and only if 
+$\ell-k\leq r\leq \ell-j$,
+thus 
+\[(-1)^{r}C(r)=\sum_{j=0}^{\ell-r}\sum_{k=\ell-r}^{\ell}c_{j,k}{{k-j}\choose {r-\ell+k}}(-1)^{\ell-k+r-\ell+k}=(-1)^{r}\sum_{j=0}^{\ell-r}\sum_{k=\ell-r}^{\ell}c_{j,k}{{k-j}\choose {r-\ell+k}}.\]
+
+To compute $C(r)$,
+we need the following lemma:
+\begin{lemma}
+    \label{lemma combinatorics summations}
+    \begin{enumerate}
+        \item For integers $0\leq a\leq b$, one has \[\sum_{i=a}^{b}{b\choose i}{{b-a}\choose{b-i}}={{2b-a}\choose b}.\]
+        \item For any integer $0\leq r\leq \ell$, one has 
+        \[\sum_{i=0}^{\ell-r}\frac{\binom{2\ell}{i}\binom{\ell-r}{i}}{\binom{4\ell}{2i}}=2^{2\ell-2r}\frac{\binom{2\ell+2r}{\ell+r}}{\binom{4\ell}{2\ell}}.\]
+    \end{enumerate}
+\end{lemma}
+\begin{proof}[Proof of \Cref{lemma combinatorics summations}]
+    The identity in (1) is obvious.
+    For the identity in (2),
+    the left-hand side can be rewritten as:
+    \begin{align*}
+        \sum_{i=0}^{\ell-r}\frac{(-\ell+r)_{j}(1/2)_{j}}{(-2\ell+1/2)_{j}j!}={_{2}F_{1}}(-(\ell-r),1/2;-2\ell+1/2;1),
+    \end{align*}
+     By Chu-Vandermond identity,
+    this value of hypergeometric function equals
+    \[\frac{(-2\ell)_{\ell-r}}{(-2\ell+1/2)_{\ell-r}}=2^{\ell-r}\frac{\frac{(2\ell)!}{(\ell+r)!}}{\frac{(4\ell-1)!!}{(2\ell+2r-1)!!}}=2^{2\ell-2r}\frac{\binom{2\ell+2r}{\ell+r}}{\binom{4\ell}{2\ell}}.\qedhere\]
+\end{proof}
+Now we return to the calculation of $C(r)$:
+\begin{align*}
+    C(r)&=\sum_{j=0}^{\ell-r}\sum_{k=\ell-r}^{\ell}\frac{(\ell!)^{2}(2j)!(4\ell-2j)!}{k!((\ell-k)!)^{2}(j!)^{2}(r-\ell+k)!(\ell-r-j)!(2\ell-j)!}\\
+    &=\frac{\ell!}{r!}\sum_{j=0}^{\ell-r}\frac{(2j)!(4\ell-2j)!}{(j!)^{2}(\ell-r-j)!(2\ell-j)!}\sum_{k=\ell-r}^{\ell}\binom{\ell}{k}\binom{r}{\ell-k}\\
+    (\text{by (1) of \Cref{lemma combinatorics summations}})&=\frac{\ell!}{r!}\cdot\frac{(\ell+r)!}{\ell!r!}\sum_{j=0}^{\ell-r}\frac{(2j)!(4\ell-2j)!}{(j!)^{2}(\ell-r-j)!(2\ell-j)!}\\
+    &=\frac{(\ell+r)!}{(r!)^{2}}\cdot \frac{(4\ell)!}{(\ell-r)!(2\ell)!}\sum_{j=0}^{\ell-r}\frac{\binom{2\ell}{j}\binom{\ell-r}{j}}{\binom{4\ell}{2j}}\\
+    (\text{by (2) of \Cref{lemma combinatorics summations}})&=\frac{(\ell+r)!}{(r!)^{2}}\cdot\frac{(4\ell)!}{(\ell-r)!(2\ell)!}\cdot 2^{2\ell-2r}\frac{\frac{(2\ell+2r)!}{((\ell+r)!)^{2}}}{\frac{(4\ell)!}{((2\ell)!)^{2}}}\\
+    &=2^{2\ell-2r}\frac{(2\ell)!(2\ell+2r)!}{(r!)^{2}(\ell+r)!(\ell-r)!}.\qedhere
+\end{align*}
+\end{proof}
+Applying \Cref{prop summation in terms of hypergeometric} to $F_{0,\ell}$,
+we have 
+\begin{align*}
+    F_{0,\ell}(v)=&\frac{2^{-4\ell}\pi}{(2\ell)!(A+B)^{\ell+1/2}}\sum_{k=0}^{\ell}\sum_{j=0}^{k}c_{j,k}(-z)^{\ell-k}(1-z)^{k-j}\\
+    =&\frac{2^{-4\ell}\pi}{(2\ell)!(A+B)^{\ell+1/2}}\sum_{r=0}^{\ell}(-1)^{r}2^{2\ell-2r}\frac{(2\ell)!(2\ell+2r)!}{(r!)^{2}(\ell+r)!(\ell-r)!}z^{r}\\
+    =&\frac{2^{-2\ell}(2\ell)!\pi}{(\ell!)^{2}(A+B)^{\ell+1/2}}\sum_{r=0}^{\ell}\frac{(-\ell)_{r}(\ell+1/2)_{r}}{1_{r}}\frac{z^{r}}{r!}\\
+    =&\frac{2^{-2\ell}(2\ell)!\pi}{(\ell!)^{2}(A+B)^{\ell+1/2}}\cdot {_{2}F_{1}}(-\ell,\ell+1/2;1;z).
+\end{align*}
+We have shown the following result:
+\begin{prop}\label{prop archimedean rank 2 Fourier}
+    For any $T\in V_{0}$,
+    the coefficient $I_{0}(T;\ell)$ of $[u_{1}^{\ell}][u_{2}^{\ell}]$ in $E_{2,\infty}^{T}$ satisfies
+    \[I_{0}(T;\ell)=\widehat{F_{0,\ell}}(T),\]
+    where 
+    \[F_{0,\ell}(v)=\frac{2^{-2\ell}(2\ell)!\pi}{(\ell!)^{2}(A+B)^{\ell+1/2}}\cdot {_{2}F_{1}}(-\ell,\ell+1/2;1;\frac{B}{A+B}),\,v\in V_{0},\]
+    and $A(v)=\left(1-\frac{\lrangle{v}{v}}{2}\right)^{2},\,B(v)=2|\lrangle{v}{u_{2}}|^{2}$.
+\end{prop}
+Comparing \Cref{prop archimedean rank 2 Fourier} with \eqref{eqn inverse Fourier of generalized Whittaker},
+we obtain that 
+the function 
+\[\pi^{n-4\ell-3}2^{-2\ell-n-1}(\ell!)^{2}(2\ell-n+1)!F_{0,\ell}(v)\]
+is equal to the inverse Fourier transform of 
+\[\rmm{Char}(\lrangle{\omega}{\omega}>0)\lrangle{\omega}{\omega}^{2\ell-n+1}K_{0}(4\pi \sqrt{B(\omega)}),\]
+which directly implies the following theorem:
+\begin{thm}\label{thm rank 2 Fourier archimedean generalised Whittaker}
+    For any $T\in V_{0}$ and $\ell>\frac{n-1}{2}$,
+    we have
+    \[I_{0}(T;\ell)=\rmm{Char}(\lrangle{T}{T}>0)\frac{2^{2\ell+n+1}\pi^{4\ell-n+3}\lrangle{T}{T}^{2\ell-n+1}}{(\ell!)^{2}(2\ell-n+1)!}\call{W}_{T}(1).\]
+    In particular,
+    $E_{2,\infty}^{T}(g,\ell+1)$ is identically zero when $\lrangle{T}{T}\leq 0$,
+    and equals 
+    \[\frac{2^{2\ell+n+1}\pi^{4\ell-n+3}\lrangle{T}{T}^{2\ell-n+1}}{(\ell!)^{2}(2\ell-n+1)!}\call{W}_{T}(g)\]
+    when $\lrangle{T}{T}>0$.
+\end{thm}
+
 \section{Rank 1 Fourier coefficients of \texorpdfstring{$E_{\ell}$}{PDFstring}}
 \section{The constant term of \texorpdfstring{$E_{\ell}$}{PDFstring}}
 
@@ -648,7 +1029,7 @@ the coefficient of $[u_{1}^{\ell}][u_{2}^{\ell}]$ in $E_{1,\infty}^{T}:=E_{1,\in
     \int_{z\in \C}e^{2\pi i \rmm{Re}(z)}\frac{\sum\limits_{k=0}^{\ell}\binom{\ell}{k}^{2}|z|^{2k}(-|\beta|^{2})^{\ell-k}}{(|z|^{2}+|\beta|^{2})^{2\ell+1}}dz.
 \end{align}
 We set $B=|\beta|^{2}$ and $z=x+iy$, where $x,y\in \R$,
-then the integral in \Cref{eqn central coefficient rank 1 archimedean} equals 
+then the integral in \eqref{eqn central coefficient rank 1 archimedean} equals 
 \begin{align*}
     &\int_{\R^{2}}e^{2\pi i x}\sum_{k=0}^{\ell}\binom{\ell}{k}^{2}(-B)^{\ell-k}\frac{(x^{2}+y^{2})^{k}}{(x^{2}+y^{2}+B)^{2\ell+1}}dxdy\\
     =&\int_{\R}e^{2\pi i x}\sum_{k=0}^{\ell}\binom{\ell}{k}^{2}(-B)^{\ell-k}\left(\int_{\R}\frac{(y^{2}+x^{2})}{(y^{2}+x^{2}+B)^{2\ell+1}}dy \right)dx
@@ -694,313 +1075,6 @@ By this lemma,
 one has 
 \[E_{1,T}^{\infty}=2\pi B^{-\ell}\cdot\frac{(-1)^{\ell}(\pi \sqrt{B})^{2\ell}}{(\ell!)^{2}}K_{0}(2\pi\sqrt{B})=\frac{2\pi^{2\ell+1}}{(\ell!)^{2}}K_{0}(2\pi \sqrt{B}).\]
 
-
-\subsection{Rank 2 Fourier coefficients: non-archimedean components}
-\label{section rank 2 Fourier coefficients finite part}
-One decomposes $E_{2}^{T}(1,s)$ as $\prod_{v}E_{2,v}^{T}(s)$.
-
-\begin{align*}
-    E_{2,p}^{T}(s)&=\int_{\bff{N}(\Q_{p})}\chi_{T}^{-1}(n)f_{p}(w_{2}n,s)dn\\
-    &=\int_{\bff{N}(\Q_{p})}\int_{t\in E_{p}^{\times}}\chi_{T}^{-1}(n)|t|^{s}\Phi_{p}(t\cdot b_{1}w_{2}n)dtdn\\
-    &=\int_{v\in \bff{V}_{0}(\Q_{p})}\int_{\substack{x\in E_{p}\\ \overline{x}=-x}}\int_{t\in E_{p}^{\times}}\chi_{T}^{-1}(v)|t|^{s}\Phi_{p}\left(t\left(\left(-\lrangle{v}{v}/2+x\right)b_{1}+b_{2}+v\right)\right)dtdxdv
-\end{align*}
-Take $\oo_{E_{p}}$ to be $\Z_{p}\otimes_{\Z}\oo_{E}\subseteq E_{p}$,
-$\frakk{p}$ to be its maximal ideal,
-and $\call{V}$ an $\oo_{E_{p}}$-lattice of $V_{0}(\Q_{p})=V_{0}\otimes_{\Q}\Q_{p}$ 
-such that $\call{V}\otimes_{\oo_{E_{p}}}\left(\oo_{E,p}/\frakk{p}\right)$ is a non-degenerate Hermitian space over $\oo_{E_{p}}/\frakk{p}$.
-Assume that $\Phi_{p}$ is the characteristic function of the lattice 
-$\oo_{E_{p}}b_{1}\oplus \call{V}\oplus \oo_{E_{p}}b_{2}$.
-
-\textcolor{red}{Write down a precise definition of $\call{V}$?}
-\begin{lemma}\label{lemma finite rank 2 coefficients}
-    \begin{enumerate}
-        \item If $p$ splits in $E$,
-        then 
-        \[E_{2,p}^{T}(s)=\sum_{r_{1},r_{2}\geq 0}p^{-(r_{1}+r_{2})s+\min(r_{1},r_{2})}\left(\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\rmm{max}(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\right).\]
-        \item If $p$ is inert in $E$,
-        then
-        \[E_{2,p}^{T}(s)=\sum_{r\geq 0}p^{-2rs+r}\left(\int_{v\in p^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}\left(p^{r}\lrangle{v}{v}/2\in \Z_{p}\right)dv\right).\] 
-        \item If $p$ is ramified in $E$, then 
-    \end{enumerate}
-\end{lemma}
-\begin{proof}
-    (1) If $p$ splits in $E$, then
-$E_{p}=\Q_{p}\times\Q_{p}$:
-\begin{align*}
-    E_{2,p}^{T}(s)=&\sum_{r_{1}\geq 0,\,r_{2}\geq 0}|p|^{(r_{1}+r_{2})s}\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\left(\int_{\substack{x\in (p^{-r_{1}},p^{-r_{2}})\oo+\lrangle{v}{v}/2\\ x+\overline{x}=0}}dx\right)dv
-\end{align*}
-If we write $x=(y,-y)\in E_{p}$,
-then $x\in (p^{-r_{1}},p^{-r_{2}})\oo+\lrangle{v}{v}/2$ is equivalent to 
-\[y\in p^{-r_{1}}\Z_{p}+\lrangle{v}{v}/2,\,-y\in p^{-r_{2}}\Z_{p}+\lrangle{v}{v}/2.\]
-There are such $x$ only if $\lrangle{v}{v}\in p^{-\max(r_{1},r_{2})}\Z_{p}$,
-If $r_{1}\geq r_{2}$,
-then $y\in p^{-r_{2}}\widetilde{y}-\lrangle{v}{v}/2$ for some $\widetilde{y}\in \Z_{p}$.
-Since the measure on the line $\{x=(y,-y)\in E_{p}\}$ is the normalized Haar measure $dy$ on $\Q_{p}$,
-one has $dy=p^{r_{2}}d\widetilde{y}$,
-and 
-\[\int_{x=(y,-y)\in p^{-r_{1}}\Z_{p}\times p^{-r_{2}}\Z_{p}+\lrangle{v}{v}/2}dx=\int_{\widetilde{y}\in \Z_{p}}p^{r_{2}}d\widetilde{y}=p^{r_{2}}=p^{\min(r_{1},r_{2})}.\]
-Hence
-\[E_{2,p}^{T}(s)=\sum_{r_{1},r_{2}\geq 0}p^{-(r_{1}+r_{2})s+\min(r_{1},r_{2})}\left(\int_{v\in (p^{-r_{1}},p^{-r_{2}})\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\rmm{max}(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\right).\]
-
-(2) If $p$ is inert in $E$,
-then $E_{p}$ is an unramified quadratic field extension of $\Q_{p}$, 
-and 
-\begin{align*}
-    E_{2,p}^{T}(s)=\sum_{r\geq 0}|p|_{E_{p}}^{rs}\int_{v\in p^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{r}\lrangle{v}{v}\in\Z_{p})\left(\int_{x\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}}\rmm{Char}(x+\overline{x}=0)dx\right)dv
-\end{align*}
-Choose a unit $u\in \oo_{E_{p}}^{\times}$ with $u+\overline{u}=0$,
-then the line $\set{x\in E_{p}}{x+\overline{x}=0}$ can be written as $\{yu,\,y\in \Q_{p}\}$,
-with the normalized Haar measure $dy$.
-There exist elements $yu\in \lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}$ if and only if $\lrangle{v}{v}/2\in p^{-r}\Z_{p}$.
-When we have $\lrangle{v}{v}/2\in p^{-r}\Z_{p}$,
-any element $yu\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}$ is of the form 
-\[yu=\lrangle{v}{v}/2+p^{-r}\left(-p^{r}\lrangle{v}{v}/2+\widetilde{y}u\right),\,\widetilde{y}\in \Z_{p},\]
-thus one has 
-\begin{align*}
-    \int_{x\in\lrangle{v}{v}/2+p^{-r}\oo_{E_{p}}}\rmm{Char}(x+\overline{x}=0)dx&=\rmm{Char}(p^{r}\lrangle{v}{v}/2\in\Z_{p})|p|_{\Q_{p}}^{-r}\int_{\Z_{p}}d\widetilde{y}\\
-    &=p^{r}\rmm{Char}(p^{r}\lrangle{v}{v}/2\in\Z_{p}),    
-\end{align*}
-which gives us the desired identity.
-\end{proof}     
-
-
-\textcolor{red}{If $p$ is ramified in $E$:}
-(Assume $p\neq 2$)
-Then $E_{p}$ is a ramified quadratic field extension of $\Q_{p}$,
-and we choose an uniformizer $\varpi$ of $\frakk{p}\subset\oo_{E_{p}}$ such that $\varpi+\overline{\varpi}=0$ and $\varpi^{2}\in p\Z_{p}^{\times}$.
-The integral for $E_{2,p}^{T}$ can be rewritten as:
-\begin{align*}
-    E_{2,p}^{T}(s)=&\sum_{r\geq 0}|\varpi|^{rs}\int_{v\in \varpi^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\lfloor r/2\rfloor}\lrangle{v}{v}\in \Z_{p})\left(\int_{x\in\Q_{p}}\rmm{Char}(x\varpi-\frac{\lrangle{v}{v}}{2}\in \varpi^{-r}\oo_{E_{p}})dx\right)dv\\
-    =&\sum_{r\geq 0}|\varpi|^{rs}p^{\lceil r/2 \rceil}\left(\int_{v\in \varpi^{-r}\call{V}}\chi_{T}^{-1}(v)\rmm{Char}(p^{\lfloor r/2\rfloor}\lrangle{v}{v}\in\Z_{p})dv\right)
-\end{align*} 
-\subsubsection{Split case}
-\label{section split case of rank 2 coefficient}
-When $p$ splits in $E$,
-then one can view the Hermitian $\Q_{p}\times \Q_{p}$-space $V_{0}\otimes_{\Q} \Q_{p}$ as the direct sum of two copies of quadratic $\Q_{p}$-space $\left(\Q_{p}^{n},((x_{i}),(y_{i}))=\sum x_{i}y_{i}\right)$, and one has 
-\[2\rmm{Re}\lrangle{(x_{1},y_{1})}{(x_{2},y_{2})}=(x_{1},y_{2})+(x_{2},y_{1}).\]
-Denote by $L$ the lattice $\Z_{p}^{n}$ in $\Q_{p}^{n}$.
-We set 
-\begin{align*}
-        S(r_{1},r_{2}):=&\int_{v\in (p^{-r_{1}},p^{-r_{2}})\nu}\chi_{T}^{-1}(v)\rmm{Char}(p^{\max(r_{1},r_{2})}\lrangle{v}{v}\in \Z_{p})dv\\
-        =&\int_{\substack{x\in p^{-r_{1}}L\\y\in p^{-r_{2}}L}}\psi_{p}^{-1}\left((x,T_{2})+(y,T_{1})\right)\rmm{Char}(p^{\max(r_{1},r_{2})}(x,y)\in \Z_{p})dxdy,
-\end{align*}
-for any integers $r_{1},r_{2}\geq 0$.
-    
-\begin{prop}
-    \label{prop unramified split rank 2 coefficient}
-    Let $p$ be a prime split in $E$, and $r_{1}\leq r_{2}$ be two natural numbers.
-    For a vector $T=(T_{1},T_{2})\in \call{V}$
-    with $\alpha=v_{p}(T_{1}),\beta=v_{p}(T_{2}),v_{p}(\lrangle{T}{T})=\gamma$ and $B=B(r_{1},r_{2}):=\min(r_{1},\beta,\alpha+r_{1}-r_{2})$,
-    one has 
-    \[S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}-1+(n-1)(\gamma-r_{2}+1)}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right),\]
-    which is nonzero only if $r_{2}\leq \min(\gamma+1,r_{2}+\alpha)$.
-    In particular, if $\lrangle{T}{T}\in\oo_{E_{p}}^{\times}$,
-    then the nonzero terms are 
-    \[S(0,0)=1 \text{ and }S(1,1)=-p^{n-1}.\]    
-\end{prop}
-\begin{proof}
-    The integral $S(r_{1},r_{2})$ can be rewritten as an exponential sum:
-    \[S(r_{1},r_{2})=\sum_{\substack{x\in L/p^{r_{1}}L\\ y\in L/p^{r_{2}}L}}\psi_{p}\left(\frac{(x,T_{2})}{p^{r_{1}}}+\frac{(y,T_{1})}{p^{r_{2}}}\right)\rmm{Char}\left((x,y)\in p^{r_{1}}\Z_{p}\right).\]
-    The characteristic function has the following expression:
-    \[\rmm{Char}\left((x,y)\in p^{r_{1}}\Z_{p}\right)=p^{-r_{1}}\sum_{u\in \Z/p^{r_{1}}\Z}\psi_{p}\left(\frac{u(x,y)}{p^{r_{1}}}\right),\]
-    thus 
-    \[S(r_{1},r_{2})=p^{-r_{1}}\sum_{\substack{y\in L/p^{r_{2}}L\\u\in \Z/p^{r_{1}}\Z}}\psi_{p}^{-1}\left(\frac{(y,T_{1})}{p^{r_{2}}}\right)\left(\sum_{x\in L/p^{r_{1}}L}\psi_{p}^{-1}\left(\frac{(x,T_{2}-uy)}{p^{r_{1}}}\right)\right).\]
-    The inner sum equals $p^{r_{1}n}$ when $T_{2}-uy\in p^{r_{1}}L$, otherwise it equals $0$. Hence one has 
-    \[S(r_{1},r_{2})=p^{r_{1}(n-1)}\sum_{\substack{y\in L/p^{r_{2}}L\\u\in \Z/p^{r_{1}}\Z}}\psi_{p}^{-1}\left(\frac{(y,T_{1})}{p^{r_{2}}}\right)\rmm{Char}(T_{2}-uy\in p^{r_{1}}L).\]
-    The equation $T_{2}=uy \modulo p^{r_{1}}L$ has solution if and only if $k:=v_{p}(u)\leq v_{p}(T_{2})=\beta$,
-    and in this case,
-    $y=u^{-1}T_{2}+p^{r_{1}-k}z$ for $z\in L/p^{r_{2}-r_{1}+k}L$.
-    Plugging this in the exponential sum and replacing $u$ by $p^{k}u$,
-    we obtain that 
-    \begin{align*}
-        S(r_{1},r_{2})&=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\sum_{z\in L/p^{r_{2}-r_{1}+k}L}\psi_{p}^{-1}\left(\frac{(T_{1},u^{-1}p^{-k}T_{2}+p^{r_{1}-k}z)}{p^{r_{2}}}\right)\\
-        &=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}(T_{1},T_{2})}{p^{r_{2}+k}}\right)\left(\sum_{z\in L/p^{r_{2}-r_{1}+k}L}\psi_{p}^{-1}\left(\frac{(z,T_{1})}{p^{r_{2}-r_{1}+k}}\right)\right)\\
-        &=p^{r_{1}(n-1)}\sum_{k=0}^{\min(r_{1},\beta)}p^{(r_{2}-r_{1}+k)n}\rmm{Char}(\alpha\geq r_{2}-r_{1}+k)\left(\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}}{p^{r_{2}+k-\gamma}}\right)\right)
-    \end{align*}
-    For the inner sum,
-    we have 
-    \[\sum_{u\in (\Z/p^{r_{1}-k}\Z)^{\times}}\psi_{p}^{-1}\left(\frac{u^{-1}}{p^{r_{2}+k-\gamma}}\right)=\left\{\begin{array}{ll}
-        \phi(p^{r_{1}-k})=|(\Z/p^{r_{1}-k})^{\times}| & \text{, if }r_{2}+k-\gamma\leq 0 \\
-        -p^{r_{1}-k-1} & \text{, if }r_{2}+k-\gamma=1\\
-        0 & \text{, if }r_{2}+k-\gamma>1        
-    \end{array}\right.\]
-    Combining all these together,
-    we get the following formula: let $B=B(r_{1},r_{2},\alpha,\beta)$ be $\min(r_{1},\beta,\alpha+r_{1}-r_{2})$, then 
-    \begin{align*}
-        S(r_{1},r_{2})=p^{r_{2}n-r_{1}}\left(-\rmm{Char}(\gamma<r_{2}+B)\cdot p^{r_{1}-1+(n-1)(\gamma-r_{2}+1)}+\sum_{k=0}^{\min(B,\gamma-r_{2})}p^{kn}\phi(p^{r_{1}-k})\right).
-    \end{align*}
-    This is nonzero only if $r_{1}\leq r_{2}\leq \min(\gamma+1,r_{1}+\alpha)$,
-    which only hold for finitely many terms.
-    Particularly,
-    if $T=(T_{1},T_{2})$ is unramified,
-    then $\alpha=\beta=\gamma=0$,
-    thus $r_{1}=r_{2}\leq 1$.
-    In this case we have 
-    \[S(0,0)=1,\, S(1,1)=-p^{n-1}.\]
-\end{proof}
-\subsection{Rank 2 Fourier coefficients: archimedean components}
-\label{section archimedean place rank 2 Fourier infinite part}
-\begin{rmk}\label{rmk complex absolute value}
-    In this article,
-    when we write $|z|$ for $z\in\C$,
-    it means the \emph{norm of $z$ with respect to the extension $\C/\R$},
-    \emph{i.e.\,}$|z|=z\overline{z}$ instead of the usual modulus $\sqrt{z\overline{z}}$.
-    I admit that this is somehow strange and confusing,
-    but I will fix this problem if this draft could become a paper...
-\end{rmk}
-We first analyze the function $f_{\ell,\infty}(w_{2}n,s=\ell+1)$:
-\begin{lemma}
-    \label{lemma rank 2 values of archimedean section}
-    For any $v\in V_{0}\otimes_{\Q}\R$ and $x\in \R$,
-    we set:
-    \[\alpha(v,x)=-\frac{\lrangle{v}{v}}{2}+ix+1,\,\beta(v)=\sqrt{2}\lrangle{v}{u_{2}},\]
-    then we have 
-    \[f_{\ell,\infty}(w_{2}n(v,ix),s)=\frac{(\alpha u_{1}+\beta u_{2})^{\ell}(-\overline{\beta}u_{1}+\overline{\alpha}u_{2})^{\ell}}{(|\alpha(v,x)|^{2}+|\beta(v)|^{2})^{\ell+s}(\ell!)^{2}}.\]
-\end{lemma}
-\begin{proof}
-    One has 
-    \[b_{1}w_{2}n(v,ix)=(-\lrangle{v}{v}/2+ix)b_{1}+b_{2}+v.\]
-    Suppose that we can decompose $w_{2}n(v,ix)$ as $pk$ for some $p\in \bff{P}(\R)$ and $k\in K_{\infty}$,
-    then 
-    \begin{equation}\label{eqn searching Iwasawa decomposition}
-         b_{1}w_{2}n(v,ix)k^{-1}=b_{1}p=\nu(p)^{-1}b_{1}.
-    \end{equation}  
-    Let $k_{+}$ be the factor of $k$ in $\rmm{U}(V_{2}^{+})$,
-    and $v=v_{+}+v_{-}\in \C u_{2}\oplus \rmm{Span}_{\C}(v_{1},\ldots,v_{n-1})$.
-    Taking the $V_{2}^{+}$ components of \Cref{eqn searching Iwasawa decomposition},
-    one gets:
-    \[\frac{1}{\sqrt{2}}\left(\alpha(v,x)u_{1}+\beta(v)u_{2}\right)=\left[\frac{1}{\sqrt{2}}\left(-\frac{\lrangle{v}{v}}{2}+ix+1\right)u_{1}+v_{+}\right]k_{+}^{-1}=\nu(p)^{-1}\frac{u_{1}}{\sqrt{2}}.\]
-    The norms of both sides give us the identity $|\alpha(v,x)|^{2}+|\beta(v)|^{2}=|\nu(p)|^{-2}$.
-    One may assume that 
-    $\nu(p)^{-1}=\sqrt{|\alpha(v,x)|^{2}+|\beta(v)|^{2}}$,
-    then in the basis of $u_{1},u_{2}$,
-    the element $k^{+}\in \rmm{U}(V_{2}^{+})$ can be written as the Hermitian matrix 
-    \[\frac{1}{\sqrt{|\alpha(v,x)|^{2}+|\beta(v)|^{2}}}\left(\begin{matrix}
-        \alpha(v,x) & -\overline{\beta(v)}\\
-        \beta(v) & \overline{\alpha(v,x)}
-    \end{matrix}\right).\]
-    Plug $k^{+}$ and $\nu(p)$ into $f_{\ell,\infty}(w_{2}n(v,ix),s)=f_{\ell,\infty}(pk,s)=|\nu(p)|^{2s}[u_{1}^{\ell}][u_{2}^{\ell}].k^{+}$,
-    and we get the desired value.
-\end{proof}
-Let $I_{0}(T;\ell)$ be the coefficient of $[u_{1}^{\ell}][u_{2}^{\ell}]$ in $E_{2,\infty}^{T}(s=\ell+1)$,
-which can be written as 
-\begin{align*}
-    I_{0}(T;\ell)=&\int_{v\in V_{0}\otimes_{\Q}\R}\int_{x\in \R}\chi_{T}^{-1}(v)\sum_{k=0}^{\ell}\frac{{\ell \choose k}{\ell\choose k}(x^{2}+A)^{k}(-B)^{\ell-k}}{(x^{2}+A+B)^{2\ell+1}}dxdv\\
-    =&\int_{v\in V_{0}\otimes \R}\chi_{T}^{-1}(v)\sum_{k=0}^{\ell}(-B)^{\ell-k}{\ell\choose k}^{2}\int_{x\in \R}\frac{(x^{2}+A)^{k}}{(x^{2}+A+B)^{2\ell+1}}dxdv
-\end{align*}
-where $A=|\alpha|^{2}-x^{2}=\left(1-\lrangle{v}{v}/2\right)^{2}$, and $B=|\beta|^{2}=2|\lrangle{v}{u_{2}}|^{2}$.
-\begin{lemma}
-    \label{lemma integral over center of Heisenberg}
-    For any real number $C,D$
-    and two natural numbers $m<n$,
-    we have 
-    \[\int_{\R}\frac{(x^{2}+C)^{m}}{(x^{2}+D)^{n}}dx=\frac{D^{m-n+1/2}}{(n-1)!}\sum_{k=0}^{m}{m\choose k}\left(\frac{C}{D}\right)^{m-k}\Gamma(k+1/2)\Gamma(n-k-1/2).\]
-\end{lemma}
-\begin{proof}
-    An exercise of calculus.
-\end{proof}
-Now \Cref{lemma integral over center of Heisenberg} tells us $I_{0}(T;\ell)$ is the Fourier transform of the function 
-\begin{align*}
-    F_{0,\ell}(v):=\sum_{k=0}^{\ell}(-B)^{\ell-k}{\ell\choose k}^{2}\frac{(A+B)^{k-2\ell-1/2}}{(2\ell)!}\sum_{j=0}^{k}{k\choose j}\left(\frac{A}{A+B}\right)^{k-j}\Gamma(j+1/2)\Gamma(2\ell+1/2-j)
-\end{align*}
-Set $z=B/(A+B)$,
-then this function becomes 
-\[\frac{2^{-4\ell}}{(2\ell)!}\pi(A+B)^{-\ell-1/2}\sum_{k=0}^{\ell}\sum_{j=0}^{k}{\ell\choose k}^{2}{k\choose j}\frac{(2j)!(4\ell-2j)!}{j!(2\ell-j)!}(-z)^{\ell-k}(1-z)^{k-j}\]
-We write:
-\[\sum_{k=0}^{\ell}\sum_{j=0}^{k}c_{j,k}(-z)^{\ell-k}(1-z)^{k-j}=\sum_{r=0}^{\ell}(-1)^{r}C(r)z^{r},\]
-where $c_{j,k}={\ell\choose k}^{2}{k\choose j}\frac{(2j)!(4\ell-2j)!}{j!(2\ell-j)!}$.
-The term $(-z)^{\ell-k}(1-z)^{k-j}$ has a non-zero $z^{r}$ term if and only if 
-$\ell-k\leq r\leq \ell-j$,
-thus 
-\[(-1)^{r}C(r)=\sum_{j=0}^{\ell-r}\sum_{k=\ell-r}^{\ell}c_{j,k}{{k-j}\choose {r-\ell+k}}(-1)^{\ell-k+r-\ell+k}=(-1)^{r}\sum_{j=0}^{\ell-r}\sum_{k=\ell-r}^{\ell}c_{j,k}{{k-j}\choose {r-\ell+k}}.\]
-To compute $C(r)$,
-we need the following lemma:
-\begin{lemma}
-    \label{lemma combinatorics summations}
-    \begin{enumerate}
-        \item For integers $0\leq a\leq b$, one has \[\sum_{i=a}^{b}{b\choose i}{{b-a}\choose{b-i}}={{2b-a}\choose b}.\]
-        \item For any integer $0\leq r\leq \ell$, one has 
-        \[\sum_{i=0}^{\ell-r}\frac{\binom{2\ell}{i}\binom{\ell-r}{i}}{\binom{4\ell}{2i}}=2^{2\ell-2r}\frac{\binom{2\ell+2r}{\ell+r}}{\binom{4\ell}{2\ell}}.\]
-    \end{enumerate}
-\end{lemma}
-\begin{proof}
-    The identity in (1) is obvious.
-    For the identity in (2),
-    the LHS can be rewritten as:
-    \begin{align*}
-        \sum_{i=0}^{\ell-r}\frac{(-\ell+r)_{j}(1/2)_{j}}{(-2\ell+1/2)_{j}j!}={_{2}F_{1}}(-(\ell-r),1/2;-2\ell+1/2;1),
-    \end{align*}
-    where $(x)_{j}$ is the (rising) Pochhammer symbol,
-    and $_{2}F_{1}$ is the hypergeometric function.
-    By Chu-Vandermond identity,
-    this value of hypergeometric function is
-    \[\frac{(-2\ell)_{\ell-r}}{(-2\ell+1/2)_{\ell-r}}=2^{\ell-r}\frac{\frac{(2\ell)!}{(\ell+r)!}}{\frac{(4\ell-1)!!}{(2\ell+2r-1)!!}}=2^{2\ell-2r}\frac{\binom{2\ell+2r}{\ell+r}}{\binom{4\ell}{2\ell}}.\qedhere\]
-\end{proof}
-Now we return to the value of $C(r)$:
-\begin{align*}
-    C(r)&=\sum_{j=0}^{\ell-r}\sum_{k=\ell-r}^{\ell}\frac{(\ell!)^{2}(2j)!(4\ell-2j)!}{k!((\ell-k)!)^{2}(j!)^{2}(r-\ell+k)!(\ell-r-j)!(2\ell-j)!}\\
-    &=\sum_{j=0}^{\ell-r}\frac{\ell!(2j)!(4\ell-2j)!}{r!(j!)^{2}(\ell-r-j)!(2\ell-j)!}\sum_{k=\ell-r}^{\ell}\binom{\ell}{k}\binom{r}{\ell-k}\\
-    (\text{by (1) of \Cref{lemma combinatorics summations}})&=\frac{\ell!}{r!}\cdot\frac{(\ell+r)!}{\ell!r!}\sum_{j=0}^{\ell-r}\frac{(2j)!(4\ell-2j)!}{(j!)^{2}(\ell-r-j)!(2\ell-j)!}\\
-    &=\frac{(\ell+r)!}{(r!)^{2}}\cdot \frac{(4\ell)!}{(\ell-r)!(2\ell)!}\sum_{j=0}^{\ell-r}\frac{\binom{2\ell}{j}\binom{\ell-r}{j}}{\binom{4\ell}{2j}}\\
-    (\text{by (2) of \Cref{lemma combinatorics summations}})&=\frac{(\ell+r)!}{(r!)^{2}}\cdot\frac{(4\ell)!}{(\ell-r)!(2\ell)!}\cdot 2^{2\ell-2r}\frac{\frac{(2\ell+2r)!}{((\ell+r)!)^{2}}}{\frac{(4\ell)!}{((2\ell)!)^{2}}}\\
-    &=2^{2\ell-2r}\frac{(2\ell)!(2\ell+2r)!}{(r!)^{2}(\ell+r)!(\ell-r)!}.
-\end{align*}
-Putting the value of $C(r)$ into $F_{0,\ell}$,
-we have 
-\begin{align*}
-    F_{0,\ell}(v)=&\frac{2^{-4\ell}\pi}{(2\ell)!(A+B)^{\ell+1/2}}\sum_{r=0}^{\ell}(-1)^{r}2^{2\ell-2r}\frac{(2\ell)!(2\ell+2r)!}{(r!)^{2}(\ell+r)!(\ell-r)!}z^{r}\\
-    =&\frac{2^{-3\ell}(2\ell)!\pi}{(\ell!)^{2}(A+B)^{\ell+1/2}}\sum_{r=0}^{\ell}\frac{(-\ell)_{r}(\ell+1/2)_{r}}{1_{r}}\frac{z^{r}}{r!}\\
-    =&\frac{2^{-3\ell}(2\ell)!\pi}{(\ell!)^{2}(A+B)^{\ell+1/2}}\cdot {_{2}F_{1}}(-\ell,\ell+1/2;1;z).
-\end{align*}
-We have shown the following result:
-\begin{prop}\label{prop archimedean rank 2 Fourier}
-    For $T\in V_{0}$ with $\lrangle{T}{T}>0$,T
-    the coefficient $I_{0}(T;\ell)$ of $[u_{1}^{\ell}][u_{2}^{\ell}]$ in $E_{2,\infty}^{T}(s=\ell+1)$ is the Fourier transform of the function:
-    \[F_{0,\ell}(v)=\frac{2^{-3\ell}(2\ell)!\pi}{(\ell!)^{2}(A+B)^{\ell+1/2}}\cdot {_{2}F_{1}}(-\ell,\ell+1/2;1;\frac{B}{A+B}),\]
-    where $A=\left(1-\frac{\lrangle{v}{v}}{2}\right)^{2}$ and $B=2|\lrangle{v}{u_{2}}|^{2}$.
-\end{prop}
-
-Let's recall the following result for quadratic spaces by Pollack:
-\textcolor{red}{I know there are notation problems again... just let it be like this for now}
-\begin{prop}\label{prop Fourier transform of K Bessel functions}
-    ($v=0$ case of \cite[Proposition 4.5.3]{Pollack_Modular_forms_orthogonal_rank3})
-    Let $(V^{\prime},(\,,\,))=V_{2}\oplus V_{n}$ be a non-degenerate quadratic space over $\R$ of signature $(2,n)$,
-    and $v_{1},v_{2}$ an orthonormal basis of $V_{2}$.
-    Set 
-    \[I_{0}(x;\ell)=\int_{V^{\prime}}e^{i(\omega,x)}\rmm{Char}(q(\omega)>0)q(\omega)^{\ell-n/2}K_{0}(\sqrt{2}|(\omega,v_{1}+\sqrt{-1}v_{2})|)d\omega.\]
-    This integral is absolutely convergent and we have 
-    \begin{align*}
-        I_{0}(x;\ell)=(2\pi)^{(n+2)/2}2^{\ell-1-n/2}\Gamma(\ell+1)\Gamma(\ell+1-n/2)F_{4}(\ell+1,\ell+1;\ell+1;1;-\|x_{n}\|^{2}/2;-\|x_{2}\|^{2}/2),
-    \end{align*}
-    where $x=x_{2}+x_{n}$,
-    and $F_{4}(a,b;c;d;x;y)$ is Appell's hypergeometric function.
-\end{prop} 
-Now we look at how this result fits into our unitary group setting.
-One take $V^{\prime}$ to be $(V_{0},\rmm{Re}(\lrangle{\,}{\,}))$,
-as a quadratic space of signature $(2,2n-2)$,
-$v^{\prime}_{1}=u_{2}$,
-$v^{\prime}_{2}=i u_{2}$,
-then 
-\begin{align*}
-    I_{0}(x;\ell)&=\int_{T\in V_{0},\,\lrangle{T}{T}>0}e^{i\rmm{Re}\lrangle{T}{x}}\lrangle{T}{T}^{\ell-n+1}K_{0}(\sqrt{2}|\lrangle{T}{u_{2}}|)dT\\
-    &=\int_{T\in V_{0},\,\lrangle{T}{T}>0}e^{2\pi i \rmm{Re}\lrangle{T}{x}}(2\pi)^{2\ell-2n+2}\lrangle{T}{T}^{\ell-n+1}K_{0}(2\sqrt{2}\pi |\lrangle{T}{u_{2}}|)(2\pi)^{2n}dT\\
-    &=(2\pi)^{2\ell+2}\int_{T\in V_{0},\,\lrangle{T}{T}>0}e^{2\pi i \rmm{Re}\lrangle{T}{x}}\lrangle{T}{T}^{\ell-n+1}K_{0}(2\sqrt{2}\pi |\lrangle{T}{u_{2}}|)dT,
-\end{align*}
-here $|z|=\sqrt{z\bar{z}}$,
-and for any $\ell>n-1$ we have
-\begin{align*}
-    I_{0}(x;\ell)=(2\pi)^{n}2^{\ell-n}\ell!(\ell-n+1)!(A+B)^{-(\ell+1)/2}{_{2}F_{1}}(-\ell/2,(\ell+1)/2;1;B/(A+B)).
-\end{align*}
-Replace $\ell$ by $2\ell$ (now $\ell>\frac{n-1}{2}$),
-and we have 
-\[I_{0}(x;2\ell)=(2\pi)^{n}2^{2\ell-n}(2\ell)!(2\ell-n+1)!(A+B)^{-\ell-1/2}\cdot{_{2}F_{1}}(-\ell,\ell+1/2;1;B/(A+B)).\]
-Comparing this with \Cref{prop archimedean rank 2 Fourier},
-we get the following theorem:
-\begin{thm}\label{thm rank 2 Fourier archimedean generalised Whittaker}
-    For $T\in V_{0}$ with $\lrangle{T}{T}>0$ and $\ell>\frac{n-1}{2}$,
-    we have
-    \[I_{0}(T;\ell)=\frac{2^{-\ell-2}\pi^{4\ell-n+3}\lrangle{T}{T}^{2\ell-n+1}}{\ell!(2\ell-n+1)!}\call{W}_{T}(1).\]
-\end{thm}
 \section{\textcolor{red}{Our progress}}
 If there is no mistake in the previous calculations,
 that means 
